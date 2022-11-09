@@ -1,0 +1,53 @@
+<style type="text/css">
+.h1 {
+  font-weight:bold;
+  font-size:20px;
+}
+.managing{
+  position:fixed;
+  top:18%;
+  right:-2%;
+  width:200px;
+  height:100%;
+  z-index:99;
+}
+.sub_nav{
+  display:none;
+}
+.sub_nav a{
+  display:block;
+  width:80px;
+  height:80px;
+  border-radius:50px;
+  border: 2px #fff solid;
+  background: #003b75;
+  color: #fff;  
+  margin:5px, 0px;
+  text-align:center;
+  line-height:80px;
+}
+</style>
+<html>
+
+<div class="managing">
+<p>관리자 메뉴
+  <span class="material-symbols-outlined open">
+    south
+    </span>
+</p>
+    <div class="sub_nav">
+        <a href="index.php">홈으로</a><br>
+        <a href="members/member_info.php">회원관리</a><br>
+        <a href="notice/list.php">공지사항</a>
+        <!-- <a href="../event/list.php">[이벤트]</a>
+        <a href="../products/list.php">[상품관리]</a> -->
+    </div>
+</div>
+<script>
+$(".open").click(function(){
+  $(".sub_nav").toggle()
+});
+
+</script>
+</html>
+    

@@ -1,0 +1,137 @@
+/* 주요 컬러
+    0d539a 
+    002339
+    */
+    head, body, header, footer, main, div, section, nav, ul, li, dl, dt, dd, img, h1, h2, h3, html, br, span, p, address {
+        margin: 0px;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        style:none
+    }
+    div, section, nav, footer, header h1{
+        display: block;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    body{
+        font-family:"돋움","나눔고딕", "맑은 고딕";
+    }
+    address{
+        font-style:normal; 
+    }
+    a{
+        text-decoration:none;
+        color:#000;
+        background-color: transparent
+    }
+    .blind{
+        position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px;overflow:hidden
+    }
+
+
+
+
+/* =====================reset================ */
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+body{ 
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
+}
+
+/*===================게시판 레이아웃=====================*/
+
+.posting_bx{
+ margin:auto;
+ width:800px;
+ height:620px;
+ box-sizing:border-box;
+}
+.posting_bx span{
+    display:inline-block;
+    font-size:20px;
+    text-align:center;
+    width:100px;
+    border-left:5px solid #0d539a;
+}
+
+.postbx_header{
+    height: 90px;
+    
+}
+.postbx_header{
+    margin:10px 0;
+}
+.title_wrap input{
+    width:700px;
+    margin:15px 0;
+    height:26px;
+    border-right:none;
+    border-top:none;
+    border-left:none;
+    border-bottom:2px solid black;
+    outline:none;
+    font-size:20px;
+    font-weight:bold;
+}
+.post_header{
+    outline:none;
+    border:3px dotted #0d539a;
+    border-radius:20px;
+    text-align:center;
+    width:110px;
+    height:30px;
+    font-size:18px;
+}
+
+textarea {
+    width:790px;
+    height:400px;
+    font-size:20px;
+    position:relative;
+    top:10px;
+    padding:20px;
+    outline:none;
+}
+
+.posting_btns{
+    position:relative;
+    width:400px;
+    margin:auto;
+    height:50px;
+    top:15px;
+}
+.posting_btns button{
+    border-radius: 5px;
+    outline:none;
+    width:150px;
+    font-size:16px;
+    height:30px;
+   
+}
+
+.reset_posting{
+    float:left;
+    background:white;
+    color:#0d539a;
+    border:2px solid #0d539a
+    
+}
+.posting_btn{
+    float:right;
+    background:#0d539a;
+    color:white;
+    border:transparent;
+}
+.list_wrap{
+    width:1000px;
+}
+
+
+
+
+
+

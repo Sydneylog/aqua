@@ -139,7 +139,6 @@ include "inc/session.php"
         </ul>
         <div class="m_background"></div>
     </div>
-   
 </header>
 
 <main id="content" class="content">

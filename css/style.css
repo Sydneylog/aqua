@@ -85,10 +85,30 @@ body{
     box-sizing:border-box;
     position:fixed;
     color:#002339;
-    z-index:999;
-    width:100%
+    z-index:99;
+    width:100%;
+    
     
 }
+
+
+.m_background{
+    background:black;
+    height:30px;
+    width:100%;
+    position:absolute;
+    top:50px;
+    left:0;
+    z-index:9;
+    display:none;
+}
+.nav>ul>li:not(:first-child)>ul{
+    display:flex;
+    justify-content:space-between;
+    width:300px;
+    opacity:0;
+}
+
 
 .nav ul{
     width:970px;
@@ -98,10 +118,7 @@ body{
     position:relative;
     background:white;
     text-align:center;
-    
-    
 }
-
 
 .nav>ul>li{
     float:left;
@@ -110,25 +127,18 @@ body{
     z-index:20;
     line-height:49px;
     width:180px;
-    font-size:14px;
+    font-size:15px;
     
 }
 
-.nav_all{
-    width:auto;
-    height:49px;
-    border-bottom:1px solid #002339;
-    border-top:1px solid #002339;
-    margin:-51px;
-    
-}
+
 .mini_info{
     position:absolute;
     top:0;
     width:150px;
     left:-110px;
     opacity:0;
-    /* opacity:0; */
+    
 }
 
 .mini_logo{
@@ -138,7 +148,6 @@ body{
     z-index:999;
 }
 .mini_mapage{
-   
     width:44px;
     height:40px;
     position:absolute;
@@ -154,6 +163,19 @@ body{
     color:#002339;
     
 }
+
+
+
+
+
+
+
+
+
+
+
+/*
+2depth 수정중
 .gnb1 {
     box-sizing:border-box;
 }
@@ -166,7 +188,7 @@ body{
     
 }
 .gnb1 div{
-    background:rgba(0, 0, 0, 0.8);
+    background:transparent;
     width:1920px;
     position:absolute;
     left:-500px;
@@ -362,7 +384,7 @@ body{
     font-size:14px;
     line-height:34px;
     color:white;
-}
+} */
 .navcon_wrap{
     position:absolute;
     right:-70px;
@@ -622,7 +644,7 @@ body{
     color:white;
     font-size:22px;
     display:block;
-    width:88px;
+    text-align:center;
     position:relative;
     margin:30px auto 0;
 }
@@ -665,7 +687,7 @@ body{
     color:white;
     font-size:22px;
     display:block;
-    width:88px;
+    text-align:center;
     position:relative;
     margin:30px auto 0;
 }
@@ -694,6 +716,7 @@ body{
     width:278px;
     height:296px;
     box-sizing:border-box;
+    
 }
 .pt1_img3 span:nth-child(1){ 
     background:url(../images/main_icon_61.png) no-repeat;
@@ -708,9 +731,10 @@ body{
     color:white;
     font-size:22px;
     display:block;
-    width:140px;
+    text-align:center;
     position:relative;
-    margin:25px 0 0 76px;
+    margin:25px auto 0;
+    
 }
 .pt1_img3 a{
     display:block;
@@ -739,9 +763,9 @@ body{
     box-sizing:border-box;
 }
 .pt1_img4 span:nth-child(1){ 
-    background:url(../images/main_icon_61.png) no-repeat;
-    width:62px;
-    height:62px;
+    background:url(../images/main_icon_67.png) no-repeat;
+    width:77px;
+    height:52px;
     text-indent:-9999px;
     display:block;
     position:relative;
@@ -751,9 +775,10 @@ body{
     color:white;
     font-size:22px;
     display:block;
-    width:140px;
+    text-align:center;
     position:relative;
-    margin:25px 0 0 76px;
+    margin:25px auto 0;
+    
 }
 .pt1_img4 a{
     display:block;

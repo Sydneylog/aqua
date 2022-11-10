@@ -159,7 +159,7 @@ if($e_pageNum > $total_page){
             <th class ="writer">작성자</th> 
             <th class ="n_date">작성일</th> 
             <th class ="view">조회수</th> 
-            <th class ="likes">좋아요</th> 
+            <th class ="likes">Likes</th> 
         </tr>
         <?php
         // paging : 해당 페이지의 글 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 목록 수

@@ -31,6 +31,14 @@ $sql = "update aqua_notice set views = $views where idx = $n_idx;";
 //exit;
 //db에 전송
 mysqli_query($dbcon, $sql);
+//좋아요
+
+
+function likeAdd(){
+    $likes = $array["likes"] +1 ;
+};
+
+
 //db종료는 데이터의 안전한 전송을 위해 마지막에서 종료 시켜 준다
 
 ?>
@@ -45,9 +53,38 @@ mysqli_query($dbcon, $sql);
     <title>공지사항 작성</title>
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
     <style type="text/css">
+        @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
         .blind{
         position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px;overflow:hidden
+        }
+        a{
+            text-decoration:none;
+            color:#000;
+            background-color:transparent;
+        }
+        p, h2{
+            margin:0;
+            padding:0;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        h2{ 
+            text-align:center;
+            font-size:16px;
+            height:30px;
+            line-height:30px;
+            font-weight:bold;
+            margin:0 0 10px;
+            background:#363636;
+            color:white;
+            border-top:solid black 1px;
+            border-right:solid black 1px;
+            border-left:solid black 1px;
+            width:823px;
+            margin:auto;
         }
         ul, li {
             list-style:none;
@@ -55,20 +92,29 @@ mysqli_query($dbcon, $sql);
             margin:0px;
         }
         .total_wrap{
-            width:800px;
+            position:relative;
+            width:825px;
             margin:auto;
             box-sizing:border-box;
+            border: 1px solid black;
+            padding-bottom:20px;
+            padding-right:20px;
+            padding-left:20px;
         }
+       
         .board_top{
+            margin:15px 0;
             width:800px;
-            height:60px;
-            border:1px solid red;
+            height:50px;
             line-height:50px;
+            overflow:hidden;
         }
         .board_top p{
-            float: left;
+            float:left;
             font-size:20px;
-            border:1px solid red;
+        }
+        .board_top p:first-child{
+            font-size:16px;
         }
         .n_header{
             margin-right:30px;
@@ -77,6 +123,7 @@ mysqli_query($dbcon, $sql);
         .n_title{
             border: 1px solid black;
         }
+        
         .n_title span:nth-child(2){
             line-height:40px;
             font-size:20px;
@@ -84,29 +131,25 @@ mysqli_query($dbcon, $sql);
         }
         .n_header span:nth-child(2){
             display:inline-block;
-            width:110px;
+            width:95px;
             border-radius:30px;
-            height:40px;
-            line-height:40px;
+            height:30px;
+            line-height:30px;
             background: royalblue;
             text-align:center;
             color: white;
         }
         .board_info{
-            margin-top:10px;
-            
+            margin:10px 0 0 10px;
+            height:100%;
         }
-        .info_part1{
+        .board_info div{
             display:flex;
             justify-content:space-between;
             width:400px;
+            height:30px;
+            line-height:30px;
         }
-        .info_part2{
-            display:flex;
-            justify-content:space-between;
-            width:400px;
-        }
-
         textarea{
             width: 795px;
             height: auto;
@@ -121,44 +164,49 @@ mysqli_query($dbcon, $sql);
             height: 25px;
             font-size:18px;
         }
-        .n_header input{
-            width:15px;
-            height:15px;
-            font-size:20px;
+        .n_contents{
+            padding:20px;
+            border: 1px solid #000;
         }
-        label{
-            margin-right:10px;
-            font-size:20px;
+        .like_btn_wrap{
+            margin:20px auto 10px;
+            width:100px;
+        }
+        .like_btn{
+            text-align:center;
+            width:120px;
+            height:40px;
+            background: white;
+            border:2px solid black;
+            border-radius:30px;
         }
         .btn_bx{
-            width:800px;
+            width:400px;
+            margin:30px auto;
             height:100%;
             display:flex;
             justify-content:space-between;
         }
-        .btn_bx button{
-            width:90px;
-            height:25px;
-        }
-        .btn_bx span{
-            font-size:15px;
-            line-height:15px;
+        .btn_bx a{
+            display:block;
+            width:100px;
+            height:30px;
+            background: white;
+            border:1px solid black;
             text-align:center;
+            font-size:15px;
+            line-height:30px;
         }
+       
+
     </style>
 </head>
 <body>
 <main id="content" class="content">
-
     <section class="signup_wrap">
-    <div class="signup_title">
-    <h2>공지사항 작성</h2>
-    </div>
     <!-- <h3>1.주요 정보 입력</h3> -->
-    
-        <form action="insert.php" method="post" class="pt1_bx" onsubmit="return inspector()">
-            <fieldset class="total_wrap">
-                <legend><span class="id_must">공지사항</span></legend>
+            <h2 class="headline">공지사항 게시판</h2>
+            <div class="total_wrap">
                     <div class="board_top">
                         <p class="n_header">
                             <span class="blind">글머리</span>
@@ -167,65 +215,62 @@ mysqli_query($dbcon, $sql);
                             </span>
                         </p>
                         <p>
-                            <label for="n_title" class="blind">제목</label>
+                            <span for="n_title" class="blind">제목</span>
                             <span><?php echo $array['n_title']; ?></span>
                         </p>
                     </div>
+                    <hr>
 
                     <div class="board_info">
                         <div class="info_part1">
-                            <p>작성자
+                            <p>작성자:
                                 <span><?php echo $array['writer']; ?></span>
                             </p>
                             <p>조회수
                                 <span><?php echo $array['views']; ?></span>
                             </p>
-                            <?php if(!$array['likes']){ ?>
-                                
-                            <?php } else if {?>
                             <p>좋아요
-                                    <span><?php echo $array['likes']; ?></span>
-                                </p>
-                            <?php } ?>
+                                <span><?php echo $array['likes']; ?></span>
+                            </p>
                         </div>
                         <div class="info_part2">
-                            <p>작성일
+                            <p>작성일:
                                 <span><?php echo $array['n_date']; ?></span>
                             </p>
                             <?php if($array['m_date']){ ?>
-                            <p>수정일
+                            <p>수정일:
                                 <span><?php echo $array['m_date']; ?></span>
                             </p>
                             <?php }; ?>
-                            
-                            
                         </div>
                     </div>
+                    <hr>
 
                     <div class="board_main">
                         <p>
-                            <label for="n_contents">내용 작성</label><br>
-                            <textarea cols="60" rows="10" name="n_contents" id="n_contents"></textarea>
-                            <div>
+                            <span for="n_contents" class="blind">본문 내용</span><br>
+                            <p cols="60" rows="10" name="n_contents" id="n_contents" class="n_contents">
+                                <?php
+                                $n_contents = str_replace("\n", "<br>", $array["n_contents"]);
+                                $n_contents = str_replace(" ", "&nbsp", $n_contents);
+                                echo $n_contents;
+                                ?>
+                            </p>
                         </p>
-                        <button type="button">
-                            <span>좋아요</span>
-                            <span class="material-icons">favorite</span>
-                        </button> 
+                        
+                        <div class="like_btn_wrap">
+                            <button type="button" id="like_btn" class="like_btn" onclick="add()">
+                                <span>좋아요</span>
+                                <span class="material-icons">favorite</span>
+                            </button> 
                         </div>
                     </div>
-
-
-
-                    <div class="btn_bx">
-                        <button type="button" class="moving_arr1"><span>취소</span></button>
-                        <button type="submit" class="moving_arr2"><span>등록</span></button>
-                    </div>
-                    <p>
-                    </p>
-            </fieldset>
+            </div>
+            <div class="btn_bx">
+                        <a href="list.php" class="moving_arr1"><span>뒤로가기</span></a>
+                        <a href="modify.php?n_idx=<?php echo $n_idx; ?>" type="submit" class="moving_arr2"><span>수정</span></a>
+            </div>
         </form>
-    
     </section>
 </main>
 
@@ -247,6 +292,11 @@ function check_id(){
                 return false;
             };
         };
+function add(){
+    const addFunc = "<?php likeAdd() ?>";
+    
+};
+
 </script>
 </body>
 </html>

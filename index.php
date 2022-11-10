@@ -17,508 +17,103 @@ include "inc/session.php"
     <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
     <script src="js/jquery.bxslider.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            
-        //GNB
-            $(".nav> ul > li").mouseenter(function(){
-            $(this).find("div").stop().fadeIn("fast");
-          });
-          $(".nav > ul > li").mouseleave(function(){
-            $(this).find("div").stop().fadeOut("fast");
-          });
-        //nav
-          $(function(){
-			$(window).scroll(function(){
-				let nowScroll = $(document).scrollTop();
-				if(nowScroll > 50){ 
-						$('#nav').css({'top':'0', "height":"50", "font-size":"16px", "transition":"0.2s", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
-                        $('#mini_info').stop().animate({'opacity':'1'}, 50);
-                        $('.logo_wrap').hide(700);
-                        $(".mini_mapage").stop().fadeIn(50);
-                        $(".navcon").stop().fadeIn(50);
-
-				}else{
-                        $('#nav').css({'top': '100px', "height":"50","font-size":"16px", "background":"rgb(255, 255, 255)",  "border-bottom":"1px solid #cbcbcb", "box-shadow":"0px 0px 0px #fff"});
-                        $('#mini_info').stop().animate({'opacity':'0'}, 0);
-                        $('.logo_wrap').show(500);
-                        $('.mini_mapage').stop().fadeOut(0);
-                        $('.navcon').stop().fadeOut(0);
-
-				}
-			    });
-		    });
-        //pt1Slider
-
-            //slider
-            $('.main_image').bxSlider({
-            mode:'fade',
-            auto:false,
-            pause:5000
-            });
-            
-            $('.mini_slide').slick({
-                dots: false,
-                infinite: true,
-                speed: 1000,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows:false,
-                autoplay:true,
-                pauseOnHover : true,
-                autoplaySpeed :5000,
-                fade:true,
-                swipe:false
-
-            })
-            
-        
-
-
-
-            //part1 코드 줄여보기 연습
-            /*$(".pt1_imgbx li").hover(function(){
-                $(this).find("span").stop().animate({top:-40}, 600);
-            }, function(){
-                    $(this).find("span").stop().animate({top:0});
-            });
-            $(".pt1_imgbx li").hover(function(){
-                $(this).children(1).stop().animate({top:-50}, 400);
-            }, function(){
-                    $(this).children(1).stop().animate({top:0});
-            });
-            $(".pt1_imgbx li").hover(function(){
-                $(this).children(1).stop().animate({opacity:1}, 1000);
-            }, function(){
-                $(this).children(1).stop().animate({opacity:0});
-            });
-            */
-            
-            //part1 icon 동작
-            $(".pt1_img1").hover(function(){
-                $(".pt1_img1 span:first").stop().animate({top:-40}, 600);
-            }, function(){
-                    $(".pt1_img1 span:first").stop().animate({top:0});
-            });
-            $(".pt1_img1").hover(function(){
-                $(".pt1_img1 span:eq(1)").stop().animate({top:-50}, 400);
-            }, function(){
-                    $(".pt1_img1 span:eq(1)").stop().animate({top:0});
-            });
-            $(".pt1_img1").hover(function(){
-                $(".pt1_img1 a:first").stop().animate({opacity:1}, 1000);
-            }, function(){
-                    $(".pt1_img1 a:first").stop().animate({opacity:0});
-            });
-
-            $(".pt1_img2").hover(function(){
-                $(".pt1_img2 span:first").stop().animate({top:-40}, 600);
-            }, function(){
-                    $(".pt1_img2 span:first").stop().animate({top:0});
-            });
-            $(".pt1_img2").hover(function(){
-                $(".pt1_img2 span:eq(1)").stop().animate({top:-50}, 400);
-            }, function(){
-                    $(".pt1_img2 span:eq(1)").stop().animate({top:0});
-            });
-            $(".pt1_img2").hover(function(){
-                $(".pt1_img2 a:first").stop().animate({opacity:1}, 1000);
-            }, function(){
-                    $(".pt1_img2 a:first").stop().animate({opacity:0});
-            });
-            
-            $(".pt1_img3").hover(function(){
-                $(".pt1_img3 span:first").stop().animate({top:-40}, 600);
-            }, function(){
-                    $(".pt1_img3 span:first").stop().animate({top:0});
-            });
-            $(".pt1_img3").hover(function(){
-                $(".pt1_img3 span:eq(1)").stop().animate({top:-50}, 400);
-            }, function(){
-                    $(".pt1_img3 span:eq(1)").stop().animate({top:0});
-            });
-            $(".pt1_img3").hover(function(){
-                $(".pt1_img3 a:first").stop().animate({opacity:1}, 1000);
-            }, function(){
-                    $(".pt1_img3 a:first").stop().animate({opacity:0});
-            });
-
-            $(".pt1_img4").hover(function(){
-                $(".pt1_img4 span:first").stop().animate({top:-40}, 600);
-            }, function(){
-                    $(".pt1_img4 span:first").stop().animate({top:0});
-            });
-            $(".pt1_img4").hover(function(){
-                $(".pt1_img4 span:eq(1)").stop().animate({top:-50}, 400);
-            }, function(){
-                    $(".pt1_img4 span:eq(1)").stop().animate({top:0});
-            });
-            $(".pt1_img4").hover(function(){
-                $(".pt1_img4 a:first").stop().animate({opacity:1}, 1000);
-            }, function(){
-                    $(".pt1_img4 a:first").stop().animate({opacity:0});
-            });
-
-            //part2 코드 줄여보기 연습
-            $(".pro_pt1").slideDown(800);
-        $(".pro_pt2").delay(400).slideDown(500, "swing");
-        $(".pro_pt3").delay(800).slideDown(500, "swing");
-        $(".pro_pt4").delay(1200).slideDown(500, "swing", function(){
-            $(".pro_pt1").hover(function(){
-                $(this).stop().animate({"z-index":"10"}, 0, function(){
-                    $(this).stop().animate({"width":"400"}, 200, function(){
-                        $(this).children("p:eq(0)").animate({"opacity":"1"}, 500);
-                        $(this).children("p:eq(0)").animate({"background":"rgb(0, 0, 0, 0.8"}, 500);
-                        $(this).children("p:eq(2)").animate({"opacity":"1"}, 500);
-                        $(".pro_wrap div").not(this).css({"opacity":"0.2"}, 0)
-
-                    });
-                });
-            }, function(){
-                $(this).stop().animate({"z-index":"1"}, 0, function(){
-                    $(this).stop().animate({"width":"300", "left":"0"}, 200, function(){
-                        $(this).children("p:eq(0)").animate({"opacity":"0", "left":"0", "width":"320"}, 0); 
-                        $(this).children("p:eq(1)").animate({"opacity":"0"}, 0);
-                        $(this).children("p:eq(2)").animate({"opacity":"1"}, 500);
-                        $(".pro_wrap div").css({"opacity":"1"}, 0)
-                    
-                    });
-                });
-            });
-
-            $(".pro_pt2").hover(function(){
-                $(this).stop().animate({"z-index":"10"}, 0, function(){
-                    $(this).stop().animate({"width":"400"}, 200, function(){
-                        $(this).children("p:eq(0)").animate({"opacity":"1"}, 500);
-                        $(this).children("p:eq(0)").animate({"background":"rgb(0, 0, 0, 0.8"}, 500);
-                        $(".pro_wrap div").not(this).css({"opacity":"0.2"}, 0)
-                    });
-                });
-            }, function(){
-                $(this).stop().animate({"z-index":"1"}, 0, function(){
-                    $(this).stop().animate({"width":"300", "left":"300px"}, 200, function(){
-                        $(this).children("p:eq(0)").animate({"opacity":"0", "left":"0", "width":"320"}, 0); 
-                        $(this).children("p:eq(1)").animate({"opacity":"0"}, 0);
-                        $(".pro_wrap div").css({"opacity":"1"}, 0)
-                    });
-                });
-            });
-     
-            $(".pro_pt3").hover(function(){
-                $(this).stop().animate({"z-index":"1"}, 0, function(){
-                    $(this).stop().animate({"width":"400"}, 200, function(){
-                        $(this).children("p:eq(0)").animate({"opacity":"1"}, 500);
-                        $(this).children("p:eq(0)").animate({"background":"rgb(0, 0, 0, 0.8"}, 500);
-                        $(".pro_wrap div").not(this).css({"opacity":"0.2"}, 0)
-                    });
-                });
-            }, function(){
-                $(this).stop().animate({"z-index":"1"}, 0, function(){
-                    $(this).stop().animate({"width":"300", "right":"300px"}, 200, function(){
-                        $(this).children("p:eq(0)").animate({"opacity":"0", "left":"0", "width":"320"}, 0); 
-                        $(this).children("p:eq(1)").animate({"opacity":"0"}, 0);
-                        $(".pro_wrap div").css({"opacity":"1"}, 0)
-                    });
-                });
-            });
-
-            $(".pro_pt4").hover(function(){
-                $(this).stop().animate({"z-index":"1"}, 0, function(){
-                    $(this).stop().animate({"width":"400"}, 200, function(){
-                        $(this).children("p:eq(0)").animate({"opacity":"1"}, 500);
-                        $(this).children("p:eq(0)").animate({"background":"rgb(0, 0, 0, 0.8"}, 500);
-                        $(".pro_wrap div").not(this).css({"opacity":"0.2"}, 0)
-                    });
-                });
-            }, function(){
-                $(this).stop().animate({"z-index":"1"}, 0, function(){
-                    $(this).stop().animate({"width":"300", "right":"0"}, 200, function(){
-                        $(this).children("p:eq(0)").animate({"opacity":"0", "left":"0", "width":"320"}, 0); 
-                        $(this).children("p:eq(1)").animate({"opacity":"0"}, 0);
-                        $(".pro_wrap div").css({"opacity":"1"}, 0)
-                    
-                    });
-                });
-            });
-           
-            });
-            
-          
-
-            $(".pro_pt1 button").click(function(){
-                $(".pro_pt1").stop().animate({"width":"1200px", "left":"0"}, function(){
-                    $(".pro_pt1").children("p:eq(0)").stop().animate({"left":"-220", "width":"380"}, 100);
-                    $(".pro_pt1").children("p:eq(1)").stop().animate({"opacity":"1", "top":"275", "right":"200"}, 100);
-                    
-                });
-            });
-            $(".pro_pt2").click(function(){
-                $(this).stop().animate({"width":"1200px", "left":"0"}, function(){
-                    $(this).children("p:eq(0)").stop().animate({"left":"-220", "width":"380"}, 100);
-                    $(this).children("p:eq(1)").stop().animate({"opacity":"1", "top":"275", "right":"200"}, 100);
-                
-                });
-            });
-            $(".pro_pt3").click(function(){
-                $(this).stop().animate({"width":"1200px", "right":"0"}, function(){
-                    $(this).children("p:eq(0)").stop().animate({"left":"-220", "width":"380"}, 100);
-                    $(this).children("p:eq(1)").stop().animate({"opacity":"1", "top":"275", "right":"200"}, 100);
-                
-                });
-            });
-
-            $(".pro_pt4").click(function(){
-                $(this).stop().animate({"width":"1200px", "right":"0"}, function(){
-                    $(this).children("p:eq(0)").stop().animate({"left":"-220", "width":"380"}, 100);
-                    $(this).children("p:eq(1)").stop().animate({"opacity":"1", "top":"275", "right":"200"});
-                
-                });
-            });
-
-
-
-
-
-            //part2
-            /*
-            $(".pt2_img1").hover(function(){
-                $(".pt2_img1 a span:eq(2)").stop().animate({opacity:0}, 300, function(){
-                $(".pt2_img1 a").stop().animate({top:0}, 300, function(){
-                        $(".pt2_img1 a span:eq(0)").stop().show(500);
-                        $(".pt2_img1 a span:eq(0)").stop().animate({height:50}, 500);
-                    });
-                    $(".pt2_img1 a span:eq(1)").delay(1210).fadeIn(700);
-                });
-                }, function(){
-                    $(".pt2_img1 a span:eq(1)").stop().hide();
-                    $(".pt2_img1 a").stop().animate({top:40}, 300, function(){
-                    $(".pt2_img1 a span:eq(0)").stop().animate({height:0}, 0, function(){
-                        $(".pt2_img1 a span:eq(0)").stop().hide();
-                        $(".pt2_img1 a span:eq(2)").stop().animate({opacity:0.9}, 500);
-                    });
-                    
-                });
-            });
-
-            $(".pt2_img2").hover(function(){
-                $(".pt2_img2 a").stop().animate({top:0}, 300, function(){
-                    $(".pt2_img2 a span:eq(0)").stop().show(500, function(){
-                        $(".pt2_img2 a span:eq(0)").stop().animate({height:50}, 500);
-                        $(".pt2_img2 a span:eq(2)").stop().animate({opacity:0.87}, 500);
-                    });
-                    $(".pt2_img2 a span:eq(1)").delay(1210).fadeIn(700);
-                });
-                
-                }, function(){
-                    $(".pt2_img2 a span:eq(2)").stop().animate({opacity:0}, 0);
-                    $(".pt2_img2 a span:eq(1)").stop().hide();
-                    $(".pt2_img2 a").stop().animate({top:40}, 300, function(){
-                    $(".pt2_img2 a span:eq(0)").stop().animate({height:0}, 0, function(){
-                        $(".pt2_img2 a span:eq(0)").stop().hide();
-                    });
-                    
-                });
-            });
-
-            $(".pt2_img3").hover(function(){
-                $(".pt2_img3 a").stop().animate({top:0}, 300, function(){
-                    $(".pt2_img3 a span:eq(0)").stop().show(500, function(){
-                        $(".pt2_img3 a span:eq(0)").stop().animate({height:50}, 500);
-                        $(".pt2_img3 a span:eq(2)").stop().animate({opacity:0.87}, 500);
-                    });
-                    $(".pt2_img3 a span:eq(1)").stop().delay(1210).fadeIn(700);
-                });
-                
-                }, function(){
-                    $(".pt2_img3 a span:eq(2)").stop().animate({opacity:0}, 0);
-                    $(".pt2_img3 a span:eq(1)").stop().hide();
-                    $(".pt2_img3 a").stop().animate({top:40}, 300, function(){
-                    $(".pt2_img3 a span:eq(0)").stop().animate({height:0}, 0, function(){
-                        $(".pt2_img3 a span:eq(0)").stop().hide();
-                    });
-                    
-                });
-            });
-
-            $(".pt2_img4").hover(function(){
-                $(".pt2_img4 a").stop().animate({top:0}, 300, function(){
-                    $(".pt2_img4 a span:eq(0)").stop().show(500, function(){
-                        $(".pt2_img4 a span:eq(0)").stop().animate({height:50}, 500);
-                        $(".pt2_img4 a span:eq(2)").stop().animate({opacity:0.87}, 500);
-                    });
-                    $(".pt2_img4 a span:eq(1)").delay(1210).fadeIn(700);
-                });
-                
-                }, function(){
-                    $(".pt2_img4 a span:eq(2)").stop().animate({opacity:0}, 0);
-                    $(".pt2_img4 a span:eq(1)").stop().hide();
-                    $(".pt2_img4 a").stop().animate({top:40}, 300, function(){
-                    $(".pt2_img4 a span:eq(0)").stop().animate({height:0}, 0, function(){
-                        $(".pt2_img4 a span:eq(0)").stop().hide();
-                    });
-                    
-                });
-            });
-            */
-            //part3 slick plugin
-            $('.spt_lights').slick({
-                dots: false,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 4.5,
-                slidesToScroll: 1,
-                arrows:true,
-                prevArrow : "<button type='button' class='slick-prev'>이전</button>",        
-                nextArrow : "<button type='button' class='slick-next'>다음</button>",
-                autoplay:true,
-                pauseOnHover : true,
-                autoplaySpeed : 5000,
-                responsive: [
-                    {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
-                    }
-                    },
-                    {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                    }
-                    },
-                    {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                    }
-                ]
-                });
-            
-            
-            $(".footer_more").click(function(){
-                $(".footer_more ul").stop().slideToggle();
-                $(".footer_more button").css({"transform":"rotate(180deg)"});
-            });
-
-           
-            
-        });
-             
-    </script>
 </head>
 <body>
 <header id="header" class="header">
     <div class="header_wrap">
-    <div class="logo_wrap">
-    <h1 class="main_logo">롯데월드 아쿠아리움</h1>
-    <span class="logo_title">Lotte A Q U A R I U M</span>
-    </div>
+        <div class="logo_wrap">
+            <h1 class="main_logo">롯데월드 아쿠아리움</h1>
+            <span class="logo_title">Lotte A Q U A R I U M</span>
+        </div>
         <h2 class="blind">주요 메뉴</h2>
         <!-- <div class="top_wrap"> -->
             <div class="top_wrap">
-            <div class="event_banner">
-                <a href="#"><span>Event now</span></a>
-            </div>
-            <dl class="top_menu">
-                <dt class="blind">시간 안내</dt>
-            </dl>
-            <dl class="top_menu2">
-                <dt class="blind">유틸메뉴</dt>
-                <?php if(!$s_nick){?>
-                <dd class="login">
-                    <a href="login/login.php">
-                        <span class="material-icons md-36">login</span>
-                        <span class="login_span">로그인</span>
-                    </a>
+                <div class="event_banner">
+                    <a href="#"><span>Event now</span></a>
+                </div>
+                <dl class="top_menu">
+                    <dt class="blind">시간 안내</dt>
+                </dl>
+                <dl class="top_menu2">
+                    <dt class="blind">유틸메뉴</dt>
+                    <?php if(!$s_nick){?>
+                    <dd class="login">
+                        <a href="login/login.php">
+                            <span class="material-icons md-36">login</span>
+                            <span class="login_span">로그인</span>
+                        </a>
 
-                </dd>
-                <dd class="join">
-                    <a href="members/Signup2.php">
-                        <span class="material-icons md-36">badge</span>
-                        <span class="sign_up_span">회원가입</span>
+                    </dd>
+                    <dd class="join">
+                        <a href="members/Signup2.php">
+                            <span class="material-icons md-36">badge</span>
+                            <span class="sign_up_span">회원가입</span>
+                        </a>
+                    </dd>
+                    <?php }else{ ?>
+                    <dd class="logout">
+                        <a href="login/logout.php">
+                            <span class="material-icons md-36">logout</span>
+                            <span class="logout_span">로그아웃</span>
+                        </a>
+                    </dd>
+                    <dd class="top_mapg">
+                        <a href="members/member_info.php">
+                            <span class="material-icons md-36">manage_accounts</span>
+                            <span class="mypage_span">마이페이지</span>
+                        </a>
+                    </dd><?php }; ?> 
+                    <a href="#" class="lang_btn">
+                        <span class="material-icons md-36">language</span>
+                        <span class="lang_span">언어</span>
                     </a>
-                </dd>
-                <?php }else{ ?>
-                <dd class="logout">
-                    <a href="login/logout.php">
-                        <span class="material-icons md-36">logout</span>
-                        <span class="logout_span">로그아웃</span>
-                    </a>
-                </dd>
-                <dd class="top_mapg">
-                    <a href="members/member_info.php">
-                        <span class="material-icons md-36">manage_accounts</span>
-                        <span class="mypage_span">마이페이지</span>
-                    </a>
-                </dd><?php }; ?> 
-                <a href="#" class="lang_btn">
-                    <span class="material-icons md-36">language</span>
-                    <span class="lang_span">언어</span>
-                </a>
-                <p class="top_open">영업시간 10:00 ~ 20:00</p>
-            </dl>
+                    <p class="top_open">영업시간 10:00 ~ 20:00</p>
+                </dl>
             </div>
     </div>
-    <nav class="nav" id="nav">
+    <div class="nav" id="nav">
         <ul>
             <div class="mini_info" id="mini_info">
                 <div class="mini_slide">
                     <a href="#" class="mini_logo" id="mini_logo"></a>
-                    
                 </div>
             </div>
             <li class="gnb1"><a href="#">방문 안내</a>
-                <div>
-                    <ul>
-                        <li>
-                            <a href="#">이용 요금</a>
-                        </li>
-                        <li>
-                            <a href="#">위치 안내</a>
-                        </li>
-                        <li>
-                            <a href="#">할인 혜택</a>
-                        </li>
-                    </ul>
-                </div>
+                <ul>
+                    <li>
+                        <a href="#">이용 요금</a>
+                    </li>
+                    <li>
+                        <a href="#">위치 안내</a>
+                    </li>
+                    <li>
+                        <a href="#">할인 혜택</a>
+                    </li>
+                </ul>
             </li>
             <li class="gnb2"><a href="#">아쿠아리움 소개</a>
-                <div>
-                    <ul>
-                        <li><a href="#">층별 안내</a></li>
-                        <li><a href="#">해양생물 소개</a></li>
-                    </ul>
-                </div>
+                <ul>
+                    <li><a href="#">층별 안내</a></li>
+                    <li><a href="#">해양생물 소개</a></li>
+                </ul>
             </li>
             <li class="gnb3"><a href="#">프로그램 안내</a>
-                <div>
-                    <ul>
-                        <li><a href="#">프로그램 소개</a></li>
-                        <li><a href="#">이달의 이벤트</a></li>
-                    </ul>
-                </div>
+                <ul>
+                    <li><a href="#">프로그램 소개</a></li>
+                    <li><a href="#">이달의 이벤트</a></li>
+                </ul>
             </li>
             <li class="gnb4"><a href="#">온라인 예매</a>
-                <div>
-                    <ul>
-                        <li><a href="#">티켓 구매</a></li>
-                        <li><a href="#">프로그램 구매</a></li>
-                    </ul>
-                </div>
+                <ul>
+                    <li><a href="#">티켓 구매</a></li>
+                    <li><a href="#">프로그램 구매</a></li>
+                </ul>
             </li>
             <li class="gnb5"><a href="#">새소식&고객의 소리</a>
-                <div>
-                    <ul>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">후기 게시판</a></li>
-                    </ul>
-                </div>
+                <ul>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">후기 게시판</a></li>
+                </ul>
             </li>
             <div class="navcon_wrap">
                 <?php if(!$s_nick){ ?>
@@ -542,16 +137,12 @@ include "inc/session.php"
                 <?php } ?>    
             <div>
         </ul>
-        
-        
-    </nav>
+        <div class="m_background"></div>
     </div>
-
+   
 </header>
 
 <main id="content" class="content">
-
-
     <section class="main_img">
         <h2 class="blind">주요 소식</h2>
             <div class=".slider_wrap">
@@ -603,7 +194,7 @@ include "inc/session.php"
                     <a href="#">자세히 보기</a>
                 </li>
             </ul>
-    </div>
+        </div>
     </section>
 
     <section>
@@ -690,44 +281,6 @@ include "inc/session.php"
 
 
 
-
-
-
-    
-    <!-- <div class="pt2_wrap">
-        <h2 class="blind">체험 프로그램 안내</h2>
-            <ul class="pro_bx">
-                <li class="pt2_img1">
-                    <a href="#">메인 수족관 다이빙 체험
-                        <span></span>
-                        <span>국내 최대 규모 25m 메인수조 속에서 펼쳐지는<br>바다 속 풍경을 담은 펀다이빙</span>
-                        <span></span>
-                    </a>
-                </li>
-                <li class="pt2_img2">
-                    <a href="#">아쿠아리움 나이트 캠프
-                        <span></span>
-                        <span>
-                            롯데월드 아쿠아리움에서<br> 단체로 특별한 하룻밤을 즐겨보세요!</span>
-                        <span></span>
-                    </a>
-                </li>
-                <li class="pt2_img3">
-                    <a href="#">Special 먹이 주기 체험
-                        <span></span>
-                        <span>아쿠아리움의 생물들은 어떤 먹이를<br> 먹고 있는지 함께 알아봐요!</span>
-                        <span></span>
-                    </a>
-                </li>
-                <li class="pt2_img4">
-                    <a href="#">메인 수조 피딩 쇼
-                        <span></span>
-                        <span>토, 일 하루에 1번만 진행되는 <br>특별한 아쿠아리움의 이벤트!</span>
-                        <span></span>
-                    </a>
-                </li>
-            </ul>
-    </div> -->
     </section>
 
     <section class="part3_wrap">
@@ -830,10 +383,130 @@ include "inc/session.php"
             </div>
         </ul>
 </footer>
-<?php 
+
+
+<?php
+//관리자 이동 도우미 
 if($s_id == "admin"){
     echo include "inc/sub_header.html";
 };
 ?>
+
+
+<script type="text/javascript">
+        //GNB
+        $(".nav> ul > li").mouseenter(function(){
+            $(this).find("ul").stop().fadeIn("fast");
+            $("m_background").stop().slideDown("fast");
+        });
+        $(".nav > ul > li").mouseleave(function(){
+            $(this).find("ul").stop().fadeOut("fast");
+            $("m_background").stop().slideUp("fast");
+        });
+
+        //sticky nav
+        $(function(){
+			$(window).scroll(function(){
+				let nowScroll = $(document).scrollTop();
+				if(nowScroll > 50){ 
+						$('#nav').css({'top':'0', "height":"50", "font-size":"16px", "transition":"0.2s", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
+                        $('#mini_info').stop().animate({'opacity':'1'}, 50);
+                        $('.logo_wrap').hide(700);
+                        $(".mini_mapage").stop().fadeIn(50);
+                        $(".navcon").stop().fadeIn(50);
+				}else{
+                        $('#nav').css({'top': '100px', "height":"50","font-size":"16px", "background":"rgb(255, 255, 255)",  "border-bottom":"1px solid #cbcbcb", "box-shadow":"0px 0px 0px #fff"});
+                        $('#mini_info').stop().animate({'opacity':'0'}, 0);
+                        $('.logo_wrap').show(500);
+                        $('.mini_mapage').stop().fadeOut(0);
+                        $('.navcon').stop().fadeOut(0);
+				}
+			});
+		});
+
+        //slider
+        $('.main_image').bxSlider({
+            mode:'fade',
+            auto:false,
+            pause:5000
+        });
+        $('.mini_slide').slick({
+            dots: false,
+            infinite: true,
+            speed: 1000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows:false,
+            autoplay:true,
+            pauseOnHover : true,
+            autoplaySpeed :5000,
+            fade:true,
+            swipe:false
+        });
+
+        //part1 icon 동작
+        $(".pt1_imgbx>li").hover(function(){
+            $(this).find("span:eq(0)").stop().animate({top:-40}, 600);
+        }, function(){
+            $(this).find("span:eq(0)").stop().animate({top:0});
+        });
+        $(".pt1_imgbx>li").hover(function(){
+            $(this).find("span:eq(1)").stop().animate({top:-50}, 400);
+        }, function(){
+            $(this).find("span:eq(1)").stop().animate({top:0});
+        });
+        $(".pt1_imgbx>li").hover(function(){
+            $(this).find("a").stop().animate({opacity:1}, 1000);
+        }, function(){
+            $(this).find("a").stop().animate({opacity:0});
+        });
+
+            
+        //part3 slick plugin
+        $('.spt_lights').slick({
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4.5,
+            slidesToScroll: 1,
+            arrows:true,
+            prevArrow : "<button type='button' class='slick-prev'>이전</button>",        
+            nextArrow : "<button type='button' class='slick-next'>다음</button>",
+            autoplay:true,
+            pauseOnHover : true,
+            autoplaySpeed : 5000,
+            responsive: [
+                {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+                },
+                {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+                }
+            ]
+            });
+            
+        //계열사
+        $(".footer_more").click(function(){
+            $(".footer_more ul").stop().slideToggle();
+            $(".footer_more button").css({"transform":"rotate(180deg)"});
+        });
+    </script>
 </body>
 </html>

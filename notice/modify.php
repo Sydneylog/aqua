@@ -1,6 +1,24 @@
 <?php 
 include "../inc/session.php"; 
 // include "../inc/admin_check.php"; 
+
+//데이터 가져오기
+$n_idx = $_GET["n_idx"];
+
+//DB 연결
+include "../inc/dbcon.php";
+
+//쿼리 작성
+$sql = "select * from aqua_notice where idx = $n_idx;";
+
+//쿼리 전송
+$result = mysqli_query($dbcon, $sql);
+
+//db에서 데이터 가져오기
+$array = mysqli_fetch_array($result);
+
+//db 연결 종료 (이미 가져왔으므로 종료해도 상관 없음)
+mysqli_close($dbcon);
 ?>
 
 
@@ -80,36 +98,34 @@ include "../inc/session.php";
     
 
 <main id="content" class="content">
-
-   
     <section class="signup_wrap">
     <div class="signup_title">
-    <h2>공지사항 작성</h2>
+    <h2>공지사항 수정</h2>
     </div>
     <!-- <h3>1.주요 정보 입력</h3> -->
     
-        <form action="insert.php" method="post" class="pt1_bx" onsubmit="return inspector()">
+        <form action="edit.php?n_idx=<?php echo $n_idx; //$array['n_idx']가 아님 view.php에서 받아온 값 써야 함 ?>" method="post" class="pt1_bx" onsubmit="return inspector()">
             <fieldset class="total_wrap">
                 <legend><span class="id_must">공지사항</span></legend>
                     <p>
                         <input type="hidden"><?php echo $s_id; ?></input>
                     </p>
                     <p class="n_header"><span>글머리</span>
-                        <input type="radio" name="n_head" class="n_head" id="n_head" value="일반" checked>일반</input>
-                        <input type="radio" name="n_head" class="n_head" id="n_head" value="분실물공지">분실물 알림</input>
-                        <input type="radio" name="n_head" class="n_head" id="n_head" value="운영방침">운영방침</input>
+                        <input type="radio" name="n_head" class="n_head" id="n_head" value="일반" <?php if ($array["n_head"] =="일반") echo "checked";?>>일반</input>
+                        <input type="radio" name="n_head" class="n_head" id="n_head" value="분실물" <?php if ($array["n_head"] =="분실물") echo "checked";?>>분실물</input>
+                        <input type="radio" name="n_head" class="n_head" id="n_head" value="운영방침" <?php if ($array["n_head"] =="운영방침") echo "checked";?>>운영방침</input>
                     </p>
                     <p>
                         <label for="n_title">제목</label>
-                        <input type="text" id="n_title" name="n_title" class="n_title" maxlength="100">
+                        <input type="text" id="n_title" name="n_title" class="n_title" maxlength="100" value="<?php echo $array["n_title"]; ?>">
                     </p>
                     <p>
                         <label for="n_contents">내용 작성</label><br>
-                        <textarea cols="60" rows="10" name="n_contents" id="n_contents"></textarea>
+                        <textarea cols="60" rows="10" name="n_contents" id="n_contents"><?php echo $array['n_contents']; ?></textarea>
                     </p>
                     <div class="btn_bx">
-                        <button type="button" class="moving_arr1"><span>취소</span></button>
-                        <button type="submit" class="moving_arr2"><span>등록</span></button>
+                        <button type="button" onclick="history.back()"><span>취소</span></button>
+                        <button type="submit"><span>수정</span></button>
                     </div>
             </fieldset>
         </form>

@@ -96,7 +96,7 @@ include "../inc/session.php";
                     </p>
                     <p class="n_header"><span>글머리</span>
                         <input type="radio" name="n_head" class="n_head" id="n_head" value="일반" checked>일반</input>
-                        <input type="radio" name="n_head" class="n_head" id="n_head" value="분실물공지">분실물 알림</input>
+                        <input type="radio" name="n_head" class="n_head" id="n_head" value="분실물">분실물</input>
                         <input type="radio" name="n_head" class="n_head" id="n_head" value="운영방침">운영방침</input>
                     </p>
                     <p>

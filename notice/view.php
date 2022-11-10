@@ -146,7 +146,7 @@ function likeAdd(){
         .board_info div{
             display:flex;
             justify-content:space-between;
-            width:400px;
+            width:500px;
             height:30px;
             line-height:30px;
         }
@@ -197,7 +197,6 @@ function likeAdd(){
             font-size:15px;
             line-height:30px;
         }
-       
 
     </style>
 </head>
@@ -267,8 +266,12 @@ function likeAdd(){
                     </div>
             </div>
             <div class="btn_bx">
-                        <a href="list.php" class="moving_arr1"><span>뒤로가기</span></a>
-                        <a href="modify.php?n_idx=<?php echo $n_idx; ?>" type="submit" class="moving_arr2"><span>수정</span></a>
+                <a href="list.php" class="moving_arr1">
+                    <span>뒤로가기</span>
+                </a>
+                <a href="modify.php?n_idx=<?php echo $n_idx; ?>" type="submit" class="moving_arr2">
+                    <span>수정</span>
+                </a>
             </div>
         </form>
     </section>
@@ -292,11 +295,15 @@ function check_id(){
                 return false;
             };
         };
-function add(){
-    const addFunc = "<?php likeAdd() ?>";
-    
-};
-
+    function color(){
+        const obj = document.getElementById("board_head");
+        const objText = document.getElementById("board_head").innerHTML;
+        console.log(objText);
+        if(objText = "분실물"){
+            obj.styel.backgroundColor = "grey";
+        };
+    };
+    color();
 </script>
 </body>
 </html>

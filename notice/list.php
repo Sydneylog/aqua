@@ -210,6 +210,7 @@ if($e_pageNum > $total_page){
     <p class="pager">
     <?php
     // pager : 이전 페이지
+            
         if($page <= 1){
         ?>
         <a href="list.php?page=1">이전</a>
@@ -234,13 +235,21 @@ if($e_pageNum > $total_page){
         <?php }; ?>
     </p>     
 
-
-  
-
 <script type="text/javascript">
-
-
-
+function colorize(){    
+    const obj = document.getElementById("colorObj");
+    const objText = document.getElementById("colorObj").innerHTML;
+    if(<?php echo $array['n_head']; ?> == "분실물"){
+        obj.style.backgroundColor ="red";
+    }else if(objText == "운영 방침"){
+        obj.style.backgroundColor ="blue";
+            
+    }else{
+        obj.style.backgroundColor ="grey";
+    };
+    console.log(objText)
+};
+colorize();
 
 
 

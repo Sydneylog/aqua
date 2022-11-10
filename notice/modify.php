@@ -108,7 +108,7 @@ mysqli_close($dbcon);
             <fieldset class="total_wrap">
                 <legend><span class="id_must">공지사항</span></legend>
                     <p>
-                        <input type="hidden"><?php echo $s_id; ?></input>
+                        <input type="hidden" value="<?php echo $s_id; ?>"></input>
                     </p>
                     <p class="n_header"><span>글머리</span>
                         <input type="radio" name="n_head" class="n_head" id="n_head" value="일반" <?php if ($array["n_head"] =="일반") echo "checked";?>>일반</input>
@@ -125,7 +125,7 @@ mysqli_close($dbcon);
                     </p>
                     <div class="btn_bx">
                         <button type="button" onclick="history.back()"><span>취소</span></button>
-                        <button type="submit"><span>수정</span></button>
+                        <button type="submit"><span>확인</span></button>
                     </div>
             </fieldset>
         </form>

@@ -3,41 +3,48 @@
 include "../inc/session.php";
 
 //modify에서 값 받아오기
+// echo $_GET["n_idx"];
+// exit;
 $n_idx = $_GET["n_idx"];
-$n_title =$_POST["n_title"];
+$n_title = $_POST["n_title"];
+$n_head = $_POST["n_head"];
 $n_contents = $_POST["n_contents"];
+
 
 //수정일자
 $m_date = date("Y-m-d");
 
 //출력 확인
-ehco
+// echo $n_idx;
+// echo $n_title;
+// echo $n_contents;
+// echo $m_date;
+// exit;
 
+//db연결
+include "../inc/dbcon.php";
+//쿼리 작성
+$sql ="update aqua_notice set ";
+$sql .= "n_title = '$n_title', n_head = '$n_head', n_contents = '$n_contents', m_date = '$m_date' ";
+$sql .= "where idx = $n_idx;";
 
+//출력 확인
+//echo $sql;
+//exit;
 
+//db에 쿼리 전송
+mysqli_query($dbcon, $sql);
 
-// include "../inc/dbcon.php";
-// $sql ="update marine_friends set mobile='$mobile', emailAll='$emailAll', ps_code='$ps_code', addr1='$addr1', addr2='$addr2', nick='$nick' where idx=$s_idx;";
-// echo $sql;
-// $sql_wPwd ="update marine_friends set pwd='$pwd', mobile='$mobile', emailAll='$emailAll', ps_code='$ps_code', addr1='$addr1', addr2='$addr2', nick='$nick' where idx=$s_idx;";
-// echo $sql_wPwd;
+//db 접속 종료
+mysqli_close($dbcon);
 
-// if(!$pwd){
-//     mysqli_query($dbcon, $sql);
-// }else{
-//     mysqli_query($dbcon, $sql_wPwd);
-// };
-
-// //db종료
-// mysqli_close($dbcon);
-
-// //페이지 이동
-// echo "
-// <script type=\"text/javascript\">
-// alert(\"수정되었습니다.\");
-// location.href = \"../index.php\";
-// </script>
-// ";
+// 리디렉션
+echo "
+<script type=\"text/javascript\">
+alert(\"수정되었습니다.\");
+location.href = \"view.php?n_idx=$n_idx\";
+</script>
+";
 
 
 

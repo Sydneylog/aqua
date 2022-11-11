@@ -19,10 +19,15 @@ include "../login/login_check.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/signup2.css">
+    <title>회원 정보 관리</title>
+    <link rel="stylesheet" type="text/css" href="../css/mem_info.css">
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
+    </style>
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function(){
                //GNB
@@ -43,13 +48,19 @@ include "../login/login_check.php";
 				}
 			    });
 		    });
+                //info_page selector
+                $(".member_info_btn").click(function(){
+                    $(".payment_info_page").fadeOut();
+                    $(".info_modify_page").fadeIn();
+                });
+                $(".payment_info_btn").click(function(){
+                    $(".payment_info_page").fadeIn();
+                    $(".info_modify_page").fadeOut();
+                });
         });
     </script>
-    
 </head>
 <body>
-
-
 <main id="content" class="content">
     <section class="banner">
         <div>
@@ -66,86 +77,142 @@ include "../login/login_check.php";
             </div>
         </div>
     </section>
-   
     <section class="signup_wrap">
-    <div class="signup_title">
-    <h2>- 회원 정보 수정 -</h2>
-    </div>
-    <!-- <h3>1.주요 정보 입력</h3> -->
-    
-        <form action="edit.php" method="post" class="pt1_bx" onsubmit="return inspector()">
-            <fieldset>
-            <div class=" total_wrap"></div>
-            <section class="part1">
-            <legend><span class="id_must">회원정보</span></legend>
-            <hr>
-                <p>
-                   ID: <?php echo $array["u_id"]; ?>
-                </p>
-                <p>
-                   이름: <?php echo $array["u_name"]; ?>
-                </p>
-                <p>     
-                    <label for="new_pass">비밀번호</label><br>
-                    <input type="password" id="new_pass" name="new_pass" class="bx1" maxlength="20">
-                    <span id="err_pass" class="err_txt"></span>
-                </p>
-                <p>     
-                    <label for="new_pass">비밀번호 확인</label><br>
-                    <input type="password" id="pwd_check" name="pwd_check" class="bx1" maxlength="20">
-                    <span id="err_pass" class="err_txt"></span>
-                </p>
-                
-                <p class="mobile_box">
-                    <label for="phone_number" placeholder="전화번호">전화번호</label><br>
-                    <input type="text" id="phone_number" name="phone_number" class="bx1" value="<?php echo $array["mobile"]; ?>"><br>
-                    <span class="espan">-를 제외하고 입력해 주세요</span><br>
-                    <span id="err_mobile" class="err_txt"></span>
-                    
-                </p>
-                <?php
-                $email = explode("@", $array["emailAll"]);
-                ?>
-
-                <p class="email_wrap">
-                    <label for="email1">이메일</label><br>
-                    <input type="text" id="email" name="email1" class="emailbx1" maxlength="12" value="<?php echo $email[0]; ?>"> @
-                    <input type="text" id="email2" name="email2" class="emailbx2" maxlength="10" value="<?php echo $email[1]; ?>"><br>
-                    <select class="email_list" onchange="selectEmail()">
-                        <option value="">직접입력</option>
-                        <option value="hanmail.net">다음</option>
-                        <option value="naver.com">네이버</option>
-                        <option value="gmail.com">구글</option>
-                    </select>
-                </p>
-                <p>
-                    <span>주소<span><br>
-                    <label for="ps_code">우편번호</label><br>
-                    <input type="text" name="ps_code" id="ps_code" class="ps_code" value="<?php echo $array["ps_code"]; ?>">
-                    <label for="addr1" class="bx1"><span class="addrtxt">기본주소</span></label>
-                    <input type="text" name="addr1" id="addr1" class="bx1" value="<?php echo $array["addr1"]; ?>"><br>
-                    <button type="button" class="address_check" onclick="address_search()"><span>주소 검색</span></button>
-                    <label for="addr2" class="bx1"><span class="addrtxt">상세주소</span></label>
-                    <input type="text" name="addr2" id="addr2" class="bx1" maxlength="50" value="<?php echo $array["addr2"]; ?>">
-                </p>
-                <p>
-                    <label for="birth">닉네임</label><br>
-                    <input type="text" id="nick" name="nick" class="bx1" value="<?php echo $array["nick"]; ?>"> <br>
-                    <span class="nick_span">기본 값은 프렌즈 입니다.</span>
-                </p>
-            </fieldset>
-            <div class="page_moving2">
-                <p><button type="button" class="moving_arr1">홈으로</button></p>
-                <p><button type="submit" class="moving_arr2">정보 수정</button></p>
-                <p><button type="button" class="moving_arr2" onclick="deleteMe()">회원 탈퇴</button></p>
-
+        <!-- guide headeㄱ -->
+        <div class="guide_header">
+            <h2>회원 정보 관리</h2>
+            <div>
+                <ul>
+                    <li><a href="#" class="member_info_btn">회원 정보 수정</a></li>
+                    <li><a href="#" class="payment_info_btn">결제 내역 확인</a></li>
+                </ul>
             </div>
-            </section>
         </div>
-        </fieldset>
-        </form>
-    
     </section>
+    <section class="signup_wrap">
+        <!-- info modify page-->
+        <section class="info_modify_page">
+            <form action="edit.php" method="post" class="pt1_bx" onsubmit="return inspector()">
+                <fieldset>
+                    <legend class="info_title">
+                            회원정보 수정
+                    </legend>
+                    <table class="info_table">
+                        <tr>
+                            <td>ID</td>
+                            <td><?php echo $array["u_id"]; ?></td>
+                        </tr>
+                        <tr>
+                            <td>이름</td>
+                            <td><?php echo $array["u_name"]; ?></td>
+                        </tr>
+                        <tr>     
+                            <td>
+                                <label for="new_pass">비밀번호</label>
+                            </td>
+                            <td>
+                                <input type="password" id="new_pass" name="new_pass" class="bx1" maxlength="20"><br>
+                                <span id="err_pass" class="err_txt"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="new_pass">비밀번호 확인</label>
+                            </td>
+                            <td>
+                                <input type="password" id="pwd_check" name="pwd_check" class="bx1" maxlength="20"><br>
+                                <span id="err_pass" class="err_txt"></span>
+                            </td>
+                        </tr>
+                        <tr class="mobile_box">
+                            <td>
+                                <label for="phone_number" placeholder="전화번호">전화번호</label>
+                            </td>
+                            <td>
+                                <input type="text" id="phone_number" name="phone_number" class="bx1" value="<?php echo $array["mobile"]; ?>"><br>
+                                <span class="espan">-를 제외하고 입력해 주세요</span><br>
+                                <span id="err_mobile" class="err_txt"></span>
+                            </td>
+                        </tr>
+                        <tr class="email_wrap">
+                            <?php $email = explode("@", $array["emailAll"]); ?>
+                            <td>
+                                <label for="email1">이메일</label>
+                            </td>
+                            <td>
+                                <input type="text" id="email" name="email1" class="emailbx1" maxlength="12" value="<?php echo $email[0]; ?>"> @
+                                <input type="text" id="email2" name="email2" class="emailbx2" maxlength="10" value="<?php echo $email[1]; ?>"><br>
+                                <select class="email_list" onchange="selectEmail()">
+                                    <option value="">직접입력</option>
+                                    <option value="hanmail.net">다음</option>
+                                    <option value="naver.com">네이버</option>
+                                    <option value="gmail.com">구글</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="ps_code">우편번호</label>
+                            </td>
+                            <td>
+                                <input type="text" name="ps_code" id="ps_code" class="ps_code" value="<?php echo $array["ps_code"]; ?>">
+                                </input>
+                                <button type="button" class="address_check" onclick="address_search()">
+                                    <span>우편번호 검색</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="addr1" class="bx1">
+                                    <span class="addrtxt">기본주소</span>
+                                </label>
+                            </td>
+                            <td>
+                                <input type="text" name="addr1" id="addr1" class="bx1" value="<?php echo $array["addr1"]; ?>">
+                            </td>
+                        </tr>   
+                        <tr>
+                            <td>    
+                                <label for="addr2" class="bx1">
+                                    <span class="addrtxt">상세주소</span>
+                                </label>
+                            </td>
+                            <td>
+                                <input type="text" name="addr2" id="addr2" class="bx1" maxlength="50" value="<?php echo $array["addr2"]; ?>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="birth">닉네임</label>
+                            </td>
+                            <td>
+                                <input type="text" id="nick" name="nick" class="bx1" value="<?php echo $array["nick"]; ?>"><br>
+                            <span class="nick_span">기본 값은 프렌즈 입니다.</span>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <div class="page_moving2">
+                    <p><button type="button" class="moving_arr1">홈으로</button></p>
+                    <p><button type="submit" class="moving_arr2">정보 수정</button></p>
+                    <p><button type="button" class="moving_arr2" onclick="deleteMe()">회원 탈퇴</button></p>
+                </div>
+            </div>
+            </form>
+        </section>
+        <!-- paid_info_page -->
+        <section class="paid_info_page">
+            <h3>결제내역</h3>
+            <h4>티켓 구매 내역</h4>
+            <table>
+            </table>
+            <h4>프로그램 구매 내역</h4>
+            <table>
+            </table>
+        </section>
+    </section>
+
 </main>
 
 
@@ -256,36 +323,8 @@ function check_id(){
     });
 });
 };
+    
 
- function test(){
-    alert("인증번호가 생성 되었습니다.\n10초 이내에 입력해 주세요.")
-    
-    function makingNumber(){
-        let maiden_number = document.getElementById("maiden_number");
-        rand = Math.round(Math.random()*10000);
-        maiden_number.value = rand;
-        return rand;
-        };
-        makingNumber();
-    
-    function limitedTime(){
-        const timer = document.getElementById("timer");
-        let time = 10000;
-        let sec = 10
-        timer.value =  sec + " 초";
-        timeflight = setInterval(function(){
-            time -= 1000;
-            sec = time/1000;
-            if(sec > 0){
-                sec -= 1;
-                timer.value = sec + " 초";
-            }
-        },1000);
-    };
-    limitedTime();
-
-    
-};
 function deleteMe(){
     let ask = confirm("정말 탈퇴하시겠습니까?")
     if(ask == true){
@@ -293,12 +332,8 @@ function deleteMe(){
     };
 };
 
-
-
-
-
 function selectEmail(){
-    let email2 = document.getElementById("email2");
+    let email2 = document.getElementById("emailbx2");
     let email_list = document.querySelector(".email_list");
     let emailSet = email_list.options.selectedIndex;
     let selectedE = email_list.options[emailSet].value;

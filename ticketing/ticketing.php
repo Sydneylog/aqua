@@ -173,7 +173,7 @@
                         <p>
                             <input type="checkbox" name="checkbox" id="checkbox1" value="33000">
                             <label for="checkbox1">일반/청소년<br>&nbsp&nbsp&nbsp&nbsp&nbsp33,000원</label>
-                            <input type="text" name="price1" id="price1" class="price1" onkeyup="calc1()"> 명
+                            <input type="text" name="price1" id="price1" class="price1" onkeyup="calc1(3000, checkbox1, qty1, hidden1)"> 명
                             <input type="text" name="hidden1" id="hidden1" hidden>
                         </p>
                         <p>
@@ -499,31 +499,47 @@
     // checkbox1. value * price1. vlauel = hidden2
 
     // result1 = hidden1 + hidden2
-    function calc1(){
-      let checkbx1 = document.getElementById("checkbox1");
-      let checkbx2 = document.getElementById("checkbox2");
-      let qty1 = document.getElementById("price1");
-      let qty2 = document.getElementById("price2");
-      let hidden2 = document.getElementById("hidden2");
-      let hidden1 = document.getElementById("hidden1");
-      let result1 = document.getElementById("result1");
-        if(checkbx1.checked){
-            hidden1.value = Number(checkbx1.value) * Number(qty1.value);
-        }else{
-            hidden1.value = "0"
-        };
-        
-        console.log(hidden1.value);
-        if(checkbx2.checked){
-            hidden2.value = Number(checkbx2.value * qty2.value);
-        }else{
-            hidden2.value = "0"
-        };
-       
-        console.log(hidden2.value);
+    
+    
+    function calc1(price, checkbox, qty, hidden){
+    const checkbxVal = document.getElementById(String(checkbox));
+    const qtyVal = document.getElementById(String(qty)).value;
+    const hiddenVal = document.getElementById(String(hidden));
+    hiddenVal.value = price * Number(qtyVal);
+    };
 
-        result1 = Number(hidden1.value) + Number(hidden2.value);
-        document.getElementById("result1").value = result1.toLocaleString();
+    function calc2(price){
+    const checkbx2 = document.getElementById("checkbox1");
+    const qty2 = document.getElementById("price1").value;
+    const hidden2 = document.getElementById("hidden1");
+    hidden2.value = price * Number(qty2);
+    };
+
+    
+
+    //   let checkbx2 = document.getElementById("checkbox2");
+    
+    //   let qty2 = document.getElementById("price2");
+    //   let hidden2 = document.getElementById("hidden2");
+    //   let hidden1 = document.getElementById("hidden1");
+    //   let result1 = document.getElementById("result1");
+    //     if(checkbx1.checked){
+    //         hidden1.value = Number(checkbx1.value) * Number(qty1.value);
+    //     }else{
+    //         hidden1.value = "0"
+    //     };
+        
+    //     console.log(hidden1.value);
+    //     if(checkbx2.checked){
+    //         hidden2.value = Number(checkbx2.value * qty2.value);
+    //     }else{
+    //         hidden2.value = "0"
+    //     };
+       
+    //     console.log(hidden2.value);
+
+    //     result1 = Number(hidden1.value) + Number(hidden2.value);
+    //     document.getElementById("result1").value = result1.toLocaleString();
     };
      
 

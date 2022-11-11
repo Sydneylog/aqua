@@ -1,5 +1,7 @@
 <?php
-include "inc/session.php"
+include "inc/session.php";
+// echo $s_nick;
+// exit;
 ?>
 
 <!DOCTYPE html>
@@ -17,121 +19,7 @@ include "inc/session.php"
     <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
     <script src="js/jquery.bxslider.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
-    <script defer type="text/javascript">
-        //GNB
-        $(".nav> ul > li").mouseenter(function(){
-            $(this).find("ul").stop().fadeIn("fast");
-            $("m_background").stop().slideDown("fast");
-        });
-        $(".nav > ul > li").mouseleave(function(){
-            $(this).find("ul").stop().fadeOut("fast");
-            $("m_background").stop().slideUp("fast");
-        });
-
-        //sticky nav
-        $(function(){
-			$(window).scroll(function(){
-				let nowScroll = $(document).scrollTop();
-				if(nowScroll > 50){ 
-						$('#nav').css({'top':'0', "height":"50", "font-size":"16px", "transition":"0.2s", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
-                        $('#mini_info').stop().animate({'opacity':'1'}, 50);
-                        $('.logo_wrap').hide(700);
-                        $(".mini_mapage").stop().fadeIn(50);
-                        $(".navcon").stop().fadeIn(50);
-				}else{
-                        $('#nav').css({'top': '100px', "height":"50","font-size":"16px", "background":"rgb(255, 255, 255)",  "border-bottom":"1px solid #cbcbcb", "box-shadow":"0px 0px 0px #fff"});
-                        $('#mini_info').stop().animate({'opacity':'0'}, 0);
-                        $('.logo_wrap').show(500);
-                        $('.mini_mapage').stop().fadeOut(0);
-                        $('.navcon').stop().fadeOut(0);
-				}
-			});
-		});
-
-        //slider
-        $('.main_image').bxSlider({
-            mode:'fade',
-            auto:false,
-            pause:5000
-        });
-        $('.mini_slide').slick({
-            dots: false,
-            infinite: true,
-            speed: 1000,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows:false,
-            autoplay:true,
-            pauseOnHover : true,
-            autoplaySpeed :5000,
-            fade:true,
-            swipe:false
-        });
-
-        //part1 icon 동작
-        $(".pt1_imgbx>li").hover(function(){
-            $(this).find("span:eq(0)").stop().animate({top:-40}, 600);
-        }, function(){
-            $(this).find("span:eq(0)").stop().animate({top:0});
-        });
-        $(".pt1_imgbx>li").hover(function(){
-            $(this).find("span:eq(1)").stop().animate({top:-50}, 400);
-        }, function(){
-            $(this).find("span:eq(1)").stop().animate({top:0});
-        });
-        $(".pt1_imgbx>li").hover(function(){
-            $(this).find("a").stop().animate({opacity:1}, 1000);
-        }, function(){
-            $(this).find("a").stop().animate({opacity:0});
-        });
-
-            
-        //part3 slick plugin
-        $('.spt_lights').slick({
-            dots: false,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 4.5,
-            slidesToScroll: 1,
-            arrows:true,
-            prevArrow : "<button type='button' class='slick-prev'>이전</button>",        
-            nextArrow : "<button type='button' class='slick-next'>다음</button>",
-            autoplay:true,
-            pauseOnHover : true,
-            autoplaySpeed : 5000,
-            responsive: [
-                {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-                },
-                {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-                },
-                {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-                }
-            ]
-            });
-            
-        //계열사
-        $(".footer_more").click(function(){
-            $(".footer_more ul").stop().slideToggle();
-            $(".footer_more button").css({"transform":"rotate(180deg)"});
-        });
-    </script>
+    
 </head>
 <body>
 <header id="header" class="header">
@@ -260,18 +148,18 @@ include "inc/session.php"
     <section class="main_img">
         <h2 class="blind">주요 소식</h2>
             <div class=".slider_wrap">
-            <ul class="main_image">
-                <li class="banner_tok">
-                    <a href="#">
-                        <span class="banner_more">
-                        <a href="#">자세히 알아보기</a>
-                        </span>
-                    </a>
-                </li> 
-                <!-- <li class="main_int1"></li>
-                <li class="main_int2"></li>
-                <li class="main_int3"></li> -->
-            </ul>
+                <ul class="main_image">
+                    <li class="banner_tok">
+                        <a href="#">
+                            <span class="banner_more">
+                            <a href="#">자세히 알아보기</a>
+                            </span>
+                        </a>
+                    </li> 
+                    <!-- <li class="main_int1"></li>
+                    <li class="main_int2"></li>
+                    <li class="main_int3"></li> -->
+                </ul>
             </div>
     </section>
 
@@ -546,7 +434,122 @@ if($s_id == "admin"){
     echo include "inc/sub_header.html";
 };
 ?>
+<script defer type="text/javascript">
+        //GNB
+   
+        $(".nav> ul > li").mouseenter(function(){
+            $(this).find("ul").stop().fadeIn("fast");
+            $("m_background").stop().slideDown("fast");
+        });
+        $(".nav > ul > li").mouseleave(function(){
+            $(this).find("ul").stop().fadeOut("fast");
+            $("m_background").stop().slideUp("fast");
+        });
 
+        //sticky nav
+        $(function(){
+			$(window).scroll(function(){
+				let nowScroll = $(document).scrollTop();
+				if(nowScroll > 50){ 
+						$('#nav').css({'top':'0', "height":"50", "font-size":"16px", "transition":"0.2s", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
+                        $('#mini_info').stop().animate({'opacity':'1'}, 50);
+                        $('.logo_wrap').hide(700);
+                        $(".mini_mapage").stop().fadeIn(50);
+                        $(".navcon").stop().fadeIn(50);
+				}else{
+                        $('#nav').css({'top': '100px', "height":"50","font-size":"16px", "background":"rgb(255, 255, 255)",  "border-bottom":"1px solid #cbcbcb", "box-shadow":"0px 0px 0px #fff"});
+                        $('#mini_info').stop().animate({'opacity':'0'}, 0);
+                        $('.logo_wrap').show(500);
+                        $('.mini_mapage').stop().fadeOut(0);
+                        $('.navcon').stop().fadeOut(0);
+				}
+			});
+		});
+
+        //slider
+        $('.main_image').bxSlider({
+            mode:'fade',
+            auto:false,
+            pause:5000
+        });
+        $('.mini_slide').slick({
+            dots: false,
+            infinite: true,
+            speed: 1000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows:false,
+            autoplay:true,
+            pauseOnHover : true,
+            autoplaySpeed :5000,
+            fade:true,
+            swipe:false
+        });
+
+        //part1 icon 동작
+        $(".pt1_imgbx>li").hover(function(){
+            $(this).find("span:eq(0)").stop().animate({top:-40}, 600);
+        }, function(){
+            $(this).find("span:eq(0)").stop().animate({top:0});
+        });
+        $(".pt1_imgbx>li").hover(function(){
+            $(this).find("span:eq(1)").stop().animate({top:-50}, 400);
+        }, function(){
+            $(this).find("span:eq(1)").stop().animate({top:0});
+        });
+        $(".pt1_imgbx>li").hover(function(){
+            $(this).find("a").stop().animate({opacity:1}, 1000);
+        }, function(){
+            $(this).find("a").stop().animate({opacity:0});
+        });
+
+            
+        //part3 slick plugin
+        $('.spt_lights').slick({
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4.5,
+            slidesToScroll: 1,
+            arrows:true,
+            prevArrow : "<button type='button' class='slick-prev'>이전</button>",        
+            nextArrow : "<button type='button' class='slick-next'>다음</button>",
+            autoplay:true,
+            pauseOnHover : true,
+            autoplaySpeed : 5000,
+            responsive: [
+                {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+                },
+                {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+                }
+            ]
+            });
+            
+        //계열사
+        $(".footer_more").click(function(){
+            $(".footer_more ul").stop().slideToggle();
+            $(".footer_more button").css({"transform":"rotate(180deg)"});
+        });
+    </script>
 
 
 </body>

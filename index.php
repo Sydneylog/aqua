@@ -17,6 +17,121 @@ include "inc/session.php"
     <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
     <script src="js/jquery.bxslider.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script defer type="text/javascript">
+        //GNB
+        $(".nav> ul > li").mouseenter(function(){
+            $(this).find("ul").stop().fadeIn("fast");
+            $("m_background").stop().slideDown("fast");
+        });
+        $(".nav > ul > li").mouseleave(function(){
+            $(this).find("ul").stop().fadeOut("fast");
+            $("m_background").stop().slideUp("fast");
+        });
+
+        //sticky nav
+        $(function(){
+			$(window).scroll(function(){
+				let nowScroll = $(document).scrollTop();
+				if(nowScroll > 50){ 
+						$('#nav').css({'top':'0', "height":"50", "font-size":"16px", "transition":"0.2s", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
+                        $('#mini_info').stop().animate({'opacity':'1'}, 50);
+                        $('.logo_wrap').hide(700);
+                        $(".mini_mapage").stop().fadeIn(50);
+                        $(".navcon").stop().fadeIn(50);
+				}else{
+                        $('#nav').css({'top': '100px', "height":"50","font-size":"16px", "background":"rgb(255, 255, 255)",  "border-bottom":"1px solid #cbcbcb", "box-shadow":"0px 0px 0px #fff"});
+                        $('#mini_info').stop().animate({'opacity':'0'}, 0);
+                        $('.logo_wrap').show(500);
+                        $('.mini_mapage').stop().fadeOut(0);
+                        $('.navcon').stop().fadeOut(0);
+				}
+			});
+		});
+
+        //slider
+        $('.main_image').bxSlider({
+            mode:'fade',
+            auto:false,
+            pause:5000
+        });
+        $('.mini_slide').slick({
+            dots: false,
+            infinite: true,
+            speed: 1000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows:false,
+            autoplay:true,
+            pauseOnHover : true,
+            autoplaySpeed :5000,
+            fade:true,
+            swipe:false
+        });
+
+        //part1 icon 동작
+        $(".pt1_imgbx>li").hover(function(){
+            $(this).find("span:eq(0)").stop().animate({top:-40}, 600);
+        }, function(){
+            $(this).find("span:eq(0)").stop().animate({top:0});
+        });
+        $(".pt1_imgbx>li").hover(function(){
+            $(this).find("span:eq(1)").stop().animate({top:-50}, 400);
+        }, function(){
+            $(this).find("span:eq(1)").stop().animate({top:0});
+        });
+        $(".pt1_imgbx>li").hover(function(){
+            $(this).find("a").stop().animate({opacity:1}, 1000);
+        }, function(){
+            $(this).find("a").stop().animate({opacity:0});
+        });
+
+            
+        //part3 slick plugin
+        $('.spt_lights').slick({
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4.5,
+            slidesToScroll: 1,
+            arrows:true,
+            prevArrow : "<button type='button' class='slick-prev'>이전</button>",        
+            nextArrow : "<button type='button' class='slick-next'>다음</button>",
+            autoplay:true,
+            pauseOnHover : true,
+            autoplaySpeed : 5000,
+            responsive: [
+                {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+                },
+                {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+                }
+            ]
+            });
+            
+        //계열사
+        $(".footer_more").click(function(){
+            $(".footer_more ul").stop().slideToggle();
+            $(".footer_more button").css({"transform":"rotate(180deg)"});
+        });
+    </script>
 </head>
 <body>
 <header id="header" class="header">
@@ -194,13 +309,54 @@ include "inc/session.php"
                 </li>
             </ul>
         </div>
+        <div class="info_etc_wrap">
+            <div class="event">
+                <ul>진행중인 이벤트
+                    <li>러버덕 이벤트</li>
+                    <li>물개 이벤트</li>
+                </ul>
+            </div>
+            <div class="news">
+                <div>아쿠아리움 새로운 소식
+                    <span class="material-symbols-outlined">
+                        expand_circle_down
+                    </span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section>
-    <div class="part2_txt">
-        <p class="p2_txt1">직접 체험해보세요!</p>
-        <p class="p2_txt2">방문하신 분들을 위해 다양한 프로그램을 준비했습니다.</p>
-    </div>
+        <div class="part2_box">
+                <div class="character_box">
+                    <img src="images/membershipC.png" alt="">
+                </div>
+                <div class="part2_text_box">
+                    <p class="p2_txt1">
+                        마린 프렌즈가 되면 특별한 혜택을 받을 수 있어요!
+                    </p>
+                    <p class="p2_txt2">
+                        마린 프렌즈가 되어 특별한 혜택을 누려보세요.<br>
+                        티켓 할인 및 부가 서비스가 제공 되고 있습니다.
+                    </p>
+                    <div class="part2_btn_box">
+                        <a href="members/Signup2.php">
+                            <div class="membership_btn">멤버십 가입</div>
+                        </a>
+                        <a href="login/login.php">
+                            <div class="membership_btn">로그인</div>
+                        </a>
+                        
+                    <div>
+                </div>
+           
+        </div>
+    </section>
+
+
+
+
+
     <section class="main_thema">
     <h2 class="pro_title">Aqaurium 주요 체험 프로그램</h2>
         <div class="pro_wrap">
@@ -392,120 +548,6 @@ if($s_id == "admin"){
 ?>
 
 
-<script type="text/javascript">
-        //GNB
-        $(".nav> ul > li").mouseenter(function(){
-            $(this).find("ul").stop().fadeIn("fast");
-            $("m_background").stop().slideDown("fast");
-        });
-        $(".nav > ul > li").mouseleave(function(){
-            $(this).find("ul").stop().fadeOut("fast");
-            $("m_background").stop().slideUp("fast");
-        });
 
-        //sticky nav
-        $(function(){
-			$(window).scroll(function(){
-				let nowScroll = $(document).scrollTop();
-				if(nowScroll > 50){ 
-						$('#nav').css({'top':'0', "height":"50", "font-size":"16px", "transition":"0.2s", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
-                        $('#mini_info').stop().animate({'opacity':'1'}, 50);
-                        $('.logo_wrap').hide(700);
-                        $(".mini_mapage").stop().fadeIn(50);
-                        $(".navcon").stop().fadeIn(50);
-				}else{
-                        $('#nav').css({'top': '100px', "height":"50","font-size":"16px", "background":"rgb(255, 255, 255)",  "border-bottom":"1px solid #cbcbcb", "box-shadow":"0px 0px 0px #fff"});
-                        $('#mini_info').stop().animate({'opacity':'0'}, 0);
-                        $('.logo_wrap').show(500);
-                        $('.mini_mapage').stop().fadeOut(0);
-                        $('.navcon').stop().fadeOut(0);
-				}
-			});
-		});
-
-        //slider
-        $('.main_image').bxSlider({
-            mode:'fade',
-            auto:false,
-            pause:5000
-        });
-        $('.mini_slide').slick({
-            dots: false,
-            infinite: true,
-            speed: 1000,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows:false,
-            autoplay:true,
-            pauseOnHover : true,
-            autoplaySpeed :5000,
-            fade:true,
-            swipe:false
-        });
-
-        //part1 icon 동작
-        $(".pt1_imgbx>li").hover(function(){
-            $(this).find("span:eq(0)").stop().animate({top:-40}, 600);
-        }, function(){
-            $(this).find("span:eq(0)").stop().animate({top:0});
-        });
-        $(".pt1_imgbx>li").hover(function(){
-            $(this).find("span:eq(1)").stop().animate({top:-50}, 400);
-        }, function(){
-            $(this).find("span:eq(1)").stop().animate({top:0});
-        });
-        $(".pt1_imgbx>li").hover(function(){
-            $(this).find("a").stop().animate({opacity:1}, 1000);
-        }, function(){
-            $(this).find("a").stop().animate({opacity:0});
-        });
-
-            
-        //part3 slick plugin
-        $('.spt_lights').slick({
-            dots: false,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 4.5,
-            slidesToScroll: 1,
-            arrows:true,
-            prevArrow : "<button type='button' class='slick-prev'>이전</button>",        
-            nextArrow : "<button type='button' class='slick-next'>다음</button>",
-            autoplay:true,
-            pauseOnHover : true,
-            autoplaySpeed : 5000,
-            responsive: [
-                {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-                },
-                {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-                },
-                {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-                }
-            ]
-            });
-            
-        //계열사
-        $(".footer_more").click(function(){
-            $(".footer_more ul").stop().slideToggle();
-            $(".footer_more button").css({"transform":"rotate(180deg)"});
-        });
-    </script>
 </body>
 </html>

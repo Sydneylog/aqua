@@ -17,7 +17,7 @@
         list-style: none;
     }
     body{
-        font-family:"돋움","나눔고딕", "맑은 고딕";
+        font-family:'Spoqa Han Sans Neo', 'sans-serif', "돋움","나눔고딕", "맑은 고딕";
     }
     address{
         font-style:normal; 
@@ -38,6 +38,23 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
 
+/* scrollMagic */
+.back-to-position {
+  opacity: 0;
+  transition: 1s;
+}
+/* 붙여쓰기 = 일치 선택자 */
+.back-to-position.to-right{
+ transform: translateX(-150px);
+}
+.back-to-position.to-left{
+ transform: translateX(150px);
+}
+.show .back-to-position{
+  opacity: 1;
+  transform: translateX(0);
+
+}
 
 
 body{ 
@@ -169,6 +186,113 @@ body{
 
 
 
+/* program intro */
+.program_introduction{
+/* 밑배경의 윗배경 */
+/* background-image:  */
+}
+.program_introduction .inner{
+height:400px;
+}
+.program_introduction .text_group{
+ position:absolute
+}
+.program_introduction .text_group .title{
+    
+}
+.program_introduction .text_group .description{
+
+}
+.program_introduction .text_group .more{
+
+}
+
+/* 2nd program intro */
+.program_introduction{
+  /* 밑배경의 윗배경 */
+  /* background-image:  */
+  }
+  .program_introduction .inner{
+  height:400px;
+  }
+  .program_introduction .text_group{
+   position:absolute
+  }
+  .program_introduction .text_group .title{
+      
+  }
+  .program_introduction .text_group .description{
+  
+  }
+  .program_introduction .text_group .more{
+  
+  }
+
+/* 3rd program intro */
+.program_introduction{
+ /* 가장 기본 배경
+ background-attachment: fiexd;
+ background-size: cover  cover: 요소의 더 넓은 곳 기준을 ㅗ적용*/
+  }
+  .program_introduction .inner{
+  height:400px;
+  }
+  .program_introduction .text_group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end /*끝부분 기준*/
+  }
+  .program_introduction .text_group .title{
+      
+  }
+  .program_introduction .text_group .description{
+  
+  }
+  .program_introduction .text_group .more{
+  
+  }
+
+ /* .3rd_program_icon*/
+ .icon_3rd{
+  /* //이중 밑배경 */
+ }
+
+  .icon_3rd .inner{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .icon_3d.medal{
+    width:340px;
+    height:340px;
+    perspective:600px;
+  }
+  .icon_3rd .inner .medal .front, .icon_3rd .inner .medal .back{
+    width:340px;
+    height:340px;
+    backface-visibility: hidden;
+    transition: 1s;
+    position:absolute; /*여기서 absolute는 위치용이 아니라 fluid 효과를 위함 + 이후 프레임 완성되면 위치 조정을 위해 중복선택자로 옮김*/
+  }
+  .icon_3rd .inner .medal .front{
+    
+    transform: rotateY(0deg); /*뒤집어진 이후 원상태 복귀를 위함(크로스 브라우저 이슈 대비)*/
+  }
+  .icon_3rd .inner .medal:hover .front{
+    transform: rotateY(180deg);
+  }
+
+  .icon_3rd .inner .medal .back{
+    transform: rotateY(-180deg);
+  }
+
+  .icon_3rd .inner .medal:hover .back{
+    transform: rotateY(0deg);
+  }
+
+  .icon_3rd .inner .medal .back .btn{
+    position:absolute;
+  }
 
 
 

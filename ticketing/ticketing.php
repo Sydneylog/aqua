@@ -10,138 +10,22 @@
     <link rel="stylesheet" href="../css/datepicker.min.css">
     <link rel="stylesheet" href="../css/datepicker.css">
     <link rel="stylesheet" href="../css/header.css">
+    <!-- favicon -->
     <link rel="shorcut icon" type="image/x-icon" href="../images/favicon.ico">
+    <!-- jquery -->
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
+    <!-- date picker calender -->
     <script type="text/javascript" src="../js/datepicker.js"></script>
     <script type="text/javascript" src="../js/datepicker.ko.js"></script>
+    <!-- slider -->
     <script src="../js/jquery.bxslider.js"></script>
+    <!-- google material -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <script type="text/javascript">
-    $(document).ready(function(){
-        //GNB
-        $(".nav> ul > li").mouseenter(function(){
-            $(this).find("ul").stop().slideDown("fast");
-        });
-        $(".nav > ul > li").mouseleave(function(){
-            $(this).find("ul").stop().slideUp("fast");
-        });
-
-        //sticky nav
-        $(function(){
-			$(window).scroll(function(){
-				let nowScroll = $(document).scrollTop();
-				if(nowScroll > 49){ 
-						$('#nav').css({'top':'0', "height":"49", "font-size":"30px", "transition":"0.2s", "color":"#fff", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
-				}else{
-                        $('#nav').css({'top': '100px', "height":"50","font-size":"20px", "background":"rgb(255, 255, 255)", "border-top":"1px solid #cbcbcb", "border-bottom":"1px solid #cbcbcb", "color":"#fff", "box-shadow":"0px 0px 0px #fff"});
-				}
-			});
-		});
-        //pt1Slider
-        $('.pt1_slider').bxSlider({
-            mode:'fade',
-            auto:false,
-            pause:5000
-            });
-        //pt1SeafoodSlider
-        $(".part2_next").click(function(){
-            $(".part2").animate({"left":"-350px"}, 900, "swing");
-            $(".part2_2").animate({"left":"690px"}, 900, "swing");
-            $(this).hide();
-            $(".part2_prev").show();
-        });
-        $(".part2_prev").click(function(){
-            $(".part2").animate({"left":"0px"}, 900, "swing");
-            $(".part2_2").animate({"left":"1050px"}, 900, "swing");
-            $(this).hide();
-            $(".part2_next").show();
-        });
-        /*
-        //floorIntroSlider
-        //*Html 요소 가져오기 및 설정
-        const slides = document.querySelector(".slides");
-        const floor = document.querySelectorAll(".floor");
-        const btnP = document.querySelector(".btnP");
-        const btnN = document.querySelector(".btnN");
-        const slideLen = slides.length; //내 슬라이더에선 현재는 5
-        const slideWidth = 250;
-        const slideSpeed = 400;
-        const startNum = 0;
-        
-        slides.style.width = slideWidth * (slideLen + 2) + "px";
-
-        //*눈속임을 위한 first와 last 요소 복사
-        let firstChild = slides.firstElementChild;
-        let lastChild = slides.lastElementChild;
-        let clonedFirst = firstChild.cloneNode(true);
-        let clonedLast = lastChild.cloneNode(true);
-
-        //*복사한 요소 각각의 위치로 붙여넣기
-        slides.appendChild(clonedFirst);
-        slides.insertBefore(clonedLast, slides.firstElementChild);
-        //*슬라이드 이동 범위 설정
-        slides.style.transform = "translate3d(-" + (slideWidth * (startNum + 1)) + "px, 0px, 0px)";
-
-        //*슬라이더 조작을 위한 설정
-        let curIndex = startNum; //이 때 copied 슬라이드는 제외됨
-        let curSlide = floor[curIndex]; //current slide DOM
-        curSlide.classList.add("slide_active") //active slide 를 클래스 명을 추가하여 제어
-
-
-         //next btn event
-        btnN.addEventListener("click", function(){
-            if (curIndex <= slideLen - 1) {
-                slides.style.transition = slideSpeed + "ms";
-                slides.style.transform = "translate3d(-" + (slideWidth * (curIndex + 2)) + "px, 0px, 0px)";
-            }
-            if (curIndex === slideLen - 1) {
-                setTimeout(function(){
-                    slides.style.transition = "0ms";
-                    slides.style.transform = "translate3d(-" + slideWidth + "px, 0px, 0px)";
-                }, slideSpeed);
-                curIndex = -1;
-                }
-            curSlide.classList.remove("slide_active");
-            curSlide = floor[++curIndex];
-            curSlide.classList.add("slide_active")
-            });
-
-        btnP.addEventListener("click",function(){
-            if (curIndex >= 0) {
-                slides.style.transition = slideSpeed + "ms";
-                slides.style.transform = "translate3d(-" + (slideWidth * curIndex) + "px, 0px, 0px)";
-            }
-            if (curIndex === 0) {
-                setTimeout(function() {
-                    slides.style.transition = "0ms";
-                    slides.style.transform = "translate3d(-" + (slideWidth * slideLen) + "px, 0px, 0px)";
-                }, slideSpeed);
-            }
-            curSlide.classList.remove("slide_active");
-            curSlide = floor[--curIndex];
-            curSlide.classList.add("slide_active")
-        });
-        */
-        
-        
-        //floorIntroSliderclick
-        $(".slides li").click(function(){
-        let i = 0;
-        idx = $(this).index();
-        i = idx;
-        $(".expl_bx").animate({"left":"-1200" * i}, 500, "swing");
-        });
-        
-
-    });
-
-
-    </script>    
+     
 </head>
 <body>
     <!-- header -->
-    <?php include "../inc/header_html.php" ?>
+    <?php //include "../inc/header_html.php" ?>
     
 
     <main id="content" class="content">
@@ -157,11 +41,12 @@
         </section>
         <section class="main_wrap">
         <div class="main_part">
-        <form>
+        <form action="insert.php" method="post" >
         <h2 class="ticket_title">- 티켓구매 -</h2>
             <div class="pt1_wrap">
                 <h3>1. 날짜 및 인원</h3>
                 <ul class="selection_bx">
+                    <!-- 달력 -->
                     <li class="selbx1">
                         <label for="datepicker">
                             <span>1) 날짜 선택</span>
@@ -171,16 +56,16 @@
                     </li>
                     <li class="sel_p"><span>2) 인원 선택 </span>
                         <p>
-                            <input type="checkbox" name="checkbox" id="checkbox1" value="33000">
+                            <input type="checkbox" name="checkbox" id="checkbox1" class="checkbox1" onclick="must_date()" value="normal">
                             <label for="checkbox1">일반/청소년<br>&nbsp&nbsp&nbsp&nbsp&nbsp33,000원</label>
-                            <input type="text" name="price1" id="price1" class="price1" onkeyup="calc1(3000, checkbox1, qty1, hidden1)"> 명
-                            <input type="text" name="hidden1" id="hidden1" hidden>
+                            <input type="text" name="qty" id="price1" class="price1 qtySet" onkeyup="tCalc(33000)" onclick="preventor()" > 명
+                            <input type="text" name="hidden" id="hidden1" hidden>
                         </p>
                         <p>
-                            <input type="checkbox" name="checkbox" id="checkbox2" value="29000">
+                            <input type="checkbox" name="checkbox" id="checkbox2" class="checkbox2" onclick="must_date()" value="weak">
                             <label for="checkbox2">경로/어린이<br>&nbsp&nbsp&nbsp&nbsp&nbsp29,000원</label> 
-                            <input type="text" name="price1"  id="price2" class="price2" onkeyup="calc1()"> 명
-                            <input type="text" name="hidden1" id="hidden2" hidden >
+                            <input type="text" name="qty"  id="price2" class="price2 qtySet" onkeyup="tCalc2(29000)" onclick="preventor2()"> 명
+                            <input type="text" name="hidden" id="hidden2" hidden >
                         </p>
                     </li>
                     <hr class="calLine">
@@ -193,9 +78,6 @@
                     </div>
                 </ul>
             </div>
-
-        
-       
         <div class="ticket_sale">
             <h3>2. 티켓 할인 적용</h3>
         <ul class="sale_bx">
@@ -210,59 +92,59 @@
             <div class="sale_list">
                 <ul class="credit">
                     <li>
-                        <input type="radio" name="which_credit" value="80" id="c1">
+                        <input type="radio" name="which_dis" value="80" id="c1">
                         <span class="c1">삼성 카드<br>(20% 할인)</span>
                     </li>
                     <li>
-                        <input type="radio" name="which_credit" value="75" id="c2">
+                        <input type="radio" name="which_dis" value="75" id="c2">
                         <span class="c2">현대 카드<br>(25% 할인)</span>
                     </li>
                     <li>
-                        <input type="radio" name="which_credit" value="70" id="c3">
+                        <input type="radio" name="which_dis" value="70" id="c3">
                         <span class="c3">신한 카드<br>(30% 할인)</span>
                     </li>
                     
                 </ul>
                 <ul class="membership">
                     <li>
-                        <input type="radio" name="which_memb" value="80" id="m1">
+                        <input type="radio" name="which_dis" value="80" id="m1">
                         <span class="m1">SK 멤버십<br>(20% 할인)</span>
                     </li>
                     <li>
-                        <input type="radio" name="which_memb" value="75" id="m2">
+                        <input type="radio" name="which_dis" value="75" id="m2">
                         <span class="m2">KT 멤버십<br>(25% 할인)</span>
                     </li>
                     <li>
-                        <input type="radio" name="which_memb" value="70" id="m3">
+                        <input type="radio" name="which_dis" value="70" id="m3">
                         <span class="m3">LG U+멤버십<br>(30% 할인)</span>
                     </li>
                 </ul>
                 <ul class="marineF">
                     <li>
-                        <input type="radio" name="which_memb" value="80" id="f1">
+                        <input type="radio" name="which_dis" value="80" id="f1">
                         <span class="f1">마린 프렌즈 추천<br>(20% 할인)</span>
                     </li>
                     <li>
-                        <input type="radio" name="which_memb" value="75" id="f2">
+                        <input type="radio" name="which_dis" value="75" id="f2">
                         <span class="f2">지역 주민 우대<br>(25% 할인)</span>
                     </li>
                     <li>
-                        <input type="radio" name="which_memb" value="70" id="f3">
+                        <input type="radio" name="which_dis" value="70" id="f3">
                         <span class="f3">롯데 그룹사 임직원<br>(30% 할인)</span>
                     </li>
                    
                 </ul>
                 <ul class="normalDis">
                     <li>
-                        <input type="radio" name="which_memb" value="80" id="n1">
+                        <input type="radio" name="which_dis" value="80" id="n1">
                         <span class="n1">군인 할인<br>(20% 할인)</span>
                     </li>
                     <li>
-                        <input type="radio" name="which_memb" value="75" id="n2">
+                        <input type="radio" name="which_dis" value="75" id="n2">
                         <span class="n2">나이트 타임 할인<br>(25% 할인)</span>
                     </li>
                     <li>
-                        <input type="radio" name="which_memb" value="70" id="n3">
+                        <input type="radio" name="which_dis" value="70" id="n3">
                         <span class="n3">가족 동반 할인<br>(30% 할인)</span>
                     </li>
                 </ul>
@@ -482,138 +364,96 @@
 
 </body>
 <script type="text/javascript">
-    
     //calander
     $("#datepicker").datepicker({
     	language: 'ko',
         inline: true,
         dateFormat: 'yyyy/mm/dd',
     });
-
-
-
-   //티켓 구입
-    // if checkbox1 checked 
-    //  checkbox1.value * price1.value = hidden1
-    // if checkbox2 checked
-    // checkbox1. value * price1. vlauel = hidden2
-
-    // result1 = hidden1 + hidden2
     
-    
-    function calc1(price, checkbox, qty, hidden){
-    const checkbxVal = document.getElementById(String(checkbox));
-    const qtyVal = document.getElementById(String(qty)).value;
-    const hiddenVal = document.getElementById(String(hidden));
-    hiddenVal.value = price * Number(qtyVal);
-    };
-
-    function calc2(price){
-    const checkbx2 = document.getElementById("checkbox1");
-    const qty2 = document.getElementById("price1").value;
-    const hidden2 = document.getElementById("hidden1");
-    hidden2.value = price * Number(qty2);
-    };
-
-    
-
-    //   let checkbx2 = document.getElementById("checkbox2");
-    
-    //   let qty2 = document.getElementById("price2");
-    //   let hidden2 = document.getElementById("hidden2");
-    //   let hidden1 = document.getElementById("hidden1");
-    //   let result1 = document.getElementById("result1");
-    //     if(checkbx1.checked){
-    //         hidden1.value = Number(checkbx1.value) * Number(qty1.value);
-    //     }else{
-    //         hidden1.value = "0"
-    //     };
-        
-    //     console.log(hidden1.value);
-    //     if(checkbx2.checked){
-    //         hidden2.value = Number(checkbx2.value * qty2.value);
-    //     }else{
-    //         hidden2.value = "0"
-    //     };
-       
-    //     console.log(hidden2.value);
-
-    //     result1 = Number(hidden1.value) + Number(hidden2.value);
-    //     document.getElementById("result1").value = result1.toLocaleString();
-    };
-     
-
-
-   /*function calc1() {
-        let result1 = Number(document.getElementById("result1"));
-
-        for(let i = 1; i < 3 ; i++){
-            let checkbx = document.getElementById("checkbox" + i);
-            let pricebx = document.getElementById("price" + i);
-            
-            if(checkbx.checked){
-                result1 = Number(checkbx.value) * Number(pricebx.value);
-                result1 += result1;
-            };
-            document.getElementById("result1").value = result1.toLocaleString(); //+ " 원";
-        }; 
-    };
-    for(let i = 1; i < 3; i++){
-
-        let checked = document.getElementById("checkbox" + i);
-        checked.onclick = calc1; 
-    };*/
-
-
-    //result1.value += pricei * checkbxi
-    /*function calc1() {
-        let result1 = Number(document.getElementById("result1"));
-        
-        let checkbx1 = document.getElementById(checkbox1);
-        let pricebx1 = document.getElementById(price1);
-        if(checkbox1.checked == true && pricebx != "" ){
-            let adultT = Number(checkbox1.value) * Number(price1.value);
-            console.log(adulT.value);
-            document.getElemnetById("checkbx1").value = adultT;
-        };
-        
-    };
-
-    for(let i = 1; i < 3; i++){
-        let checked1 = document.getElementById("checkbox" + i);
-        if(checked1.checked){
-            checked1.onchange = calc1();
+    //preventors
+    function must_date(){
+        let dateInput = document.getElementById("datepicker");
+        let checkbox = document.getElementsByName("checkbox");
+        if(dateInput.value == ""){
+            $("input[name = checkbox").prop("checked", false);
+            return alert("먼저 이용을 원하시는 날짜를 선택해 주세요");
+        }else{
+            return true;
         }
-    }*/
+    };
+    function preventor(){
+        let checkbx = document.getElementById("checkbox1");
+        if(!checkbx.checked){
+            alert("먼저 구매하실 티켓을 선택해 주세요");
+            checkbx.focus();
+        };
+    };
+    function preventor2(){
+        let checkbx = document.getElementById("checkbox2");
+        if(!checkbx.checked){
+            alert("먼저 구매하실 티켓을 선택해 주세요");
+            checkbx.focus();
+        };
+    };
+
+    //ticket & program calculator
+    function tCalc(price){
+        const checkbx = document.getElementById("checkbox1");
+        const qty = document.getElementById("price1").value;
+        const hidden = document.getElementById("hidden1");
+            if(checkbx.checked){
+                hidden.value = price * Number(qty);
+            }else{
+                hidden.value = "0";
+            };
+            //console.log(hidden.value);
+    };
+
+    function tCalc2(price){
+        const checkbx = document.getElementById("checkbox2");
+        const qty = document.getElementById("price2").value;
+        const hidden = document.getElementById("hidden2");
+            if(checkbx.checked){
+                hidden.value = price * Number(qty);
+            }else{
+                hidden.value = "0";
+            };
+            //console.log(hidden.value);
+    };
+
+    $(".qtySet").keyup(function(){
+        let sum = 0;
+        let sum1 = parseInt($("#hidden1").val() || 0 );
+        let sum2 = parseInt($("#hidden2").val() || 0 );
+        sum = sum1 + sum2;
+        // console.log(sum);
+        document.getElementById("result1").value = sum.toLocaleString(); 
+    });
+
+
+    
+    //discount tab menu
     $(".sale_title li").hover(function(){
             $(this).css({"color":"#0d539a", "cursor":"pointer"});
         }, function(){
             $(this).css({"color":"black"});
         });
-    
     $(".sale_title li").click(function(){
         let idx = $(this).index();
         $(".sale_list ul").eq(idx).show();
         $(".sale_list ul").not($(".sale_list ul").eq(idx)).hide();
-
     });
 
- 
-
-    /*function calc1() {
-        let result1 = Number(document.getElementById("result1").defaultValue);
-        let price1 = document.getElementById("price1").value;
-        let price2 = document.getElementById("price2").value;
-    }*/
-
-
+    //discount calculator
+    
     function calc2() {
         let result2 = Number(document.getElementById("result2").defaultValue);
         let radiobx1 = document.getElementById("n1");
         let radiobx2 = document.getElementById("n2");
         let radiobx3 = document.getElementById("n3");
         let result1N = result1.value.replace(/,/g, "");
-       
+
         if(radiobx1.checked){
             result2 = Number(result1N) * Number(radiobx1.value) / 100;
         };
@@ -623,13 +463,16 @@
         if(radiobx3.checked){
             result2 = Number(result1N) * Number(radiobx3.value) / 100;
         };
-        
-        document.getElementById("result2").value = result2.toLocaleString() //+ " 원";
-        }
+        document.getElementById("result2").value = result2.toLocaleString();
+    };
+    document.getElementById("result1").addEventListener('input', nI);
+    function nI(){
     for(let i = 1; i <= 3; i++){
         let checked2 = document.getElementById("n" + i);
         checked2.onchange = calc2;
     };
+    };
+
     function calc2_1() {
         let result2 = Number(document.getElementById("result2").defaultValue);
         let radiobx1 = document.getElementById("f1");
@@ -646,9 +489,8 @@
         if(radiobx3.checked){
             result2 = Number(result1N) * Number(radiobx3.value) / 100;
         };
-        
         document.getElementById("result2").value = result2.toLocaleString() //+ " 원";
-        }
+        };
     for(let i = 1; i <= 3; i++){
         let checked2 = document.getElementById("f" + i);
         checked2.onchange = calc2_1;
@@ -669,9 +511,8 @@
         if(radiobx3.checked){
             result2 = Number(result1N) * Number(radiobx3.value) / 100;
         };
-        
-        document.getElementById("result2").value = result2.toLocaleString() //+ " 원";
-        }
+        document.getElementById("result2").value = result2.toLocaleString();
+    };
     for(let i = 1; i <= 3; i++){
         let checked2 = document.getElementById("m" + i);
         checked2.onchange = calc2_2;
@@ -692,21 +533,16 @@
         if(radiobx3.checked){
             result2 = Number(result1N) * Number(radiobx3.value) / 100;
         };
-        
-        document.getElementById("result2").value = result2.toLocaleString() //+ " 원";
-        }
+        document.getElementById("result2").value = result2.toLocaleString(); 
+    };
     for(let i = 1; i <= 3; i++){
         let checked2 = document.getElementById("c" + i);
         checked2.onchange = calc2_3;
     };
 
 
-
-
-
-
-        
-
+    
+    //program calculator
     function calc3() {
         let result3 = Number(document.getElementById("result3"));
         let cost1 = Number(document.getElementById("cost1"));
@@ -753,10 +589,10 @@
             };
             document.getElementById("result3").value = result3;
         };*/
-    };
-    for(let i = 1; i < 4; i++){
-        let checked3 = document.getElementById("pro" + i);
-        checked3.onclick = calc3;
+            for(let i = 1; i < 4; i++){
+            let checked3 = document.getElementById("pro" + i);
+            checked3.onclick = calc3;
+        };
     };
     /*function selAll() {
         let select_all = document.getElementById("pro0");
@@ -774,7 +610,7 @@
     };
     */
     
-
+    //total calculator
     function payment(){
         let sResult1 = document.getElementById("sResult1");
         let sResult2 = document.getElementById("sResult2");
@@ -801,7 +637,6 @@
         }else{
             sResult4.value = "0"
         };
-       
         if(!(sResult3.value == "0")){
             sResult2.value = (Number(result2N) - Number(result1N)).toLocaleString();
         }else if(sResult3.value == "0"){
@@ -813,8 +648,6 @@
             sResult5.value = (Number(result3N) + Number(result1N)).toLocaleString();
         };
     };
-    // function cal(){
-
-    // };
+  
 </script>
 </html>

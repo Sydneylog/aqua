@@ -1,0 +1,121 @@
+<?php
+
+include "../inc/session.php";
+
+
+
+
+//
+$s_id;
+$t_code = $_POST["checkbox"];
+$sum = $_POST["result1"]
+$qty = $_POST["qty"];
+$d_code = $_POST["which_dis"];
+$total_sum = $_POST["result2"];
+$b_date = date("Y-m-d");
+
+//출력 확인
+echo $s_id;
+echo $t_code = $_POST["checkbox"];
+echo $price = if($t_code = "weak"){
+    echo Number(29000)
+}else{
+    echo Number(33000)
+};
+echo $sum = $_POST["result1"]
+echo $qty = $_POST["price"];
+echo $d_code = $_POST["which_dis"];
+echo $total_sum = $_POST["result2"];
+echo $b_date = date("Y-m-d");
+
+exit;
+
+
+
+
+
+
+/*이하의 데이터처리 페이지는
+다른 곳에서도 사용하므로 include를 사용하여 외부파일 폴더인 inc에 저장하여 다른 곳에서도 꺼내어 쓸 수 있도록 한다.
+
+//php에서 db접속(변수에 담기)
+$dbcon = mysqli_connect("localhost", "root", "", "front") or die("DB 접속 실패 호스트, 사용자, 비밀번호, db명 재확인 필요");
+//client측과 db과 utf8이더라도 연결객체인 php가 utf8이 아니면 문자셋 깨지므로 php도 문자셋 설정해야함
+mysqli_set_charset($dbcon, "utf8");
+*/
+
+//외부파일 불러오기
+include "../inc/dbcon.php";
+//문자열 누적 합계의 원리를 이용한 변수값 처리 쿼리문
+$sql = "insert into marine_friends(";
+$sql .= "u_id, u_name, pwd,";
+$sql .= "mobile, emailAll,";
+$sql .= "ps_code, addr1, addr2,";
+$sql .= "nick, reg_date";
+$sql .= ") values(";
+$sql .= "'$u_id', '$u_name', '$pwd',";
+$sql .= "'$mobile', '$emailAll',";
+$sql .= "'$ps_code', '$addr1', '$addr2',";
+$sql .= "'$nick', '$reg_date')";
+
+//출력 테스트 
+//echo $sql;
+//원하는 위치에 컬럼 추가
+//ALTER TABLE 테이블명 ADD COLUMN 컬럼명 데이터타입 AFTER 컬럼명;
+
+//출력 데이터 db에 바로 전송
+mysqli_query($dbcon, $sql);
+
+//백그라운드에서 계속 실행중인 스크립트 종료
+mysqli_close($dbcon);
+
+
+?>
+
+
+<!--
+local host로 접속 
+http://localhost/project1/aqua/members/Signup2.html 
+-->
+<!-- 
+*테이블 설계
+테이블: aqua_members
+아이디 idx int primary key auto_increment
+이름   u_id varchar(20) not null
+비밀번호 pwd varchar(30) not null
+전화번호 mobile varchar(11)
+이메일  emailAll varchar(50)
+우편번호 ps_code char(5)
+기본주소 addr1 char(30)
+상세주소 addr2 char(50)
+닉네임  nick char(20)
+가입일 reg_date datetime
+
+*테이블 생성
+create table marine_friends(
+    idx int primary key auto_increment,
+    u_id varchar(20) not null,
+    pwd varchar(30) not null,
+    mobile varchar(11), 
+    emailAll varchar(50),
+    ps_code char(5),
+    addr1 char(30),
+    addr2 char(50),
+    nick char(20),
+    reg_date datetime
+);
+*column 값 수정
+alter table aqua_members modify column mobile varchar(11) not null;
+
+*나온 결과 값을 직접 입력한다면
+insert into aqua_members(u_id, pwd, mobile, emailAll, ps_code, addr1, addr2, nick, reg_date) values('tester1', '1234' ....);
+
+이런식으로 해야함
+
+
+
+ -->
+ <script type="text/javascript">
+    location.href = "welcome.php";
+</script>
+ 

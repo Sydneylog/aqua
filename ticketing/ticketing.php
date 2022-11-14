@@ -52,7 +52,8 @@
                             <span>1) 날짜 선택</span>
                         </label>
                         <span class="picked_date">날짜:</span>
-                        <input type="text" id="datepicker" disabled >
+                        <input type="text" id="datepicker" name="datepicker" disabled >
+                        <input type="hidden" name="price" value="33000">
                     </li>
                     <li class="sel_p"><span>2) 인원 선택 </span>
                         <p>
@@ -60,6 +61,7 @@
                             <label for="checkbox1">일반/청소년<br>&nbsp&nbsp&nbsp&nbsp&nbsp33,000원</label>
                             <input type="text" name="qty" id="price1" class="price1 qtySet" onkeyup="tCalc(33000)" onclick="preventor()" > 명
                             <input type="text" name="hidden" id="hidden1" hidden>
+                            <input type="hidden" name="price" value="29000">
                         </p>
                         <p>
                             <input type="checkbox" name="checkbox" id="checkbox2" class="checkbox2" onclick="must_date()" value="weak">
@@ -368,7 +370,7 @@
     $("#datepicker").datepicker({
     	language: 'ko',
         inline: true,
-        dateFormat: 'yyyy/mm/dd',
+        dateFormat: 'yyyy-mm-dd',
     });
     
     //preventors
@@ -465,13 +467,11 @@
         };
         document.getElementById("result2").value = result2.toLocaleString();
     };
-    document.getElementById("result1").addEventListener('input', nI);
-    function nI(){
     for(let i = 1; i <= 3; i++){
         let checked2 = document.getElementById("n" + i);
         checked2.onchange = calc2;
     };
-    };
+    
 
     function calc2_1() {
         let result2 = Number(document.getElementById("result2").defaultValue);
@@ -479,7 +479,6 @@
         let radiobx2 = document.getElementById("f2");
         let radiobx3 = document.getElementById("f3");
         let result1N = result1.value.replace(/,/g, "");
-       
         if(radiobx1.checked){
             result2 = Number(result1N) * Number(radiobx1.value) / 100;
         };
@@ -649,5 +648,9 @@
         };
     };
   
+//making obj for toCart
+
+
+
 </script>
 </html>

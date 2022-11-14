@@ -1,38 +1,53 @@
 <?php
 
 include "../inc/session.php";
+//include "../inc/dbcon.php"
 
 
 
+// DB에 생성한 테이블 
+//create table toCart (
+// idx int auto_increment primary key,
+// u_id varchar(20) not null,
+// booking_date date not null
+// p_id varchar(20) not null,
+// price int not null,
+// qty int not null,
+// dis_id varchar(20),
+// bought_date date
+// );
 
-//
-$s_id;
-$t_code = $_POST["checkbox"];
-$sum = $_POST["result1"]
+
+$p_id = $_POST["checkbox"];
+$booking_date = $_POST["datepicker"];
+$price = $_POST["price"];
 $qty = $_POST["qty"];
-$d_code = $_POST["which_dis"];
-$total_sum = $_POST["result2"];
-$b_date = date("Y-m-d");
+$dis_id = $_POST["which_dis"];
+$bought_date = date("Y-m-d");
 
 //출력 확인
 echo $s_id;
-echo $t_code = $_POST["checkbox"];
-echo $price = if($t_code = "weak"){
-    echo Number(29000)
-}else{
-    echo Number(33000)
-};
-echo $sum = $_POST["result1"]
-echo $qty = $_POST["price"];
-echo $d_code = $_POST["which_dis"];
-echo $total_sum = $_POST["result2"];
-echo $b_date = date("Y-m-d");
-
+echo $p_id;
+echo $booking_date;
+echo $qty;
+echo $dis_id;
+echo $bought_date;
 exit;
 
 
 
 
+//출력 제대로 되는지 확인
+/*echo "<p> 아이디:".$u_id."</p>";
+echo "<p> 이름:".$u_name."</p>";
+echo "<p> 비밀번호:".$pwd."</p>";
+echo "<p> 전화번호:".$mobile."</p>";
+echo "<p> 이메일:".$emailAll."</p>";
+echo "<p> 우편번호:" .$ps_code."</p>";
+echo "<p> 기본주소:".$addr1."</p>";
+echo "<p> 상세주소:".$addr2."</p>";
+echo "<p> 닉네임:".$nick."</p>";
+echo "<p> 가입일:".$reg_date."</p>";*/
 
 
 /*이하의 데이터처리 페이지는
@@ -69,53 +84,4 @@ mysqli_query($dbcon, $sql);
 //백그라운드에서 계속 실행중인 스크립트 종료
 mysqli_close($dbcon);
 
-
 ?>
-
-
-<!--
-local host로 접속 
-http://localhost/project1/aqua/members/Signup2.html 
--->
-<!-- 
-*테이블 설계
-테이블: aqua_members
-아이디 idx int primary key auto_increment
-이름   u_id varchar(20) not null
-비밀번호 pwd varchar(30) not null
-전화번호 mobile varchar(11)
-이메일  emailAll varchar(50)
-우편번호 ps_code char(5)
-기본주소 addr1 char(30)
-상세주소 addr2 char(50)
-닉네임  nick char(20)
-가입일 reg_date datetime
-
-*테이블 생성
-create table marine_friends(
-    idx int primary key auto_increment,
-    u_id varchar(20) not null,
-    pwd varchar(30) not null,
-    mobile varchar(11), 
-    emailAll varchar(50),
-    ps_code char(5),
-    addr1 char(30),
-    addr2 char(50),
-    nick char(20),
-    reg_date datetime
-);
-*column 값 수정
-alter table aqua_members modify column mobile varchar(11) not null;
-
-*나온 결과 값을 직접 입력한다면
-insert into aqua_members(u_id, pwd, mobile, emailAll, ps_code, addr1, addr2, nick, reg_date) values('tester1', '1234' ....);
-
-이런식으로 해야함
-
-
-
- -->
- <script type="text/javascript">
-    location.href = "welcome.php";
-</script>
- 

@@ -41,7 +41,7 @@
         </section>
         <section class="main_wrap">
         <div class="main_part">
-        <form action="insert.php" method="post" >
+        <form action="insert.php" method="post">
         <h2 class="ticket_title">- 티켓구매 -</h2>
             <div class="pt1_wrap">
                 <h3>1. 날짜 및 인원</h3>
@@ -49,25 +49,49 @@
                     <!-- 달력 -->
                     <li class="selbx1">
                         <label for="datepicker">
-                            <span>1) 날짜 선택</span>
+                            <span>
+                                1) 날짜 선택
+                            </span>
                         </label>
-                        <span class="picked_date">날짜:</span>
-                        <input type="text" id="datepicker" name="datepicker" disabled >
-                        <input type="hidden" name="price" value="33000">
+                        <span class="picked_date">
+                            날짜:
+                        </span>
+                        <input type="text" id="datepicker" name="datepicker">
                     </li>
-                    <li class="sel_p"><span>2) 인원 선택 </span>
-                        <p>
-                            <input type="checkbox" name="checkbox" id="checkbox1" class="checkbox1" onclick="must_date()" value="normal">
-                            <label for="checkbox1">일반/청소년<br>&nbsp&nbsp&nbsp&nbsp&nbsp33,000원</label>
-                            <input type="text" name="qty" id="price1" class="price1 qtySet" onkeyup="tCalc(33000)" onclick="preventor()" > 명
-                            <input type="text" name="hidden" id="hidden1" hidden>
-                            <input type="hidden" name="price" value="29000">
+                    <li class="sel_p">
+                        <span>
+                            2) 인원 선택 
+                        </span>
+                        <p name="ticket_name">
+                            <input type="checkbox" name="checkbox1" id="checkbox1" class="checkbox1" value="normal" onclick="must_date()">
+                            <label for="checkbox1">
+                                일반/청소년<br>&nbsp&nbsp&nbsp&nbsp&nbsp33,000원
+                            </label>
+
+                            <label for price1 class="blind">
+                                구매 개수
+                            </label>
+                            <input type="text" name="qty1" id="price1" class="price1 qtySet" onkeyup="tCalc(33000)" onclick="preventor()" > 명
+
+                            <input type="text" name="hidden1" id="hidden1" hidden>
+                            <input type="number" name="price1" value="33000" hidden>
+                            
                         </p>
-                        <p>
-                            <input type="checkbox" name="checkbox" id="checkbox2" class="checkbox2" onclick="must_date()" value="weak">
-                            <label for="checkbox2">경로/어린이<br>&nbsp&nbsp&nbsp&nbsp&nbsp29,000원</label> 
-                            <input type="text" name="qty"  id="price2" class="price2 qtySet" onkeyup="tCalc2(29000)" onclick="preventor2()"> 명
-                            <input type="text" name="hidden" id="hidden2" hidden >
+
+                        <p name="ticket_name">
+                            <input type="checkbox" name="checkbox2" id="checkbox2" class="checkbox2" value="weak" onclick="must_date()">
+                            <label for="checkbox2">
+                                경로/어린이<br>&nbsp&nbsp&nbsp&nbsp&nbsp29,000원
+                            </label>
+                            
+                            <label for price2 class="blind">
+                                구매 개수
+                            </label>
+                            <input type="text" name="qty2"  id="price2" class="price2 qtySet" onkeyup="tCalc2(29000)" onclick="preventor2()"> 명
+
+
+                            <input type="text" name="hidden2" id="hidden2" hidden >
+                            <input type="number" name="price2" value="29000" hidden>
                         </p>
                     </li>
                     <hr class="calLine">
@@ -82,6 +106,7 @@
             </div>
         <div class="ticket_sale">
             <h3>2. 티켓 할인 적용</h3>
+            <span class="reset_warning red"><span>
         <ul class="sale_bx">
             <div>
                 <ul class="sale_title">
@@ -96,14 +121,17 @@
                     <li>
                         <input type="radio" name="which_dis" value="80" id="c1">
                         <span class="c1">삼성 카드<br>(20% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="삼성 카드">
                     </li>
                     <li>
                         <input type="radio" name="which_dis" value="75" id="c2">
                         <span class="c2">현대 카드<br>(25% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="현대 카드">
                     </li>
                     <li>
                         <input type="radio" name="which_dis" value="70" id="c3">
                         <span class="c3">신한 카드<br>(30% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="신한 카드">
                     </li>
                     
                 </ul>
@@ -111,28 +139,34 @@
                     <li>
                         <input type="radio" name="which_dis" value="80" id="m1">
                         <span class="m1">SK 멤버십<br>(20% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="SK 멤버십">
                     </li>
                     <li>
                         <input type="radio" name="which_dis" value="75" id="m2">
                         <span class="m2">KT 멤버십<br>(25% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="KT 멤버십">
                     </li>
                     <li>
                         <input type="radio" name="which_dis" value="70" id="m3">
                         <span class="m3">LG U+멤버십<br>(30% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="LG U+멤버십">
                     </li>
                 </ul>
                 <ul class="marineF">
                     <li>
                         <input type="radio" name="which_dis" value="80" id="f1">
                         <span class="f1">마린 프렌즈 추천<br>(20% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="마린 프렌즈">
                     </li>
                     <li>
                         <input type="radio" name="which_dis" value="75" id="f2">
                         <span class="f2">지역 주민 우대<br>(25% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="지역 주민 우대">
                     </li>
                     <li>
                         <input type="radio" name="which_dis" value="70" id="f3">
                         <span class="f3">롯데 그룹사 임직원<br>(30% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="롯데 그룹사 임직원">
                     </li>
                    
                 </ul>
@@ -140,14 +174,17 @@
                     <li>
                         <input type="radio" name="which_dis" value="80" id="n1">
                         <span class="n1">군인 할인<br>(20% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="군인 할인">
                     </li>
                     <li>
                         <input type="radio" name="which_dis" value="75" id="n2">
                         <span class="n2">나이트 타임 할인<br>(25% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="나이트 타임 할인">
                     </li>
                     <li>
                         <input type="radio" name="which_dis" value="70" id="n3">
                         <span class="n3">가족 동반 할인<br>(30% 할인)</span>
+                        <input type="hidden" name="aplied_dis" value="가족 동반 할인">
                     </li>
                 </ul>
             </div>
@@ -366,14 +403,18 @@
 
 </body>
 <script type="text/javascript">
-    //calander
+    //calander 이전 날짜 선택 블록, 한국 기준의 달력 표시 
     $("#datepicker").datepicker({
     	language: 'ko',
         inline: true,
         dateFormat: 'yyyy-mm-dd',
+        minDate: new Date(),  
     });
     
+    
+    
     //preventors
+    //구매 개수 입력전 날짜 선택 유도
     function must_date(){
         let dateInput = document.getElementById("datepicker");
         let checkbox = document.getElementsByName("checkbox");
@@ -384,6 +425,7 @@
             return true;
         }
     };
+    //구매 개수 입력 전 티켓 선택 유도
     function preventor(){
         let checkbx = document.getElementById("checkbox1");
         if(!checkbx.checked){
@@ -400,6 +442,7 @@
     };
 
     //ticket & program calculator
+    //일반 티켓
     function tCalc(price){
         const checkbx = document.getElementById("checkbox1");
         const qty = document.getElementById("price1").value;
@@ -411,7 +454,7 @@
             };
             //console.log(hidden.value);
     };
-
+    //노약자 티켓
     function tCalc2(price){
         const checkbx = document.getElementById("checkbox2");
         const qty = document.getElementById("price2").value;
@@ -423,7 +466,7 @@
             };
             //console.log(hidden.value);
     };
-
+    // hidden값 더하여 총합 구함
     $(".qtySet").keyup(function(){
         let sum = 0;
         let sum1 = parseInt($("#hidden1").val() || 0 );
@@ -432,7 +475,6 @@
         // console.log(sum);
         document.getElementById("result1").value = sum.toLocaleString(); 
     });
-
 
     
     //discount tab menu
@@ -448,7 +490,6 @@
     });
 
     //discount calculator
-    
     function calc2() {
         let result2 = Number(document.getElementById("result2").defaultValue);
         let radiobx1 = document.getElementById("n1");
@@ -538,6 +579,20 @@
         let checked2 = document.getElementById("c" + i);
         checked2.onchange = calc2_3;
     };
+
+    //discount reset
+    $("#price1, #price2").keyup(function(){
+        let radioChecked = document.getElementsByName("which_dis");
+        //price1 or price2 value  변경시 체크해제하고 result2의 값도 0으로 변환
+        radioChecked.forEach((radio) => {
+            radio.checked = false;
+            document.getElementById("result2").value = "0"
+           
+        });
+    });
+    
+
+
 
 
     
@@ -647,10 +702,7 @@
             sResult5.value = (Number(result3N) + Number(result1N)).toLocaleString();
         };
     };
-  
-//making obj for toCart
-
-
 
 </script>
+
 </html>

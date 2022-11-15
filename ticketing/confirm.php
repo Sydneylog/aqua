@@ -85,7 +85,7 @@ include "../login/login_check.php";
                                
                             </tr>
                             <?php
-                            }
+                            i++ }
                             ?>
                         </table>
                         <a href="../index.php">홈으로</a>

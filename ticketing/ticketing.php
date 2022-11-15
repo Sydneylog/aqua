@@ -173,7 +173,9 @@
                 <ul class="normalDis">
                     <li name="list[]" id="list1">
                         <input type="radio" name="which_dis" value="80" id="n1">
-                        <span class="n1">군인 할인<br>(20% 할인)</span>
+                        <span class="n1">
+                            군인 할인<br>(20% 할인)
+                        </span>
                         <input type="hidden" name="applied_dis" value="군인 할인">
                     </li>
                     <li name="list[]" id="list2">
@@ -495,115 +497,122 @@
     });
 
     //discount calculator
-    function calc2(){
-        let checked = $("input[name='which_dis']:checked");
-        let li = checked.parent();
-        let discount = li.find('span:eq(0)').innerHTML;
-        let result2 = document.getElementById("result2");
+    // function calc2(){
+    //     let checked = $("input[name='which_dis']:checked");
+    //     //let li = checked.parent();
+    //     //let discount = li.find('span:eq(0)').innerHTML;
+    //     let discount = checked.next();
+    //     let result2 = document.getElementById("result2");
+    //     let result1N = result1.value.replace(/,/g, "");
+    //     //result2.value = Number(obj) /100 * Number(result1N);
+    //     console.log(checked);
+    //     //console.log(li);
+    //     console.log(discount);
+    //     console.log(discount.innerHTML);
+    // }
+        /*
+        input:radio에는 이미 value로 할인율이 적용되어 있는 상태
+        
+        checked된 radio의 할인내용을 적용하기 위해 value를 추가해야 하는 상황
+
+        선택된 라디오 -> 형제요소(or 부모요소 -> 자식요소) 선택자로 선택된 라디오의 형제요소가 가지고 있는 value를 추가하고자 함
+
+        미해결: 자식요소의 value값을 받아 올수 없음
+        undefined
+        
+        
+
+        */
+        
+    function calc2() {
+        let result2 = Number(document.getElementById("result2").defaultValue);
+        let radiobx1 = document.getElementById("n1");
+        let radiobx2 = document.getElementById("n2");
+        let radiobx3 = document.getElementById("n3");
         let result1N = result1.value.replace(/,/g, "");
-        //result2.value = Number(obj) /100 * Number(result1N);
-        console.log(checked);
-        console.log(li);
-        console.log(discount);
-       
-    }
-    
-    
 
-
-
-
-
-
-    // function calc2() {
-    //     let result2 = Number(document.getElementById("result2").defaultValue);
-    //     let radiobx1 = document.getElementById("n1");
-    //     let radiobx2 = document.getElementById("n2");
-    //     let radiobx3 = document.getElementById("n3");
-    //     let result1N = result1.value.replace(/,/g, "");
-
-    //     if(radiobx1.checked){
-    //         result2 = Number(result1N) * Number(radiobx1.value) / 100;
-    //     };
-    //     if(radiobx2.checked){
-    //         result2 = Number(result1N) * Number(radiobx2.value) / 100;
-    //     };
-    //     if(radiobx3.checked){
-    //         result2 = Number(result1N) * Number(radiobx3.value) / 100;
-    //     };
-    //     document.getElementById("result2").value = result2.toLocaleString();
-    // };
-    // for(let i = 1; i <= 3; i++){
-    //     let checked2 = document.getElementById("n" + i);
-    //     checked2.onchange = calc2;
-    // };
+        if(radiobx1.checked){
+            result2 = Number(result1N) * Number(radiobx1.value) / 100;
+        };
+        if(radiobx2.checked){
+            result2 = Number(result1N) * Number(radiobx2.value) / 100;
+        };
+        if(radiobx3.checked){
+            result2 = Number(result1N) * Number(radiobx3.value) / 100;
+        };
+        document.getElementById("result2").value = result2.toLocaleString();
+    };
+    for(let i = 1; i <= 3; i++){
+        let checked2 = document.getElementById("n" + i);
+        checked2.onchange = calc2;
+    };
     
 
-    // function calc2_1() {
-    //     let result2 = Number(document.getElementById("result2").defaultValue);
-    //     let radiobx1 = document.getElementById("f1");
-    //     let radiobx2 = document.getElementById("f2");
-    //     let radiobx3 = document.getElementById("f3");
-    //     let result1N = result1.value.replace(/,/g, "");
-    //     if(radiobx1.checked){
-    //         result2 = Number(result1N) * Number(radiobx1.value) / 100;
-    //     };
-    //     if(radiobx2.checked){
-    //         result2 = Number(result1N) * Number(radiobx2.value) / 100;
-    //     };
-    //     if(radiobx3.checked){
-    //         result2 = Number(result1N) * Number(radiobx3.value) / 100;
-    //     };
-    //     document.getElementById("result2").value = result2.toLocaleString() //+ " 원";
-    //     };
-    // for(let i = 1; i <= 3; i++){
-    //     let checked2 = document.getElementById("f" + i);
-    //     checked2.onchange = calc2_1;
-    // };
-    // function calc2_2() {
-    //     let result2 = Number(document.getElementById("result2").defaultValue);
-    //     let radiobx1 = document.getElementById("m1");
-    //     let radiobx2 = document.getElementById("m2");
-    //     let radiobx3 = document.getElementById("m3");
-    //     let result1N = result1.value.replace(/,/g, "");
+    function calc2_1() {
+        let result2 = Number(document.getElementById("result2").defaultValue);
+        let radiobx1 = document.getElementById("f1");
+        let radiobx2 = document.getElementById("f2");
+        let radiobx3 = document.getElementById("f3");
+        let result1N = result1.value.replace(/,/g, "");
+        if(radiobx1.checked){
+            result2 = Number(result1N) * Number(radiobx1.value) / 100;
+        };
+        if(radiobx2.checked){
+            result2 = Number(result1N) * Number(radiobx2.value) / 100;
+        };
+        if(radiobx3.checked){
+            result2 = Number(result1N) * Number(radiobx3.value) / 100;
+        };
+        document.getElementById("result2").value = result2.toLocaleString() //+ " 원";
+        };
+    for(let i = 1; i <= 3; i++){
+        let checked2 = document.getElementById("f" + i);
+        checked2.onchange = calc2_1;
+    };
+    function calc2_2() {
+        let result2 = Number(document.getElementById("result2").defaultValue);
+        let radiobx1 = document.getElementById("m1");
+        let radiobx2 = document.getElementById("m2");
+        let radiobx3 = document.getElementById("m3");
+        let result1N = result1.value.replace(/,/g, "");
        
-    //     if(radiobx1.checked){
-    //         result2 = Number(result1N) * Number(radiobx1.value) / 100;
-    //     };
-    //     if(radiobx2.checked){
-    //         result2 = Number(result1N) * Number(radiobx2.value) / 100;
-    //     };
-    //     if(radiobx3.checked){
-    //         result2 = Number(result1N) * Number(radiobx3.value) / 100;
-    //     };
-    //     document.getElementById("result2").value = result2.toLocaleString();
-    // };
-    // for(let i = 1; i <= 3; i++){
-    //     let checked2 = document.getElementById("m" + i);
-    //     checked2.onchange = calc2_2;
-    // };
-    // function calc2_3() {
-    //     let result2 = Number(document.getElementById("result2").defaultValue);
-    //     let radiobx1 = document.getElementById("c1");
-    //     let radiobx2 = document.getElementById("c2");
-    //     let radiobx3 = document.getElementById("c3");
-    //     let result1N = result1.value.replace(/,/g, "");
+        if(radiobx1.checked){
+            result2 = Number(result1N) * Number(radiobx1.value) / 100;
+        };
+        if(radiobx2.checked){
+            result2 = Number(result1N) * Number(radiobx2.value) / 100;
+        };
+        if(radiobx3.checked){
+            result2 = Number(result1N) * Number(radiobx3.value) / 100;
+        };
+        document.getElementById("result2").value = result2.toLocaleString();
+    };
+    for(let i = 1; i <= 3; i++){
+        let checked2 = document.getElementById("m" + i);
+        checked2.onchange = calc2_2;
+    };
+    function calc2_3() {
+        let result2 = Number(document.getElementById("result2").defaultValue);
+        let radiobx1 = document.getElementById("c1");
+        let radiobx2 = document.getElementById("c2");
+        let radiobx3 = document.getElementById("c3");
+        let result1N = result1.value.replace(/,/g, "");
        
-    //     if(radiobx1.checked){
-    //         result2 = Number(result1N) * Number(radiobx1.value) / 100;
-    //     };
-    //     if(radiobx2.checked){
-    //         result2 = Number(result1N) * Number(radiobx2.value) / 100;
-    //     };
-    //     if(radiobx3.checked){
-    //         result2 = Number(result1N) * Number(radiobx3.value) / 100;
-    //     };
-    //     document.getElementById("result2").value = result2.toLocaleString(); 
-    // };
-    // for(let i = 1; i <= 3; i++){
-    //     let checked2 = document.getElementById("c" + i);
-    //     checked2.onchange = calc2_3;
-    // };
+        if(radiobx1.checked){
+            result2 = Number(result1N) * Number(radiobx1.value) / 100;
+        };
+        if(radiobx2.checked){
+            result2 = Number(result1N) * Number(radiobx2.value) / 100;
+        };
+        if(radiobx3.checked){
+            result2 = Number(result1N) * Number(radiobx3.value) / 100;
+        };
+        document.getElementById("result2").value = result2.toLocaleString(); 
+    };
+    for(let i = 1; i <= 3; i++){
+        let checked2 = document.getElementById("c" + i);
+        checked2.onchange = calc2_3;
+    };
 
     //discount reset
     $("#price1, #price2").keyup(function(){

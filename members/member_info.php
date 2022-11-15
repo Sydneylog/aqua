@@ -203,7 +203,6 @@ include "../login/login_check.php";
                                 <td><?php echo $array["booking_date"]; ?></td>
                                 <td><?php echo $array["applied_dis"]; ?></td>
                                 <td><?php echo $array["price"]; ?> * <?php echo $array["qty"]; ?></td>
-                               
                             </tr>
                             <?php
                                 $i++;
@@ -220,7 +219,7 @@ include "../login/login_check.php";
 
 
 
-
+                
             <h4>프로그램 구매 내역</h4>
             <table>
             </table>

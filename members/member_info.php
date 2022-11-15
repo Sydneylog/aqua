@@ -1,5 +1,4 @@
 <?php
-
 include "../inc/session.php";
 include "../inc/dbcon.php";
 $sql = "select * from marine_friends where idx=$s_idx;";
@@ -7,11 +6,7 @@ $result = mysqli_query($dbcon, $sql);
 //db데이터를 array 로 불러와서 이용하기 쉽게 변수에 담음
 $array = mysqli_fetch_array($result);
 include "../login/login_check.php";
-
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -27,56 +22,20 @@ include "../login/login_check.php";
     { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
     </style>
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
+<style>
+.ticket_table{
+    border-collapse:collapse;
+    border: solid black 1px;
+    text-align:center;
+    margin:auto;
+    width:1100px;
+}
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-               //GNB
-               $(".nav> ul > li").mouseenter(function(){
-                $(this).find("ul").stop().slideDown("fast");
-              });
-              $(".nav > ul > li").mouseleave(function(){
-                $(this).find("ul").stop().slideUp("fast");
-              });
-                //sticky
-                $(function(){
-			$(window).scroll(function(){
-				let nowScroll = $(document).scrollTop();
-				if(nowScroll > 49){ 
-						$('#nav').css({'top':'0', "height":"49", "font-size":"30px", "transition":"0.2s", "color":"#fff", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
-				}else{
-                        $('#nav').css({'top': '100px', "height":"50","font-size":"20px", "background":"rgb(255, 255, 255)", "border-top":"1px solid #cbcbcb", "border-bottom":"1px solid #cbcbcb", "color":"#fff", "box-shadow":"0px 0px 0px #fff"});
-				}
-			    });
-		    });
-                //info_page selector
-                $(".member_info_btn").click(function(){
-                    $(".payment_info_page").fadeOut();
-                    $(".info_modify_page").fadeIn();
-                });
-                $(".payment_info_btn").click(function(){
-                    $(".payment_info_page").fadeIn();
-                    $(".info_modify_page").fadeOut();
-                });
-        });
-    </script>
+</style>
 </head>
 <body>
 <main id="content" class="content">
-    <section class="banner">
-        <div>
-            <div class="banner_img"></div>
-            <div>
-            <h2>
-                <span>650</span>종 <span>55,000</span>마리의<br> 해양 생물들
-            </h2>
-            <p>
-                다양한 해양 생무들이 더불어<br>
-                사는 자연 그와 동일한 서식<br>
-                환경을 조성합니다. 
-            </p>
-            </div>
-        </div>
-    </section>
+  
     <section class="signup_wrap">
         <!-- guide headeㄱ -->
         <div class="guide_header">
@@ -203,10 +162,65 @@ include "../login/login_check.php";
         </section>
         <!-- paid_info_page -->
         <section class="paid_info_page">
+        <?php
+            $sql = "select * from toCart where u_id = '$s_id';";
+            $result = mysqli_query($dbcon, $sql);
+            //db데이터를 array 로 불러와서 이용하기 쉽게 변수에 담음
+            $array = mysqli_fetch_array($result);
+        ?>
             <h3>결제내역</h3>
             <h4>티켓 구매 내역</h4>
-            <table>
-            </table>
+            <section>
+        <div class="inner">
+            <form>
+                <fieldset>
+                    <legend>결제 정보 확인</legend>
+                        <table class="ticket_table">
+                            <tr>
+                                <th class="th1">번호</th>
+                                <th class="th2">구매일</th>
+                                <th class="th3">티켓 종류</th>
+                                <th class="th4">가격</th>
+                                <th class="th5">구매 수량</th>
+                                <th class="th6">예약일</th>
+                                <th class="th7">할인종류<th>
+                                <th class="th8">Total<th>
+                            <tr>
+                            <?php
+                            //테이블 반복 생성
+                            $sql = "select * from toCart order by idx desc";
+                            $result = mysqli_query($dbcon, $sql);
+
+                            $i=1;
+                            while($array = mysqli_fetch_array($result)){
+                            ?>
+                            <tr>
+                                <td><?php echo $i;  ?></td>
+                                <td><?php echo $array["bought_date"]; ?></td>
+                                <td><?php echo $array["p_id"]; ?></td>
+                                <td><?php echo $array["price"]; ?></td>
+                                <td><?php echo $array["qty"]; ?></td>
+                                <td><?php echo $array["booking_date"]; ?></td>
+                                <td><?php echo $array["applied_dis"]; ?></td>
+                                <td><?php echo $array["price"]; ?> * <?php echo $array["qty"]; ?></td>
+                               
+                            </tr>
+                            <?php
+                                $i++;
+                                };
+                            ?>
+                        </table>
+                        <a href="../index.php">홈으로</a>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+
+
+
+
+
+
             <h4>프로그램 구매 내역</h4>
             <table>
             </table>

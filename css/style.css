@@ -30,6 +30,13 @@
     .blind{
         position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px;overflow:hidden
     }
+    .inner{
+        width:1100px;
+        margin:auto;
+        position:relative;
+    }
+    
+   
 
 
 
@@ -61,10 +68,6 @@ body{
     font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
     overflow-x:hidden;
 }
-
-
-
-
 .header{
     height:149px;
     background:white;
@@ -180,123 +183,6 @@ body{
     color:#002339;
     
 }
-
-
-
-
-
-
-/* program intro */
-.program_introduction{
-/* 밑배경의 윗배경 */
-/* background-image:  */
-}
-.program_introduction .inner{
-height:400px;
-}
-.program_introduction .text_group{
- position:absolute
-}
-.program_introduction .text_group .title{
-    
-}
-.program_introduction .text_group .description{
-
-}
-.program_introduction .text_group .more{
-
-}
-
-/* 2nd program intro */
-.program_introduction{
-  /* 밑배경의 윗배경 */
-  /* background-image:  */
-  }
-  .program_introduction .inner{
-  height:400px;
-  }
-  .program_introduction .text_group{
-   position:absolute
-  }
-  .program_introduction .text_group .title{
-      
-  }
-  .program_introduction .text_group .description{
-  
-  }
-  .program_introduction .text_group .more{
-  
-  }
-
-/* 3rd program intro */
-.program_introduction{
- /* 가장 기본 배경
- background-attachment: fiexd;
- background-size: cover  cover: 요소의 더 넓은 곳 기준을 ㅗ적용*/
-  }
-  .program_introduction .inner{
-  height:400px;
-  }
-  .program_introduction .text_group{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end /*끝부분 기준*/
-  }
-  .program_introduction .text_group .title{
-      
-  }
-  .program_introduction .text_group .description{
-  
-  }
-  .program_introduction .text_group .more{
-  
-  }
-
- /* .3rd_program_icon*/
- .icon_3rd{
-  /* //이중 밑배경 */
- }
-
-  .icon_3rd .inner{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .icon_3d.medal{
-    width:340px;
-    height:340px;
-    perspective:600px;
-  }
-  .icon_3rd .inner .medal .front, .icon_3rd .inner .medal .back{
-    width:340px;
-    height:340px;
-    backface-visibility: hidden;
-    transition: 1s;
-    position:absolute; /*여기서 absolute는 위치용이 아니라 fluid 효과를 위함 + 이후 프레임 완성되면 위치 조정을 위해 중복선택자로 옮김*/
-  }
-  .icon_3rd .inner .medal .front{
-    
-    transform: rotateY(0deg); /*뒤집어진 이후 원상태 복귀를 위함(크로스 브라우저 이슈 대비)*/
-  }
-  .icon_3rd .inner .medal:hover .front{
-    transform: rotateY(180deg);
-  }
-
-  .icon_3rd .inner .medal .back{
-    transform: rotateY(-180deg);
-  }
-
-  .icon_3rd .inner .medal:hover .back{
-    transform: rotateY(0deg);
-  }
-
-  .icon_3rd .inner .medal .back .btn{
-    position:absolute;
-  }
-
-
-
-
 
 /*
 2depth 수정중
@@ -647,9 +533,10 @@ height:400px;
     background:rgb(7, 3, 36);
 }
 .banner_tok {
-    width:1200px;;
+    
     height:650px;
     background:url(../images/main_image_02.jpg) no-repeat center top #1d1d1d;
+    background-size: cover;
     margin:auto;
     position:relative;
     text-indent:-9999px;
@@ -691,6 +578,12 @@ height:400px;
     margin:auto;
     background:url(../images/) no-repeat center #002339; 
 }
+
+/*메뉴 박스*/
+.menu_box{
+    margin-bottom:30px;
+}
+/*메뉴 박스-텍스트 파트*/
 .part1_txt{
     width:auto;
     height:199px;
@@ -749,7 +642,7 @@ height:400px;
     
 }
 
-/* 주요 메뉴 소개 박스 */
+/* 주요 메뉴 안내 박스 w/anmiation */
 .pt1_img1{
     width:278px;
     height:296px;
@@ -924,6 +817,10 @@ height:400px;
     background:white;
     color:#0d539a;
 }
+/*이벤트 & 새소식 파트*/
+.info_slide_box{
+    margin-bottom:30px;
+}
 .info_etc_wrap{
     display:flex;
     justify-content:space-between;
@@ -934,7 +831,7 @@ height:400px;
     line-height:45px;
 }
 .event{
-    background:#325ec8;
+    background:#a5bdff;
     text-align:left;
     color:white;
     position:relative;
@@ -946,21 +843,173 @@ height:400px;
     width: 510px;
     font-size:16px;
 }
-
 .news{
-    background:white;
+    background:rgb(248, 248, 248);
     color:rgb(54, 54, 54);
     position:relative;
-} 
+}
 .news div{
     position:absolute;
     top:0;
     left:70px;
     width:510px;
-    font-size:16px
+    line-height:40px;
+    font-size:16px;
+}
+
+ /* google icons style */
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 900
+}
+.info_etc_wrap span{
+    position:absolute;
+    top:0;
+    right:10px;
+    line-height:40px;
+}
+.news span{
+    right:40px;
+}
+
+/*메인 인포 슬라이드 박스*/
+.info_slide_box .inner{
+    border: 1px solid red;
+    height: 350px;
+    overflow:hidden;
+}
+
+.info_slide_box li{
+    border: 1px solid red;
+    width:800px;
+    height:300px;
 }
 
 
+/*프로그램 및 해양생물 홍보 파트*/
+/* program intro */
+.program_introduction{
+    /* 밑배경의 윗배경 */
+    /* background-image:  */
+    background: #242424;
+    height:320px;
+}
+.program_introduction .inner{
+    
+    
+}
+.program_introduction .text_group{
+  
+}
+.program_introduction .text_group .title{
+    
+}
+.program_introduction .text_group .description{
+
+}
+.program_introduction .text_group .more{
+
+}
+    
+/* 2nd program intro */
+.program_2nd{
+    /* 밑배경의 윗배경 */
+    /* background-image:  */
+    height:320px;
+    background:#242424;
+}
+.program_2nd .inner{
+   
+}
+.program_2nd .text_group{
+    
+    
+}
+.program_2nd .text_group .title{
+    
+}
+.program_2nd .text_group .description{
+
+}
+.program_2nd .text_group .more{
+
+}
+    
+/* 3rd program intro */
+.program_3rd{
+    background-attachment:fixed;
+    background-image:url(../images/nolan-krattinger-ADcXaqQ9vOM-unsplash.jpg);
+    background-position:bottom;
+    background-size: cover;
+    height:450px;
+}
+.program_3rd .inner{
+height:400px;
+}
+.program_3rd .text_group{
+display: flex;
+flex-wrap: wrap;
+justify-content: flex-end /*끝부분 기준*/
+}
+.program_3rd .text_group .title{
+    
+}
+.program_3rd .text_group .description{
+
+}
+.program_3rd .text_group .more{
+
+}
+
+    /* .3rd_program_icon*/
+    .icon_3rd{
+    /* //이중 밑배경 */
+    }
+
+    .icon_3rd .inner{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .icon_3d.medal{
+    width:340px;
+    height:340px;
+    perspective:600px;
+    }
+    .icon_3rd .inner .medal .front, .icon_3rd .inner .medal .back{
+    width:340px;
+    height:340px;
+    backface-visibility: hidden;
+    transition: 1s;
+    position:absolute; /*여기서 absolute는 위치용이 아니라 fluid 효과를 위함 + 이후 프레임 완성되면 위치 조정을 위해 중복선택자로 옮김*/
+    }
+    .icon_3rd .inner .medal .front{
+    
+    transform: rotateY(0deg); /*뒤집어진 이후 원상태 복귀를 위함(크로스 브라우저 이슈 대비)*/
+    }
+    .icon_3rd .inner .medal:hover .front{
+    transform: rotateY(180deg);
+    }
+
+    .icon_3rd .inner .medal .back{
+    transform: rotateY(-180deg);
+    }
+
+    .icon_3rd .inner .medal:hover .back{
+    transform: rotateY(0deg);
+    }
+
+    .icon_3rd .inner .medal .back .btn{
+    position:absolute;
+    }
+
+
+
+
+/* 일단보류 */
 .part2_box{
     height:250px;
     padding-top:70px;
@@ -1695,7 +1744,7 @@ opacity:0.8;
     margin:auto;
     position:relative;
     box-sizing:border-box;
-    padding-top:80px
+    padding-top:60px;
 }
 .p4_txt1{
     width:473px;
@@ -1735,6 +1784,7 @@ opacity:0.8;
     flex-flow: row nowrap;
     justify-content:space-around;
     margin:37px auto 0;
+    font-size:18px;
     
 }
 .pt4_cont1{

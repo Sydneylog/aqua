@@ -14,7 +14,10 @@ include "inc/session.php";
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="css/jquery.bxslider.css">
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <!-- google icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
     <script src="js/jquery.bxslider.js"></script>
@@ -165,16 +168,16 @@ include "inc/session.php";
             </div>
     </section>
 
-    <section>
-    <div class="part1_txt">
-        <p class="p1_txt1">SHARE THE DREAM</p>
-        <p class="p1_txt2">650종, 55,000마리의 해양 생물들이 당신을 기다리고 있습니다.</p>
-    </div>
-
-    <div class="pt1_wrap">
-        <div class="info_wrap">
-        <h2 class="pt1_info">아쿠아리움 방문 안내 메뉴</h2>
+    <!-- 메인 이용안내 메뉴-->
+    <section class="menu_box">
+        <div class="part1_txt">
+            <p class="p1_txt1">SHARE THE DREAM</p>
+            <p class="p1_txt2">650종, 55,000마리의 해양 생물들이 당신을 기다리고 있습니다.</p>
         </div>
+        <div class="pt1_wrap">
+            <div class="info_wrap">
+                <h2 class="pt1_info">아쿠아리움 방문 안내 메뉴</h2>
+            </div>
             <ul class="pt1_imgbx">
                 <li class="pt1_img1">
                     <span></span>
@@ -195,7 +198,7 @@ include "inc/session.php";
                 <li class="pt1_img4">
                     <span></span>
                     <span>주요 해양 생물</span>
-                    <a href="#">자세히 보기</a>
+                    <a href="sub/sub1.html">자세히 보기</a>
                 </li>
             </ul>
         </div>
@@ -205,10 +208,13 @@ include "inc/session.php";
                     <li>러버덕 이벤트</li>
                     <li>물개 이벤트</li>
                 </ul>
+                <span class="material-symbols-outlined material-icons md-30">
+                    add_circle
+                </span>
             </div>
             <div class="news">
                 <div>아쿠아리움 새로운 소식
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined material-icons md-30">
                         expand_circle_down
                     </span>
                 </div>
@@ -216,30 +222,61 @@ include "inc/session.php";
         </div>
     </section>
 
+    <!-- info slide -->
+    <section class="info_slide_box">
+        <div class="inner">
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="#" alt="" />
+                        <p>이벤트</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="#" alt="" />
+                        <p>우리아이 첫! 상어친구</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="#" alt="" />
+                        <p>너랑나랑 데이트</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="#" alt="" />
+                        <p>네이버 페이</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
     <section>
         <div class="part2_box">
-                <div class="character_box">
-                    <img src="images/membershipC.png" alt="">
-                </div>
-                <div class="part2_text_box">
-                    <p class="p2_txt1">
-                        마린 프렌즈가 되면 특별한 혜택을 받을 수 있어요!
-                    </p>
-                    <p class="p2_txt2">
-                        마린 프렌즈가 되어 특별한 혜택을 누려보세요.<br>
-                        티켓 할인 및 부가 서비스가 제공 되고 있습니다.
-                    </p>
-                    <div class="part2_btn_box">
-                        <a href="members/Signup2.php">
-                            <div class="membership_btn">멤버십 가입</div>
-                        </a>
-                        <a href="login/login.php">
-                            <div class="membership_btn">로그인</div>
-                        </a>
-                        
-                    <div>
-                </div>
-           
+            <div class="character_box">
+                <img src="images/membershipC.png" alt="">
+            </div>
+            <div class="part2_text_box">
+                <p class="p2_txt1">
+                    마린 프렌즈가 되면 특별한 혜택을 받을 수 있어요!
+                </p>
+                <p class="p2_txt2">
+                    마린 프렌즈가 되어 특별한 혜택을 누려보세요.<br>
+                    티켓 할인 및 부가 서비스가 제공 되고 있습니다.
+                </p>
+                <div class="part2_btn_box">
+                    <a href="members/Signup2.php">
+                        <div class="membership_btn">멤버십 가입</div>
+                    </a>
+                    <a href="login/login.php">
+                        <div class="membership_btn">로그인</div>
+                    </a>
+                    
+                <div>
+            </div>
         </div>
     </section>
 
@@ -258,33 +295,33 @@ include "inc/session.php";
     </section>
 
     <!-- 2nd program intro -->
-    <section class="2nd_program">
-      <div class="inner">
-        <img src="" class="logo">
-        <div class="text_group">
-          <p class="title"></p>
-          <p class="description"></p>
-          <div class="more">
-              <a href="javascript:void(0)" class="btn">자세히 보기</a> 
-          </div>
+    <section class="program_2nd">
+        <div class="inner">
+            <img src="" class="logo">
+            <div class="text_group">
+                <p class="title"></p>
+                <p class="description"></p>
+                <div class="more">
+                <a href="javascript:void(0)" class="btn">자세히 보기</a> 
+            </div>
         </div>
         <img src="" alt="" class="program">
-      </div>
+        </div>
     </section>
 
     <!-- 3rd program intro -->
-    <section class="3rd_program">
-      <div class="inner">
-        <img src="" class="logo">
-        <div class="text_group">
-          <p class="title"></p>
-          <p class="description"></p>
-          <div class="more">
-              <a href="javascript:void(0)" class="btn">자세히 보기</a> 
-          </div>
+    <section class="program_3rd">
+        <div class="inner">
+            <img src="" class="logo">
+            <div class="text_group">
+                <p class="title"></p>
+                <p class="description"></p>
+                <div class="more">
+                    <a href="javascript:void(0)" class="btn">자세히 보기</a> 
+                </div>
+            </div>
+            <img src="" alt="" class="program">
         </div>
-        <img src="" alt="" class="program">
-      </div>
     </section>
 
     <!-- related to 3rd program -->
@@ -312,9 +349,9 @@ include "inc/session.php";
       </div>
     </section>
 
-    <!-- 스크롤 위치계산  js 라이브러리 사용 scrollMagic CDN->
+    <!--스크롤 위치계산  js 라이브러리 사용 scrollMagic CDN-->
 
-
+    <!--
     <h2 class="pro_title">Aqaurium 주요 체험 프로그램</h2>
         <div class="pro_wrap">
             <div class="pro_pt1">
@@ -385,15 +422,8 @@ include "inc/session.php";
             </div>
             <p class="pro_blur"></p>
         </div>
-
-
-
-
-
-
-
-
     </section>
+    --
 
     <section class="part3_wrap">
         <div class="part3_txt">
@@ -416,33 +446,33 @@ include "inc/session.php";
             
            
     </section>
+    -->
     
-    <section>
-    <div class="part4_txt">
-        <p class="p4_txt1">롯데월드 아쿠아리움이 추천합니다.</p>
-        <p class="p4_txt2">아쿠아리움과 함께하면 즐거움이 배로!</p>
-    </div>
-    
-    <div class="pt4_img">
-        <h2 class="att_title">그밖의 즐길거리</h2>
-            <ul class="pt4_contbx">
-                <li class="pt4_cont1">아쿠아리움 사람들의 이야기
-                    <a href="" class="pt4_more">more</a>
-                </li>
-                <li class="pt4_cont2">롯데월드
-                    <a href="" class="pt4_more">more</a>
-                </li>
-                <li class="pt4_cont3">롯데타워 스카이 라운지
-                    <a href="" class="pt4_more">more</a>
-                </li>
-            </ul>
-        
-        <h2 class="sns_title">아쿠아리움 공식 SNS 방문하기</h2>
-            <ul class="sns_bx">
-                <li class="insta">인스타그램</li>
-                <li class="fb">페이스북</li>
-            </ul>
-    </div>
+    <section class = etc_box>
+        <div class="part4_txt">
+            <p class="p4_txt1">롯데월드 아쿠아리움이 추천합니다.</p>
+            <p class="p4_txt2">아쿠아리움과 함께하면 즐거움이 배로!</p>
+        </div>
+        <div class="pt4_img">
+            <h2 class="att_title">그밖의 즐길거리</h2>
+                <ul class="pt4_contbx">
+                    <li class="pt4_cont1">아쿠아리움 사람들의 이야기
+                        <a href="" class="pt4_more">more</a>
+                    </li>
+                    <li class="pt4_cont2">롯데월드
+                        <a href="" class="pt4_more">more</a>
+                    </li>
+                    <li class="pt4_cont3">롯데타워 스카이 라운지
+                        <a href="" class="pt4_more">more</a>
+                    </li>
+                </ul>
+            
+            <h2 class="sns_title">아쿠아리움 공식 SNS 방문하기</h2>
+                <ul class="sns_bx">
+                    <li class="insta">인스타그램</li>
+                    <li class="fb">페이스북</li>
+                </ul>
+        </div>
     </section>
 </main>
 

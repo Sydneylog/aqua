@@ -122,17 +122,17 @@ body{
   
     .picked_date{
         font-size:18px;
-        margin-left:70px;
+        margin-left:60px;
+        
     }
     #datepicker{
         font-size:18px;
-        text-align:left;
+        text-align:center;
         border:black 1px solid;
         background:white;
         border:none;
-        
-
     }
+   
     .selbx1 input{
         margin-bottom:30px;
         width:120px;
@@ -144,6 +144,9 @@ body{
         width:350px;
         height:150px;
         font-size:20px;
+    }
+    .sel_p>span{
+        font-size:22px;
     }
     .sel_p p:not(:last-child){
         margin-top:50px;

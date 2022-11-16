@@ -2,9 +2,12 @@
 include "../inc/session.php";
 include "../inc/dbcon.php";
 $sql = "select * from marine_friends where idx=$s_idx;";
+//$t_sql = "select *from dis_list"
 $result = mysqli_query($dbcon, $sql);
+//$t_result = mysqli_query($dbcon, $t_sql);
 //db데이터를 array 로 불러와서 이용하기 쉽게 변수에 담음
 $array = mysqli_fetch_array($result);
+//$t_array = mysqli_fetch_array($result);
 include "../login/login_check.php";
 ?>
 
@@ -183,8 +186,9 @@ include "../login/login_check.php";
                                 <th class="th4">가격</th>
                                 <th class="th5">구매 수량</th>
                                 <th class="th6">예약일</th>
-                                <th class="th7">할인종류<th>
-                                <th class="th8">Total<th>
+                                <th class="th7">할인종류</th>
+                                <th class="th8">Total</th>
+                                <th class="th9">주문번호</th>
                             <tr>
                             <?php
                             //테이블 반복 생성
@@ -197,12 +201,23 @@ include "../login/login_check.php";
                             <tr>
                                 <td><?php echo $i;  ?></td>
                                 <td><?php echo $array["bought_date"]; ?></td>
-                                <td><?php echo $array["p_id"]; ?></td>
-                                <td><?php echo $array["price"]; ?></td>
+                                <td>
+                                    <?php if($array["p_id"] == 'normal')
+                                        echo '일반/청소년';
+                                        if($array["p_id"] == 'weak')
+                                        echo '경로/어린이';
+                                    ?>
+                                </td>
+                                <td><?php echo number_format($array["price"]); ?></td>
                                 <td><?php echo $array["qty"]; ?></td>
                                 <td><?php echo $array["booking_date"]; ?></td>
-                                <td><?php echo $array["applied_dis"]; ?></td>
-                                <td><?php echo $array["price"]; ?> * <?php echo $array["qty"]; ?></td>
+                                <td><?php echo $array["which_dis"]; ?></td>
+                                <td>
+                                    <?php 
+                                    echo number_format($array['price'] * $array['qty']);
+                                    ?>
+                                </td>
+                                <td><?php echo $array["order_idx"]; ?></td>
                             </tr>
                             <?php
                                 $i++;

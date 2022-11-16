@@ -1,3 +1,31 @@
+<?php
+//discount list 테이블 생성
+// insert into dis_list(dis_name, dis_id, dis_rate)values('삼성카드', 'c1', '20');
+// insert into dis_list(dis_name, dis_id, dis_rate)values('현대카드', 'c2', '25');
+// insert into dis_list(dis_name, dis_id, dis_rate)values('신한카드', 'c3', '30');
+// insert into dis_list(dis_name, dis_id, dis_rate)values('SK멤버십', 'm1', '20');
+// insert into dis_list(dis_name, dis_id, dis_rate)values('KT멤버십', 'm2', '25');
+// insert into dis_list(dis_name, dis_id, dis_rate)values('LG U+ 멤버십', 'm3', '30');
+// insert into dis_list(dis_name, dis_id, dis_rate)values('마린 프렌즈', 'f1', '20');
+// insert into dis_list(dis_name, dis_id, dis_rate)values('지역 주민 우대', 'f2', '25');
+// insert into dis_list(dis_name, dis_id, dis_rate)values('롯데 그룹사 임직원', 'f3', '30');
+// insert into dis_list(dis_name, dis_id, dis_rate)values('군인 할인', 'n1', '20');
+// insert into dis_list(dis_name, dis_id, dis_rate)values('나이트 타임 입장', 'n2', '25');
+// insert into dis_list(dis_name, dis_id, dis_rate)values('가족 동반 할인', 'n3', '30');
+
+
+//db연결
+include "../inc/session.php";
+include "../inc/dbcon.php";
+
+//db연결후 select쿼리 작성하여 array 변수에 담기
+$sql = "select * from dis_list";
+$result = mysqli_query($dbcon, $sql);
+$array = mysqli_fetch_array($result);
+include "../login/login_check.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -105,7 +133,7 @@
                 </ul>
             </div>
         <div class="ticket_sale">
-            <h3>2. 티켓 할인 적용</h3>
+            <h3>2. 티켓 할인 적용 (선택 사항)</h3>
             <span class="reset_warning red"><span>
         <ul class="sale_bx">
             <div>
@@ -119,78 +147,84 @@
             <div class="sale_list">
                 <ul class="credit">
                     <li>
-                        <input type="radio" name="which_dis" value="80" id="c1">
+                        <input type="radio" name="which_dis" value="c1" id="c1">
+                        <input type="hidden" name="applied_dis" value="80">
                         <span class="c1">삼성 카드<br>(20% 할인)</span>
-                        <input type="hidden" name="applied_dis" value="삼성 카드">
                     </li>
                     <li>
-                        <input type="radio" name="which_dis" value="75" id="c2">
+                        <input type="radio" name="which_dis" value="c2" id="c2">
+                        <input type="hidden" name="applied_dis" value="75">
                         <span class="c2">현대 카드<br>(25% 할인)</span>
-                        <input type="hidden" name="applied_dis" value="현대 카드">
                     </li>
                     <li>
-                        <input type="radio" name="which_dis" value="70" id="c3">
+                        <input type="radio" name="which_dis" value="c3" id="c3">
+                        <input type="hidden" name="applied_dis" value="70">
                         <span class="c3">신한 카드<br>(30% 할인)</span>
-                        <input type="hidden" name="applied_dis" value="신한 카드">
                     </li>
                     
                 </ul>
                 <ul class="membership">
                     <li>
-                        <input type="radio" name="which_dis" value="80" id="m1">
+                        <input type="radio" name="which_dis" value="m1" id="m1">
+                        <input type="hidden" name="applied_dis" value="80">
                         <span class="m1">SK 멤버십<br>(20% 할인)</span>
-                        <input type="hidden" name="applied_dis" value="SK 멤버십">
+                        
                     </li>
                     <li>
-                        <input type="radio" name="which_dis" value="75" id="m2">
+                        <input type="radio" name="which_dis" value="m2" id="m2">
+                        <input type="hidden" name="applied_dis" value="75">
                         <span class="m2">KT 멤버십<br>(25% 할인)</span>
-                        <input type="hidden" name="applied_dis" value="KT 멤버십">
                     </li>
                     <li>
-                        <input type="radio" name="which_dis" value="70" id="m3">
+                        <input type="radio" name="which_dis" value="m3" id="m3">
+                        <input type="hidden" name="applied_dis" value="70">
                         <span class="m3">LG U+멤버십<br>(30% 할인)</span>
-                        <input type="hidden" name="applied_dis" value="LG U+멤버십">
+                        
                     </li>
                 </ul>
                 <ul class="marineF">
                     <li>
-                        <input type="radio" name="which_dis" value="80" id="f1">
+                        <input type="radio" name="which_dis" value="f1" id="f1">
+                        <input type="hidden" name="applied_dis" value="80">
                         <span class="f1">마린 프렌즈 추천<br>(20% 할인)</span>
-                        <input type="hidden" name="applied_dis" value="마린 프렌즈">
+                        
                     </li>
                     <li>
-                        <input type="radio" name="which_dis" value="75" id="f2">
+                        <input type="radio" name="which_dis" value="f2" id="f2">
+                        <input type="hidden" name="applied_dis" value="75">
                         <span class="f2">지역 주민 우대<br>(25% 할인)</span>
-                        <input type="hidden" name="applied_dis" value="지역 주민 우대">
+                        
                     </li>
                     <li>
-                        <input type="radio" name="which_dis" value="70" id="f3">
+                        <input type="radio" name="which_dis" value="f3" id="f3">
+                        <input type="hidden" name="applied_dis" value="70">
                         <span class="f3">롯데 그룹사 임직원<br>(30% 할인)</span>
-                        <input type="hidden" name="applied_dis" value="롯데 그룹사 임직원">
+                        
                     </li>
-                   
+
                 </ul>
                 <ul class="normalDis">
-                    <li name="list[]" id="list1">
-                        <input type="radio" name="which_dis" value="80" id="n1">
+                    <li>
+                        <input type="radio" name="which_dis" value="n1" id="n1">
+                        <input type="hidden" name="applied_dis"  value="80">
                         <span class="n1">
                             군인 할인<br>(20% 할인)
                         </span>
-                        <input type="hidden" name="applied_dis" value="군인 할인">
                     </li>
-                    <li name="list[]" id="list2">
-                        <input type="radio" name="which_dis" value="75" id="n2">
+                    <li>
+                        <input type="radio" name="which_dis" value="n2" id="n2">
+                        <input type="hidden" name="applied_dis"  value="75">
                         <span class="n2">
                             나이트 타임 할인<br>(25% 할인)
                         </span>
-                        <input type="hidden" name="applied_dis" value="나이트 타임 할인">
+                        
                     </li>
-                    <li name="list[]" id="list3">
-                        <input type="radio" name="which_dis" value="70" id="n3">
+                    <li>
+                        <input type="radio" name="which_dis" value="n3" id="n3">
+                        <input type="hidden" name="applied_dis"  value="70">
                         <span class="n3">
                             가족 동반 할인<br>(30% 할인)
                         </span>
-                        <input type="hidden" name="applied_dis"  value="가족 동반 할인">
                     </li>
                 </ul>
             </div>
@@ -200,7 +234,6 @@
                 <div class="result2_bx">
                 <input type="text" name="result2" id="result2" class="result2" disabled><span class="won2">원</span>
                 </div>
-                <button type="button" onclick="calc2()">test</button>
             </div>
             
         </ul>        
@@ -209,6 +242,7 @@
         
         <h2 class="pro_title">- 프로그램 구매 -</h2>
             <ul class="pro_wrap">
+            <button type="button" onclick="calc3()">test</button>
                 <h3 class="pro_select">1. 프로그램 선택</h3>
                 <div class="buy_pro">
                     <div class="pro_menu">
@@ -221,8 +255,9 @@
 
                     <div class="diving_exp">
                         <span class="th1">
-                            <input type="checkbox" name="choose" value="95000" id="pro1">
+                            <input type="checkbox" name="pro_list" id="pro1" value="pro1" id="pro1">
                         </span>
+                        <input type="hidden" value="95000" name="pro_price">
                         <span class="th2">
                             메인 수조 다이빙 체험<br>95,000원
                         </span>
@@ -231,7 +266,7 @@
                             <p>다양한 바다생물들이 눈앞에서 펼쳐지는 롯데월드 아쿠아리움에서 특별한 추억을 <br>남겨 보세요</p>
                         </span>
                         <span class="th4">
-                            <select name="how1" id="tankh">
+                            <select name="pro_qty" id="tankh" >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -253,8 +288,9 @@
 
                     <div class="camp_exp">
                         <span class="th1">
-                            <input type="checkbox" name="choose" value="70000" id="pro2">
+                            <input type="checkbox" name="pro_list" id="pro2" value="pro2" id="pro2">
                         </span>
+                        <input type="hidden" value="70000" name="pro_price">
                         <span  class="th2">
                             아쿠아리움<br>나이트 캠프<br>70,000원
                         </span>
@@ -263,7 +299,7 @@
                             <span>롯데월드 아쿠아리움에서 단체로 즐기는 특별한 하룻밤을 즐겨보세요! (최대 15명)</span>
                         </span>
                         <span  class="th4">
-                            <input type="number" name="nt_camp" id="nt_camp" class="nt_camp">
+                            <input type="text" name="pro_qty" id="nt_camp" class="nt_camp">
                         </span>
                         <span>
                             <a href="#">
@@ -274,8 +310,9 @@
 
                     <div class="feeding_exp">
                         <span class="th1">
-                            <input type="checkbox" name="choose" value="7000" id="pro3">
+                            <input type="checkbox" name="pro_list" id="pro3" value="pro3" id="pro3">
                         </span>
+                        <input type="hidden" value="7000" name="pro_price">
                         <span class="th2">
                             Special<br> 먹이 주기 체험<br>7,000원
                         </span>
@@ -283,7 +320,7 @@
                             <span>누가 어떤 먹이를 먹는지 같이 확인해봐요!</span>
                         </span>
                         <span class="th4">
-                            <select name="how2" id="bento">
+                            <select name="pro_qty" id="bento">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -298,6 +335,7 @@
                         </span>
                     </div>
 
+                    <!-- 프로그램 총합 -->
                     <div class="result3_wrap">
                         <span class="total_text3">프로그램 가격</span>
                         <div class="result3_bx">
@@ -410,7 +448,8 @@
 
 </body>
 <script type="text/javascript">
-    //calander 이전 날짜 선택 블록, 한국 기준의 달력 표시 
+    /* 달력 */
+    //[calander:"air-datepicker (jQuery_plugin)사용]이전 날짜 선택 블록, 한국 기준의 달력 표시 
     $("#datepicker").datepicker({
     	language: 'ko',
         inline: true,
@@ -418,10 +457,8 @@
         minDate: new Date(),  
     });
     
-    
-    
-    //preventors
-    //구매 개수 입력전 날짜 선택 유도
+    /* 유효성 검사 */
+    //[유효성 검사] 구매 개수 입력전 날짜 선택 유도
     function must_date(){
         let dateInput = document.getElementById("datepicker");
         let checkbox = document.getElementsByName("checkbox");
@@ -432,7 +469,7 @@
             return true;
         }
     };
-    //구매 개수 입력 전 티켓 선택 유도
+    //[유효성 검사] 구매 개수 입력 전 티켓 선택 유도
     function preventor(){
         let checkbx = document.getElementById("checkbox1");
         if(!checkbx.checked){
@@ -448,8 +485,8 @@
         };
     };
 
-    //ticket & program calculator
-    //일반 티켓
+    /* ticket & program calculator */
+    // [티켓] 일반 티켓
     function tCalc(price){
         const checkbx = document.getElementById("checkbox1");
         const qty = document.getElementById("price1").value;
@@ -461,7 +498,7 @@
             };
             //console.log(hidden.value);
     };
-    //노약자 티켓
+    // [티켓] 노약자 티켓
     function tCalc2(price){
         const checkbx = document.getElementById("checkbox2");
         const qty = document.getElementById("price2").value;
@@ -473,7 +510,8 @@
             };
             //console.log(hidden.value);
     };
-    // hidden값 더하여 총합 구함
+
+    // [티켓] hidden값 더하여 총합 구함
     $(".qtySet").keyup(function(){
         let sum = 0;
         let sum1 = parseInt($("#hidden1").val() || 0 );
@@ -482,9 +520,9 @@
         // console.log(sum);
         document.getElementById("result1").value = sum.toLocaleString(); 
     });
-
     
-    //discount tab menu
+    /* 할인적용 */
+    // [discount] tab menu
     $(".sale_title li").hover(function(){
             $(this).css({"color":"#0d539a", "cursor":"pointer"});
         }, function(){
@@ -496,208 +534,59 @@
         $(".sale_list ul").not($(".sale_list ul").eq(idx)).hide();
     });
 
-    //discount calculator
-    // function calc2(){
-    //     let checked = $("input[name='which_dis']:checked");
-    //     //let li = checked.parent();
-    //     //let discount = li.find('span:eq(0)').innerHTML;
-    //     let discount = checked.next();
-    //     let result2 = document.getElementById("result2");
-    //     let result1N = result1.value.replace(/,/g, "");
-    //     //result2.value = Number(obj) /100 * Number(result1N);
-    //     console.log(checked);
-    //     //console.log(li);
-    //     console.log(discount);
-    //     console.log(discount.innerHTML);
-    // }
-        /*
-        input:radio에는 이미 value로 할인율이 적용되어 있는 상태
-        
-        checked된 radio의 할인내용을 적용하기 위해 value를 추가해야 하는 상황
-
-        선택된 라디오 -> 형제요소(or 부모요소 -> 자식요소) 선택자로 선택된 라디오의 형제요소가 가지고 있는 value를 추가하고자 함
-
-        미해결: 자식요소의 value값을 받아 올수 없음
-        undefined
-        
-        
-
-        */
-        
-    function calc2() {
-        let result2 = Number(document.getElementById("result2").defaultValue);
-        let radiobx1 = document.getElementById("n1");
-        let radiobx2 = document.getElementById("n2");
-        let radiobx3 = document.getElementById("n3");
+    // [discount] calculator
+    $("input[name='which_dis'").change(function(){
+        let checked = $("input[name='which_dis']:checked").val();
+        let disRate = $("input[name='which_dis']:checked").next().val();
+        let result2 = document.getElementById("result2");
         let result1N = result1.value.replace(/,/g, "");
+        let beResult2 = parseInt(disRate) / 100 * result1N;
+        result2.value = beResult2.toLocaleString();
+        // console.log(checked);
+        // console.log(disRate);
+        // console.log(beResult2);
+    });
 
-        if(radiobx1.checked){
-            result2 = Number(result1N) * Number(radiobx1.value) / 100;
-        };
-        if(radiobx2.checked){
-            result2 = Number(result1N) * Number(radiobx2.value) / 100;
-        };
-        if(radiobx3.checked){
-            result2 = Number(result1N) * Number(radiobx3.value) / 100;
-        };
-        document.getElementById("result2").value = result2.toLocaleString();
-    };
-    for(let i = 1; i <= 3; i++){
-        let checked2 = document.getElementById("n" + i);
-        checked2.onchange = calc2;
-    };
-    
-
-    function calc2_1() {
-        let result2 = Number(document.getElementById("result2").defaultValue);
-        let radiobx1 = document.getElementById("f1");
-        let radiobx2 = document.getElementById("f2");
-        let radiobx3 = document.getElementById("f3");
-        let result1N = result1.value.replace(/,/g, "");
-        if(radiobx1.checked){
-            result2 = Number(result1N) * Number(radiobx1.value) / 100;
-        };
-        if(radiobx2.checked){
-            result2 = Number(result1N) * Number(radiobx2.value) / 100;
-        };
-        if(radiobx3.checked){
-            result2 = Number(result1N) * Number(radiobx3.value) / 100;
-        };
-        document.getElementById("result2").value = result2.toLocaleString() //+ " 원";
-        };
-    for(let i = 1; i <= 3; i++){
-        let checked2 = document.getElementById("f" + i);
-        checked2.onchange = calc2_1;
-    };
-    function calc2_2() {
-        let result2 = Number(document.getElementById("result2").defaultValue);
-        let radiobx1 = document.getElementById("m1");
-        let radiobx2 = document.getElementById("m2");
-        let radiobx3 = document.getElementById("m3");
-        let result1N = result1.value.replace(/,/g, "");
-       
-        if(radiobx1.checked){
-            result2 = Number(result1N) * Number(radiobx1.value) / 100;
-        };
-        if(radiobx2.checked){
-            result2 = Number(result1N) * Number(radiobx2.value) / 100;
-        };
-        if(radiobx3.checked){
-            result2 = Number(result1N) * Number(radiobx3.value) / 100;
-        };
-        document.getElementById("result2").value = result2.toLocaleString();
-    };
-    for(let i = 1; i <= 3; i++){
-        let checked2 = document.getElementById("m" + i);
-        checked2.onchange = calc2_2;
-    };
-    function calc2_3() {
-        let result2 = Number(document.getElementById("result2").defaultValue);
-        let radiobx1 = document.getElementById("c1");
-        let radiobx2 = document.getElementById("c2");
-        let radiobx3 = document.getElementById("c3");
-        let result1N = result1.value.replace(/,/g, "");
-       
-        if(radiobx1.checked){
-            result2 = Number(result1N) * Number(radiobx1.value) / 100;
-        };
-        if(radiobx2.checked){
-            result2 = Number(result1N) * Number(radiobx2.value) / 100;
-        };
-        if(radiobx3.checked){
-            result2 = Number(result1N) * Number(radiobx3.value) / 100;
-        };
-        document.getElementById("result2").value = result2.toLocaleString(); 
-    };
-    for(let i = 1; i <= 3; i++){
-        let checked2 = document.getElementById("c" + i);
-        checked2.onchange = calc2_3;
-    };
-
-    //discount reset
+    //[discount] reset : 구매 개수 변경시 할인 적용 체크를 초기화하여 올바른 총합 볼수 있도록 함
     $("#price1, #price2").keyup(function(){
         let radioChecked = document.getElementsByName("which_dis");
         //price1 or price2 value  변경시 체크해제하고 result2의 값도 0으로 변환
         radioChecked.forEach((radio) => {
             radio.checked = false;
             document.getElementById("result2").value = "0"
-           
         });
     });
     
-
-
-
-
-    
+    /* 프로그램 구매 */
     //program calculator
     function calc3() {
-        let result3 = Number(document.getElementById("result3"));
-        let cost1 = Number(document.getElementById("cost1"));
-        let cost2 = Number(document.getElementById("cost2"));
-        let cost3 = Number(document.getElementById("cost3"));
-        let pro1 = document.getElementById("pro1"); 
-        let pro2 = document.getElementById("pro2"); 
-        let pro3 = document.getElementById("pro3"); 
-        let tankh = document.getElementById("tankh").value;
-        let nt_camp = document.getElementById("nt_camp");
-        let bento = document.getElementById("bento").value;
+        let checkedArray = new Array();
+        let checked = $("input[name=pro_list]:checked").each(function(){
+            checkedArray.push(price_checked);
+        let price_checked = $("input[name=pro_list]:checked").parent().next();
+        
 
-        if(pro1.checked){
-            cost1 = Number(pro1.value) * Number(tankh);
-        }else if(!pro1.checked){
-            cost1 = "0";
-        };
-        document.getElementById("cost1").value = cost1;
+        });
+        
+        
 
-        if(pro2.checked){
-            cost2 = Number(pro2.value) * Number(nt_camp.value);
-        }else if(pro2.checked == false){
-            cost2 = "0";
-        };
-        document.getElementById("cost2").value = cost2;
-
-        if(pro3.checked){
-            cost3 = Number(pro3.value) * Number(bento);
-        }else if(!pro3.checked){
-            cost3 = "0";
-        };
-        document.getElementById("cost3").value = cost3;
-
-        result3 = Number(cost1) + Number(cost2) + Number(cost3);
-        document.getElementById("result3").value = result3.toLocaleString();
-
-        /*let result3 = Number(document.getElementById("result3").defaultValue);
-
-        for(let i = 1; i < 4; i++){
-            let pro_sel = document.getElementById("pro" + i);
-            
-            if(pro_sel.checked){
-                result3 += Number(pro_sel.value);
-            };
-            document.getElementById("result3").value = result3;
-        };*/
-            for(let i = 1; i < 4; i++){
-            let checked3 = document.getElementById("pro" + i);
-            checked3.onclick = calc3;
-        };
-    };
-    /*function selAll() {
-        let select_all = document.getElementById("pro0");
-        if(select_all.checked == true){
-            for(let i = 1; i < 5; i++){
-                document.getElementsByName("choose")[i].checked = true;
-            };
-        };
-        if(select_all.checked == false){
-            for(let i = 1; i < 5; i++){
-                document.getElementsByName("choose")[i].checked = false;
-            };
-        };
+        
+        console.log(checkedArray);
         
     };
-    */
     
+    
+    
+
+
+
+
+
+
+
+
+
+
     //total calculator
     function payment(){
         let sResult1 = document.getElementById("sResult1");

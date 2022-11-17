@@ -13,10 +13,9 @@
 // insert into dis_list(dis_name, dis_id, dis_rate)values('나이트 타임 입장', 'n2', '25');
 // insert into dis_list(dis_name, dis_id, dis_rate)values('가족 동반 할인', 'n3', '30');
 
-
 //db연결
 include "../inc/session.php";
-include "../inc/dbcon.php";
+//include "../inc/dbcon.php";
 
 //db연결후 select쿼리 작성하여 array 변수에 담기
 $sql = "select * from dis_list";
@@ -99,7 +98,7 @@ include "../login/login_check.php";
                             <label for price1 class="blind">
                                 구매 개수
                             </label>
-                            <input type="text" name="qty1" id="price1" class="price1 qtySet" onkeyup="tCalc(33000)" onclick="preventor()" > 명
+                            <input type="text" name="qty1" id="price1" class="price1 qtySet" onkeyup="tCalc(33000, 1)" onclick="preventor()" > 명
 
                             <input type="text" name="hidden1" id="hidden1" hidden>
                             <input type="number" name="price1" value="33000" hidden>
@@ -115,7 +114,7 @@ include "../login/login_check.php";
                             <label for price2 class="blind">
                                 구매 개수
                             </label>
-                            <input type="text" name="qty2"  id="price2" class="price2 qtySet" onkeyup="tCalc2(29000)" onclick="preventor2()"> 명
+                            <input type="text" name="qty2"  id="price2" class="price2 qtySet" onkeyup="tCalc(29000, 2)" onclick="preventor2()"> 명
 
 
                             <input type="text" name="hidden2" id="hidden2" hidden >
@@ -133,8 +132,9 @@ include "../login/login_check.php";
                 </ul>
             </div>
         <div class="ticket_sale">
-            <h3>2. 티켓 할인 적용 (선택 사항)</h3>
-            <span class="reset_warning red"><span>
+            <h3>
+                2. 티켓 할인 적용 (선택 사항)
+            </h3>
         <ul class="sale_bx">
             <div>
                 <ul class="sale_title">
@@ -241,117 +241,140 @@ include "../login/login_check.php";
         
         
         <h2 class="pro_title">- 프로그램 구매 -</h2>
-            <ul class="pro_wrap">
-            <button type="button" onclick="calc3()">test</button>
-                <h3 class="pro_select">1. 프로그램 선택</h3>
-                <div class="buy_pro">
-                    <div class="pro_menu">
-                        <span class="th1">선택</span>                              
-                        <span class="th2">이름</span>
-                        <span class="th3">프로그램 소개</span>
-                        <span class="th4">인원</span>
-                        <span class="th5">가격</span>
-                    </div>
-
-                    <div class="diving_exp">
-                        <span class="th1">
-                            <input type="checkbox" name="pro_list" id="pro1" value="pro1" id="pro1">
-                        </span>
-                        <input type="hidden" value="95000" name="pro_price">
-                        <span class="th2">
-                            메인 수조 다이빙 체험<br>95,000원
-                        </span>
-                        <span class="th3">
-                            <p>국내최대 규모 25m 세이프티 다이빙 체험!</p>
-                            <p>다양한 바다생물들이 눈앞에서 펼쳐지는 롯데월드 아쿠아리움에서 특별한 추억을 <br>남겨 보세요</p>
-                        </span>
-                        <span class="th4">
-                            <select name="pro_qty" id="tankh" >
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select> 
-                        </span>
-                        <span class="th5">
-                            <a href="#">
-                                <input type="text" id="cost1" class="cost" disabled>
-                            </a>
-                        </span>
-                        <p class="diving_time">시간 선택:
-                            <input type="radio" name="time_sel" value="15">15:00
-                            <input type="radio" name="time_sel" value="16">16:00
-                            <input type="radio" name="time_sel" value="17">17:00
-                            <input type="radio" name="time_sel" value="18">18:00
-                            <input type="radio" name="time_sel" value="19">19:00
-                        </p>
-                    </div>
-
-                    <div class="camp_exp">
-                        <span class="th1">
-                            <input type="checkbox" name="pro_list" id="pro2" value="pro2" id="pro2">
-                        </span>
-                        <input type="hidden" value="70000" name="pro_price">
-                        <span  class="th2">
-                            아쿠아리움<br>나이트 캠프<br>70,000원
-                        </span>
-                        <span  class="th3">
-                            <span>아쿠아리움에서 단체로 즐기는 나이트 캠프!</span>
-                            <span>롯데월드 아쿠아리움에서 단체로 즐기는 특별한 하룻밤을 즐겨보세요! (최대 15명)</span>
-                        </span>
-                        <span  class="th4">
-                            <input type="text" name="pro_qty" id="nt_camp" class="nt_camp">
-                        </span>
-                        <span>
-                            <a href="#">
-                                <input type="text" id="cost2" class="cost2" disabled>
-                            </a>
-                        </span>
-                    </div>
-
-                    <div class="feeding_exp">
-                        <span class="th1">
-                            <input type="checkbox" name="pro_list" id="pro3" value="pro3" id="pro3">
-                        </span>
-                        <input type="hidden" value="7000" name="pro_price">
-                        <span class="th2">
-                            Special<br> 먹이 주기 체험<br>7,000원
-                        </span>
-                        <span class="th3">
-                            <span>누가 어떤 먹이를 먹는지 같이 확인해봐요!</span>
-                        </span>
-                        <span class="th4">
-                            <select name="pro_qty" id="bento">
+        <button type="button" onclick="putPro()">객체 생성</button>
+            <div>        
+                <table class="buy_pro" id="buy_pro">
+                    <thead>
+                        <tr class="pro_menu">
+                            <th class="th1">선택</th>                              
+                            <th class="th2">이름</th>
+                            <th class="th3">프로그램 소개</th>
+                            <th class="th4">인원</th>
+                            <th class="th5">가격</th>
+                        </tr>
+                    </thead>
+                    <!-- 다이빙 -->
+                    <tbody>
+                        <tr class="list_rows">
+                            <td>
+                                <input type="checkbox" name="pro_list[]" id="pro1" value="pro1" id="pro1">
+                                <input type="hidden" value="95000" name="pro_price">
+                            </td>
+                            <td>
+                                메인 수조 다이빙 체험<br>95,000원
+                            </td>
+                            <td>
+                                <p>
+                                    국내최대 규모 25m 세이프티 다이빙 체험!
+                                </p>
+                                <p>
+                                    다양한 바다생물들이 눈앞에서 펼쳐지는 롯데월드 아쿠아리움에서 특별한 추억을 <br>남겨 보세요
+                                </p>
+                            </td>
+                            <td>
+                                <select name="pro_qty" id="pro_qty1" class="pro_qty1 changer" onchange="calc3(95000, 1)">
+                                    <option value="0">선택</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select> 
+                            </td>
+                            <td>
+                                <input type="text" name="cost" id="cost1" class="cost" disabled>
+                            </td>
+                        </tr>
+                        <!-- 나이트캠프 -->
+                        <tr class="list_rows">
+                            <td>
+                                <input type="checkbox" name="pro_list[]" id="pro2" value="pro2" id="pro2">
+                                <input type="hidden" value="70000" name="pro_price">
+                            </td>
+                            
+                            <td>
+                                <p>
+                                    아쿠아리움<br>나이트 캠프<br>70,000원
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    아쿠아리움에서 단체로 즐기는 나이트 캠프!
+                                </p>
+                                <p>
+                                    롯데월드 아쿠아리움에서 단체로 즐기는 특별한 하룻밤을 즐겨보세요! (최대 10명)
+                                </p>
+                            </td>
+                            <td>
+                                <select name="qty" id="pro_qty2" class="pro_qty2 changer" onchange="calc3(70000, 2)">
+                                <option value="0">선택</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                            </select> 
-                        </span>
-                        <span class="th5">
-                            <a href="#">
-                                <input type="text" id="cost3" class="cost" disabled>
-                            </a>
-                        </span>
-                    </div>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="cost" id="cost2" class="cost2" disabled>
+                            </td>
+                        </tr>
+                        <!-- 물고기 도시락 -->
+                        <tr class="list_rows">
+                            <td>
+                                <input type="checkbox" name="pro_list[]" id="pro3" value="pro3" id="pro3">
+                                <input type="hidden" value="7000" name="pro_price">
+                            </td>
+                            
+                            <td>
+                                <p>
+                                    Special<br> 먹이 주기 체험<br>7,000원
+                                </p>
+                            </td>
+                            <td>
+                                <span>
+                                    누가 어떤 먹이를 먹는지 같이 확인해봐요!
+                                </span>
+                            </td>
+                            <td>
+                                <select name="pro_qty" id="pro_qty3" class="pro_qty3 changer" onchange="calc3(7000, 3)">
+                                    <option value="0">선택</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select> 
+                            </td>
+                            <td>
+                                <input type="text" name="cost" id="cost3" class="cost" disabled>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                    <!-- 프로그램 총합 -->
-                    <div class="result3_wrap">
-                        <span class="total_text3">프로그램 가격</span>
-                        <div class="result3_bx">
-                            <input type="text" id="result3" name="result3" class="result3" disabled>
-                            <span class="won3">원</span>
-                        </div>
+                <!-- 프로그램 총합 -->
+                <div class="result3_wrap">
+                    <span class="total_text3">프로그램 가격</span>
+                    <div class="result3_bx">
+                        <input type="text" id="result3" name="result3" class="result3" disabled>
+                        <span class="won3">원</span>
                     </div>
                 </div>
-            </ul>
+            </div>   
+            
        
+        <!-- 결제 예상 금액 -->
         <div class="prophet">
-            <h3>2. 예상 결제 금액</h3>
-            <div class="fore_wrap">
+            <div class="prophet_title">
+                <h3>예상 결제 금액</h3>
+            </div>
             <table>
                 <tr>
-                    <td>티켓 금액</td>
+                    <td>티켓 가격</td>
                     <td>
                         <input type="text" name="sResult1" id="sResult1" class="sResult" disabled> <span> 원</span>
                     </td>
@@ -363,89 +386,37 @@ include "../login/login_check.php";
                     </td>
                 </tr>
                 <tr>
-                    <td>혜택 적용된 금액</td>
+                    <td>할인 적용 후 티켓 가격</td>
                     <td>
                         <input type="text" name="sResult3" id="sResult3" class="sResult" disabled> <span> 원</span>
                     </td>
                 </tr>
                 <tr>
-                    <td>프로그램 금액</td>
+                    <td>프로그램 가격</td>
                     <td>
                         <input type="text" name="sResult4" id="sResult4" class="sResult" disabled> <span> 원</span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="fore_last">총 예상 금액</td>
+                <tr class="fore_last">
+                    <td >총 예상 금액</td>
                     <td class="fore_last">
                         <input type="text" name="sResult5" id="sResult5" class="sResult" disabled> <span> 원</span>
                     </td>
                 </tr>
             </table>
-            <p class="check_pay">
-                <button type="button" onclick="payment()" class="check_pay">
-                    <span>예상 금액 확인</span>
-                </button>
-            </p>
-            </div>
+            <button type="button" onclick="totalsum()">결과</button>
         </div>
+        
 
-        <div class="last_btn">
-            <button type="reset" name="resetall" value="resetall">다시 작성</button>
-            <button type="submit" name="payall" value="paylall">결제</button>
-        </div>
+            <div class="last_btn">
+                <button type="reset" name="resetall" value="resetall">다시 작성</button>
+                <button type="submit" name="payAll" value="payall" id="payAll">결제</button>
+            </div>
         </form>
         </div>
         </section>
     </main>
-        
-    <footer id="footer" class="footer"> 
-        <h2 class="footer_logo">사이트 이용 안내</h2>
-            <h3 class="blind">약관 및 정책</h3>
-            <ul class="footer_intro">
-                <li><a href="#">아쿠아리움 소개</a></li>
-                <li><a href="#">사이트맵</a></li>
-                <li><a href="#">이용약관</a></li>
-                <li><a href="#">개인정보처</a>리방침</li>
-                <li><a href="#">영상</a>정보처리 기기운영/관리방침</li>
-                <li><a href="#">그룹PR</a></li>
-            </ul>   
-            
-            <div class="etc">
-                <div class="etc_pt1">    
-                    <address>서울특별시 송파구 올림픽로 999</address>
-                    <p>대표자: 김철수</p>
-                    <p>전화: 123-456-789</p>
-                    <p>전자우편주소: happy@happy.com</p>
-                </div>
-                <div class="etc_pt2">
-                    <p>사업자 등록번호:987-65-43210</p>
-                    <p>통신판매업신고번호: 송파 제9999호</p>
-                </div>
-                <p class="copy">Copyright 2014 Lotteworld. All Rights    reserved.</p>
-            </div>  
-            
-            <div class="footer_more">
-                <h2>계열사 관련사이트<a href="#">더보기</a></h2>
-                    <!-- <ul class="fam_list">
-                        <li>계열사1</li>
-                        <li>계열사2</li>
-                        <li>계열사3</li>
-                        <li>계열사4</li>
-                        <li>계열사5</li>
-                        <li>계열사6</li>
-                        <li>계열사7</li>
-                    </ul> -->
-            </div>  
-            
-            <ul class="isms_bx">
-                <li class="isms_logo">ISMS인증</li>
-                <div>
-                <li>인증범위: 온라인 예매 서비스 운영</li>
-                <li>유효기간: 2020.11.18~2023.11.17</li>
-                </div>
-            </ul>
-    </footer>
-
+    
 </body>
 <script type="text/javascript">
     /* 달력 */
@@ -486,30 +457,19 @@ include "../login/login_check.php";
     };
 
     /* ticket & program calculator */
-    // [티켓] 일반 티켓
-    function tCalc(price){
-        const checkbx = document.getElementById("checkbox1");
-        const qty = document.getElementById("price1").value;
-        const hidden = document.getElementById("hidden1");
+    // [티켓] 티켓
+    function tCalc(price, index){
+        const checkbx = document.getElementById("checkbox" + index);
+        const qty = document.getElementById("price" + index).value;
+        const hidden = document.getElementById("hidden" + index);
             if(checkbx.checked){
                 hidden.value = price * Number(qty);
             }else{
                 hidden.value = "0";
             };
-            //console.log(hidden.value);
+            //console.log(checkbx);
     };
-    // [티켓] 노약자 티켓
-    function tCalc2(price){
-        const checkbx = document.getElementById("checkbox2");
-        const qty = document.getElementById("price2").value;
-        const hidden = document.getElementById("hidden2");
-            if(checkbx.checked){
-                hidden.value = price * Number(qty);
-            }else{
-                hidden.value = "0";
-            };
-            //console.log(hidden.value);
-    };
+    
 
     // [티켓] hidden값 더하여 총합 구함
     $(".qtySet").keyup(function(){
@@ -548,7 +508,7 @@ include "../login/login_check.php";
     });
 
     //[discount] reset : 구매 개수 변경시 할인 적용 체크를 초기화하여 올바른 총합 볼수 있도록 함
-    $("#price1, #price2").keyup(function(){
+    $("qtySet").keyup(function(){
         let radioChecked = document.getElementsByName("which_dis");
         //price1 or price2 value  변경시 체크해제하고 result2의 값도 0으로 변환
         radioChecked.forEach((radio) => {
@@ -558,73 +518,113 @@ include "../login/login_check.php";
     });
     
     /* 프로그램 구매 */
-    //program calculator
-    function calc3() {
-        let checkedArray = new Array();
-        let checked = $("input[name=pro_list]:checked").each(function(){
-            checkedArray.push(price_checked);
-        let price_checked = $("input[name=pro_list]:checked").parent().next();
-        
-
-        });
-        
-        
-
-        
-        console.log(checkedArray);
+    //[program] calculator
+    function calc3(price, index) {
+        let proChecked = document.getElementById("pro" + index);
+        let proQty = $(".pro_qty" + index).val();
+        let sub_result = document.getElementById("cost" + index);
+        //console.log(proChecked);
+        //console.log(proQty);
+        if(proChecked.checked){
+            locale = price * parseInt(proQty);
+            sub_result.value = locale.toLocaleString();
+        }else{
+            sub_result.value = "0";
+        };
         
     };
     
+    //[program] total calculator 
+    //배열, reduce, map, 문자형 숫자형 변환등 사용해 봄
+    $(".changer").change(function(){
+        let result3 = document.getElementById("result3")
+        let result = 0;
+        let strArray = new Array();
+        $("input[name=cost]").each(function(){
+            strArray.push(this.value.replace(/,/g, ""));
+        });
+        console.log(strArray);
+        const numArray = strArray.map(Number);
+        result = numArray.reduce((a, b) => a + b, 0);
+        //console.log(result);
+        result3.value = result.toLocaleString();
+    });
+
+    //[program] 체크박스 값 보내기
     
-    
 
 
+    //[program] 프로그램 구매 배열 생성
+    // function putPro(){
+    //     putArray = new Array();
+    //     let idxArray = new Array();
+    //     $("input[name=pro_list]:checked").each(function(){
+    //         idxArray.push($("input[name=pro_list]").index(this));
+    //     });
+    //     for (i = 0; i < idxArray.length; i++) {
+    //         let obj = new Object();
+    //         obj.p_id = $("#buy_pro tbody").children().eq(idxArray[i]).children().children().eq(0).val();
+    //         // obj.price = $("#buy_pro tbody").children().eq(idxArray[i]).children().children().eq(1).val();
+    //         obj.qty = $("#buy_pro tbody").children().eq(idxArray[i]).children().eq(3).children().eq(0).val();
+    //         putArray.push(obj);
+    //         console.log(putArray);
+    //     };
+    // };
 
 
-
-
-
-
-
-
+    /* 토탈 계산기 */
     //total calculator
-    function payment(){
+    $(".qtySet").keyup(function(){
         let sResult1 = document.getElementById("sResult1");
-        let sResult2 = document.getElementById("sResult2");
-        let sResult3 = document.getElementById("sResult3");
-        let sResult4 = document.getElementById("sResult4");
-        let sResult5 = document.getElementById("sResult5");
         let result1N = result1.value.replace(/,/g, "");
-        let result2N = result2.value.replace(/,/g, "");
-        let result3N = result3.value.replace(/,/g, "");
-        
-
         if(!(result1N == "")){
             sResult1.value = Number(result1N).toLocaleString();
         }else{
             sResult1.value = "0"
         };
+    });
+    $("input[name=which_dis]").change(function(){
+        let sResult2 = document.getElementById("sResult2");
+        let sResult3 = document.getElementById("sResult3");
+        let result1N = result1.value.replace(/,/g, "");
+        let result2N = result2.value.replace(/,/g, "");
+
         if(!(result2N == "")){
             sResult3.value = Number(result2N).toLocaleString();;
         }else{
             sResult3.value = "0"
-        };
-        if(!(result3N == "")){
-            sResult4.value = Number(result3N).toLocaleString();;
-        }else{
-            sResult4.value = "0"
         };
         if(!(sResult3.value == "0")){
             sResult2.value = (Number(result2N) - Number(result1N)).toLocaleString();
         }else if(sResult3.value == "0"){
             sResult2.value = "0";
         }
+    });
+    $(".changer").change(function(){
+        let sResult4 = document.getElementById("sResult4");
+        let result3N = result3.value.replace(/,/g, "");
+        if(!(result3N == "")){
+            sResult4.value = Number(result3N).toLocaleString();;
+        }else{
+            sResult4.value = "0"
+        };
+    });
+    // input[name=which_dis] .changer  .qtySet 버튼으로 해야할거 같음 일단 보류
+    /*$("input[name=cost]").on("propertychange change paste input", function() {
+        let sResult5 = document.getElementById("sResult5");
+        let result1N = result1.value.replace(/,/g, "");
+        let result2N = result2.value.replace(/,/g, "");
+        let result3N = result3.value.replace(/,/g, "");
+
         if(!(sResult2.value == "0")){
             sResult5.value = (Number(result3N) + Number(result2N)).toLocaleString();
         }else if(sResult2.value == "0"){
             sResult5.value = (Number(result3N) + Number(result1N)).toLocaleString();
         };
-    };
+    });
+    */
+
+   
 
 </script>
 

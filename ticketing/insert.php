@@ -94,7 +94,6 @@ $solWeakOnly_sql = "insert into toCart(u_id, booking_date, p_id, price, qty,boug
 //exit;
 
 //db전송
-
 if($dis_id && $p_id && $p_id2){
   mysqli_query($dbcon, $sql);
 }else if (!$dis_id && $p_id && $p_id2){
@@ -110,16 +109,38 @@ if($dis_id && $p_id && $p_id2){
 };
 
 
-//program list
-create table program_list(
-idx int auto_increment primary key,
-p_id varchar(50) not null,
-p_name varchar(100) not null,
-price int not null,
-picture varchar(100) not null
-);
 
-insert into program_list(p_id, price, p_name, picture)values('pro1', '95000', '메인 수조 다이빙 체험', 'later'), ('pro2', '70000', '아쿠아리움 나이트 캠프','later'), ('pro3', '7000', 'Special 먹이주기 체험','later');
+//program list
+// create table program_list(
+// idx int auto_increment primary key,
+// p_id varchar(50) not null,
+// p_name varchar(100) not null,
+// price int not null,
+// picture varchar(100) not null
+// );
+
+// insert into program_list(p_id, price, p_name, picture)values('pro1', '95000', '메인 수조 다이빙 체험', 'later'), ('pro2', '70000', '아쿠아리움 나이트 캠프','later'), ('pro3', '7000', 'Special 먹이주기 체험','later');
+
+//program table
+// create table tocart_pro(
+//   idx int auto_increment primary key,
+//   u_id varchar(20) not null,
+//   p_id varchar(50) not null,
+//   p_name varchar(100) not null,
+//   booking_date date not null,
+//   price int not null,
+//   qty int not null,
+//   picture varchar(100),
+//   bought_date date,
+//   order_idx varchar(100) not null
+// );
+//program list 불러오기
+$sql ="select * from program_list";
+
+
+
+
+
 
 
 //db종료

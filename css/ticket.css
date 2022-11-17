@@ -9,7 +9,7 @@
         font-size: 100%;
         font: inherit;
         vertical-align: baseline;
-        style:none
+        font-style:none
     }
     div, section, nav, footer, header h1{
         display: block;
@@ -54,7 +54,7 @@ body{
         font-weight:bold;
     }
 
-    h3{
+    .pt1_wrap h3{
         font-size:22px;
         margin: 20px 0 10px
     }
@@ -624,52 +624,33 @@ body{
     }
 
 
-
-
-    
+    /*프로그램 구매*/
     .pro_title{
         font-size:30px;
         width:230px;
         margin:270px auto 0;
         font-weight:bold;
     }
-
-    .pro_wrap{
-        width:1000px;
-        height:500px;
-        border-radius:10px;
-        margin:0 auto 50px;
-        padding-top:20px;
-        position:relative;
-    }
     .buy_pro{
+        position:relative;
         width:1000px;
         height:100%;
         background:white;
         margin:0 auto;
         border-top:2px solid #e4e4e4; 
-        
+        border-collapse:collapse;
     }
-  
-
     .pro_menu{
-        width:1000px;
         height:30px;
-        border-bottom:#bebebe 1px solid
-    }
-    .pro_menu span{
-        line-height:30px;
-        font-size:18px;
-        display:block;
-        text-align:center;
-        margin:auto;
-        float:left
+        background:#292929;
+        color:white;
+        
     }
     .th1{
         width:80px;
     }
     .th2{
-        width:150px;
+        width:200px;
     }
     .th3{
         width:620px;
@@ -680,145 +661,50 @@ body{
     .th5{
         width:80px;
     }
-    
-    .diving_exp{
-        width:1000px;
-        height:150px;
-        position:relative;
-        border-bottom:#bebebe 1px solid;
+    .list_rows td{
+        height:130px;
+        border-bottom:1px solid rgb(197, 197, 197);
     }
-    .diving_exp span{
-        display:inline-block;
-        float:left;
-        height:150px;
-        
-        box-sizing:border-box;
-    }
-    .diving_exp span:nth-child(1){
+    .list_rows td:nth-child(1){
         text-align:center;
-        line-height:150px;
     }
-    .diving_exp span:nth-child(2){
+    .list_rows td:nth-child(1) input{
+        width:20px;
+        height:20px
+    }
+    .list_rows td:nth-child(2){
         text-align:center;
-        padding-top:35px;
-        line-height:33px;
     }
-    .diving_exp span:nth-child(3){
-        text-align:left;
+    .list_rows td:nth-child(3){
         padding-left:30px;
-        padding-top:20px;
-        line-height:25px;
-    }
-    .diving_exp span:nth-child(4){
-        text-align:center;
-        line-height:150px;
-    }
-    .diving_exp span:nth-child(5){
-        text-align:center;
-        line-height:150px;
-    }
-
-    .diving_time{
-        position:absolute;
-        width:600px;
-        top:110px;
-        left:230px;
-        box-sizing:border-box;
-        line-height:40px;
-        padding-left:100px;
-    }
-   
-   
-    .camp_exp{
-        width:1000px;
-        height:120px;
-        position:relative;
-        border-bottom:#bebebe 1px solid;
-    }
-    .camp_exp span{
-        display:inline-block;
-        float:left;
-        height:120px;
-       
         box-sizing:border-box;
     }
-    .camp_exp span:nth-child(1){
+    .list_rows td:nth-child(4){
         text-align:center;
-        line-height:120px;
+        font-size:20px;
     }
-    .camp_exp span:nth-child(2){
+    .list_rows td:nth-child(4) select{
         text-align:center;
-        padding-top:20px;
-        line-height:25px;
-    }
-    .camp_exp span:nth-child(3){
-        text-align:left;
-        padding-left:30px;
-      
-        line-height:25px;
-    }
-    .camp_exp span:nth-child(4){
-        text-align:center;
-        line-height:120px;
-    }
-    .camp_exp span:nth-child(5){
-        text-align:center;
-        line-height:120px;
-    }
-    .cost2{
         width:50px;
-        background:white;
-        border:none;
-        margin-left:15px;
+        height:25px;
     }
-    
-  
-
-
-    .feeding_exp{
-        width:1000px;
-        height:120px;
-        border-bottom:#bebebe 1px solid
-    }
-    .feeding_exp span{
-        display:inline-block;
-        float:left;
-        height:120px;
-        box-sizing:border-box;
-    }
-    .feeding_exp span:nth-child(1){
-        text-align:center;
-        line-height:120px;
-    }
-    .feeding_exp span:nth-child(2){
-        text-align:center;
-        padding-top:20px;
-        line-height:25px;
-    }
-    .feeding_exp span:nth-child(3){
-        text-align:left;
-        padding-left:30px;
-        line-height:25px;
-    }
-    .feeding_exp span:nth-child(4){
-        text-align:center;
-        line-height:120px;
-    }
-    .feeding_exp span:nth-child(5){
-        text-align:center;
-        line-height:120px;
-    }
-   
-    
-   
-    .nt_camp{
-        width:30px;
-    }
-    .cost{
+    .list_rows td:nth-child(4) input{
         width:50px;
+        height:25px;
+    }
+    .list_rows td:nth-child(5) input{
+        width:80px;
+        height:25px;
         background:white;
         border:none;
     }
+    
+    
+
+    
+
+
+
     .result3_wrap{
         width:1000px;
         height:50px;
@@ -855,52 +741,55 @@ body{
     }
 
 
-
+    /* 예상금액 계산기 */
     .prophet{
-        width:800px;
-        height:400px;
-        margin:150px auto 0;
+        width:600px;
+        margin:150px auto;
+        border-radius:10px;
         box-sizing:border-box;
         position:relative;
-        
+        border: 1px solid #0d539a;
     }
-    .fore_wrap{
-        width:800px;
-        height:350px;
-        background:white;
-        padding-top:10px;
-        border-radius:10px;
-        padding-top:60px;
-        box-sizing:border-box;
+    .prophet_title{
+        text-align:center;
         margin:auto;
+        background:#0d539a;
+        border-top-left-radius:10px;
+        border-top-right-radius:10px;
+        color:white;
+        height:35px;
+        padding:5px;
+    }
+    .prophet_title h3{
+        font-size:20px;
+        line-height:35px;
         
     }
     .prophet table{
         margin:auto;
-        border-left:2px solid #002339;
-        border-right:2px solid #002339;
         background:white;
-        width:620px;
         box-sizing:border-box;
         border-collapse:collapse;
+        font-size:18px;
+        padding-left:10px;
+        padding-right:10px
     }
     .prophet tr>td:nth-child(1){
         text-align:left;
-        border-right:1px solid #002339;
-        height:40px;
+        height:60px;
         width:280px;
-        padding-left:20px
     }
     .prophet tr>td:nth-child(2){
         text-align:right;
-        padding-right:20px
-        
-    }   
+    }
+    .prophet tr>td:nth-child(2) input{
+        text-align:right;
+        font-size:18px;
+    }
+    
+
     .fore_last{
-        border-right:none;
-        border-left:none;
-        border-bottom:none;
-        border-top: 2px solid #002339;
+        border-top:#0d539a double 3px;
         font-weight:bold
     }
     .sResult{
@@ -910,6 +799,8 @@ body{
         text-align:right;
         font-size:14px;
     }
+
+    /* 결정 버튼 */
     .last_btn{
         width:500px;
         height:40px;
@@ -917,29 +808,7 @@ body{
         position:relative;
         top:50px
     }
-    .check_pay{
-        position:absolute;
-        top:-21px;
-        left:85px;
-        margin:20px auto;
-    }
-    .check_pay button{
-        display:block;
-        width:150px;
-        height:30px;
-        background: white;
-        
-    }
-    .check_pay button>span{
-        font-size:16px;
-    }
-    .check_pay button:hover{
-        color:#0d539a;
-        font-weight:bold;
-        border:none;
-        box-shadow: 1px 1px 5px #bebebe;
-        transition: all 0.3s;
-    }
+    
     .last_btn button{
         width:220px;
         height:40px;
@@ -955,121 +824,4 @@ body{
         background:white;
         color:#002339;
     }
-    .footer{
-        border-top:1px solid #002339;
-        height:192px;
-        width:1200px;
-        margin:auto;
-        background:white;
-        position:relative;
-    }
     
-    .footer_logo{
-        width:86px;
-        height:58px;
-        background:url(../images/logo_03.jpg) no-repeat;
-        position:absolute;
-        top:55px;
-        left:45px;
-        text-indent:-9999px
-    }
-    
-    .footer_intro{
-        height:18px;
-        width:700px;
-        display:flex;
-        justify-content:space-between;
-        position:absolute;
-        top:42px;
-        left:162px;
-        font-size:15px
-    }
-    .etc{
-        width:635px;
-        height:52px;
-        position:absolute;
-        top:83px;
-        left:162px;
-        font-size:14px
-    }
-    .etc_pt1{
-        width:700px;
-        height:14px;
-        display:flex;
-        justify-content:space-between;
-    }
-    .etc_pt2{
-        width:460px;
-        height:14px;
-        display:flex;
-        justify-content:space-between;
-        margin-top:5px;
-    }
-    .copy{
-        width:500px;
-        height:14px;
-        margin-top:5px
-    }
-    
-    .footer_more{
-        position:absolute;
-        top:42px;
-        right:42px
-    }
-    .footer_more h2{
-        background:url(../images/footermore_121.jpg) no-repeat;
-        width:192px;
-        height:36px;
-        text-indent:-9999px;
-        position:relative
-    
-    }
-    .footer_more h2>a{
-        display:block;
-        background:url(../images/back_arr_124.png) no-repeat;
-        width:10px;
-        height:10px;
-        text-indent:-9999px;
-        display:block;
-        position:absolute;
-        top:12px;
-        right:17px;
-        z-index:9
-    }
-    .fam_list{
-        width:192px;
-        height:80px;
-        background:rgb(44, 44, 44);
-        box-sizing:border-box;
-        padding-left:10px;
-        padding-top:5px;
-        color:white;
-        overflow-y:scroll;
-        font-size:16px;
-    }
-    .fam_list li{
-        margin-bottom:3px;
-    }
-    
-    
-    .isms_bx{
-        width:220px;
-        height:33px;
-        font-size:11px;
-        position:absolute;
-        top:100px;
-        right:42px;
-    }
-    .isms_logo{
-        background:url(../images/ismslogo_129.png) no-repeat;
-        text-indent:-9999px;
-        width:31px;
-        height:29px
-    }
-    .isms_bx div{
-        width:175px;
-        height:33px;
-        position:absolute;
-        top:0;
-        right:0
-    }

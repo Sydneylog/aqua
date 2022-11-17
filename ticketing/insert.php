@@ -109,7 +109,6 @@ if($dis_id && $p_id && $p_id2){
 };
 
 
-
 //program list
 // create table program_list(
 // idx int auto_increment primary key,
@@ -135,7 +134,24 @@ if($dis_id && $p_id && $p_id2){
 //   order_idx varchar(100) not null
 // );
 //program list 불러오기
-$sql ="select * from program_list";
+//$sql ="select * from program_list";
+//$result = mysqli_query($dbcon, $sql);
+//$array = mysqli_fetch_array($result);
+
+
+$p_id = $_POST["pro_list"]; 
+$booking_date = $_POST["datepicker"];
+$qty = $_POST["pro_qty"];
+
+//echo count($p_id);
+for($i = 0; $i < count($p_id); $i++){
+  echo $p_id[$i];
+  echo $qty[$i];
+}
+
+exit;
+
+//
 
 
 

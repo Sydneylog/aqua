@@ -18,10 +18,10 @@ include "../inc/session.php";
 //include "../inc/dbcon.php";
 
 //db연결후 select쿼리 작성하여 array 변수에 담기
-$sql = "select * from dis_list";
-$result = mysqli_query($dbcon, $sql);
-$array = mysqli_fetch_array($result);
-include "../login/login_check.php";
+// $sql = "select * from dis_list";
+// $result = mysqli_query($dbcon, $sql);
+// $array = mysqli_fetch_array($result);
+// include "../login/login_check.php";
 ?>
 
 
@@ -272,7 +272,7 @@ include "../login/login_check.php";
                                 </p>
                             </td>
                             <td>
-                                <select name="pro_qty" id="pro_qty1" class="pro_qty1 changer" onchange="calc3(95000, 1)">
+                                <select name="pro_qty[]" id="pro_qty1" class="pro_qty1 changer" onchange="calc3(95000, 1)">
                                     <option value="0">선택</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -304,7 +304,7 @@ include "../login/login_check.php";
                                 </p>
                             </td>
                             <td>
-                                <select name="qty" id="pro_qty2" class="pro_qty2 changer" onchange="calc3(70000, 2)">
+                                <select name="pro_qty[]" id="pro_qty2" class="pro_qty2 changer" onchange="calc3(70000, 2)">
                                 <option value="0">선택</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -340,7 +340,7 @@ include "../login/login_check.php";
                                 </span>
                             </td>
                             <td>
-                                <select name="pro_qty" id="pro_qty3" class="pro_qty3 changer" onchange="calc3(7000, 3)">
+                                <select name="pro_qty[]" id="pro_qty3" class="pro_qty3 changer" onchange="calc3(7000, 3)">
                                     <option value="0">선택</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -550,8 +550,20 @@ include "../login/login_check.php";
         result3.value = result.toLocaleString();
     });
 
-    //[program] 체크박스 값 보내기
+    //[program] cancelled
+    $("input[name=pro_list]").change(function(){
+        if($("input[name=pro_list]").is(":checked")){
+            ""
+        }else{
+
+        }
+    })
     
+
+
+
+    //[program] 체크박스 값 보내기
+
 
 
     //[program] 프로그램 구매 배열 생성

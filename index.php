@@ -117,7 +117,7 @@ include "inc/session.php";
                     <li><a href="#">프로그램 구매</a></li>
                 </ul>
             </li>
-            <li class="gnb5"><a href="#">새소식&고객의 소리</a>
+            <li class="gnb5"><a href="notice/list.php">새소식&고객의 소리</a>
                 <ul>
                     <li><a href="#">공지사항</a></li>
                     <li><a href="#">후기 게시판</a></li>

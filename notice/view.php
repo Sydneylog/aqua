@@ -34,10 +34,6 @@ mysqli_query($dbcon, $sql);
 //좋아요
 
 
-function likeAdd(){
-    $likes = $array["likes"] +1 ;
-};
-
 
 //db종료는 데이터의 안전한 전송을 위해 마지막에서 종료 시켜 준다
 
@@ -54,7 +50,10 @@ function likeAdd(){
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <style type="text/css">
+        
         @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
         .blind{
@@ -173,13 +172,16 @@ function likeAdd(){
             width:100px;
         }
         .like_btn{
+            display:block;
             text-align:center;
             width:120px;
             height:40px;
+            font-size:30px;
             background: white;
             border:2px solid black;
             border-radius:30px;
         }
+
         .btn_bx{
             width:400px;
             margin:30px auto;
@@ -197,6 +199,43 @@ function likeAdd(){
             font-size:15px;
             line-height:30px;
         }
+        .inner{
+            width:800px;
+            margin:auto;
+        }
+        .reply_box{
+            margin-top:70px;
+            border:none;
+        }
+        .reply_box input{
+            width:90px;
+            height:20px;
+        }
+        .reply_box textarea{
+            width:700px;
+            height:70px
+        }
+        .enroll_btn_bx{
+            display:flex;
+            justify-content:space-between;
+        }
+        .enroll_btn_bx>div{
+            width:80px;
+            height:50px;
+            position:relative;
+            top:10px;
+        }
+        .enroll_btn_bx button{
+            width:80px;
+            height:30px;
+            background: white;
+
+        }
+        
+        .enroll_btn_bx button:first-child{
+            margin-bottom:10px;
+        }
+
 
     </style>
 </head>
@@ -256,23 +295,83 @@ function likeAdd(){
                                 ?>
                             </p>
                         </p>
-                        
+                        <?php if($s_nick != $array['writer']) {?>
                         <div class="like_btn_wrap">
-                            <button type="button" id="like_btn" class="like_btn" onclick="add()">
-                                <span>좋아요</span>
-                                <span class="material-icons">favorite</span>
-                            </button> 
+                            <?php
+                                $check_sql = "select*from likes where board_code = '$n_idx' and u_id = '$s_id'";
+                                $check_result = mysqli_query($dbcon, $check_sql);
+                                $check_array = mysqli_fetch_array($check_result);
+                            ?>
+                            <?php if($check_array)  : ?>
+                            <div class="like_minus">
+                                <a id='like_btn' class='like_btn' href='likes_cancel.php?n_id=<?php echo $n_idx;?>'>
+                                    <span class='blind'>좋아요 취소</span>
+                                    <span class='material-icons'>favorite</span>
+                                </a>
+                            </div>
+                            <?php else : ?>    
+                            <div class="like_plus">
+                                <a id='like_btn' class='like_btn' href='likes_ok.php?n_id=<?php echo $n_idx; ?>'>
+                                    <span class='blind'>좋아요</span>
+                                    <span class='material-icons'>favorite_border</span>
+                                </a>
+                            </div>
+                            <?php endif ?>
                         </div>
+                        <?php }else{ ?>
+                            <p></p>
+                        <?php } ?>
                     </div>
             </div>
+            <?php //if($s_id == $array['u_id']) : echo $array['writer']; echo $s_nick; ?>
             <div class="btn_bx">
                 <a href="list.php" class="moving_arr1">
                     <span>뒤로가기</span>
                 </a>
-                <a href="modify.php?n_idx=<?php echo $n_idx; ?>" type="submit" class="moving_arr2">
+                <a href="modify.php?n_idx=<?php echo $n_idx; ?>"
+                type="submit" class="moving_arr2">
                     <span>수정</span>
                 </a>
-            </div>
+            </div>  
+            <?php //endif ?>
+
+            <form>
+                <fieldset class="reply_box">
+                    <legend class="blind">댓글</legend>
+                    <div class="replybox inner">
+                        <!--댓글 테이블
+                        create table notice_reply(
+                        idx int auto_increment primary key,
+                        u_id varchar(20),
+                        nick varchar(20),
+                        r_pwd varchar(50),
+                        content text,
+                        date datetime
+                        );
+                        -->
+                        
+                        <?php if(!$s_id) :?>
+                        <label for="r_nick">닉네임</label>
+                            <input type="text" name="r_nick" id="r_nick" class="r_nick">
+                        <label for="r_pwd">비밀번호</label>
+                            <input type="text" name="r_pwd" id="r_pwd" class="r_pwd">
+                        <?php endif ?>  
+                        <div class="enroll_btn_bx">
+                            <label for="r_contents" class="blind">댓글 내용</label>
+                            <textarea name="r_content" id="r_content"></textarea>
+                            <input type="hidden" name="list_id" vlaue=<?php echo "$n_idx" ?>>
+                            <div>
+                                <button type="submit" class="enroll" name="enroll" onclick="location.herf='reply_ok.php'">댓글 등록</button>
+                                <button type="reset" class="enroll" name="enroll">초기화</button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            
+            
+            
+
         </form>
     </section>
 </main>
@@ -304,6 +403,9 @@ function check_id(){
         };
     };
     color();
+
+
+    
 </script>
 </body>
 </html>

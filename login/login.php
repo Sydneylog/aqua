@@ -45,7 +45,7 @@
             
             <ul class="join_menu">
                 <li class=join_menu1>
-                    <a href="#">회원가입</a>
+                    <a href="../members/Signup2.php">회원가입</a>
                 </li>
                 <li class=join_menu2>
                     <a href="#">아이디/비밀번호 찾기</a>

@@ -3,21 +3,32 @@
 include "../inc/session.php";
 
 //이전페이지에서 값 가져오기
-$n_head = $_POST["n_head"];
-$n_title = $_POST["n_title"];
-$n_contents = $_POST["n_contents"];
+if(!$s_nick){
+    $r_nick = $_POST['r_nick'];
+    $u_id = 'none';
+    $r_pwd = $_POST['r_pwd'];
+}else{
+    $nick = $s_nick;
+    $u_id = $s_id;
+};
+$list_id = $_POST['list_id'];
+$content = $_POST['r_content'];
+$n_date = date('Y-m-d');
 
-//작성일자
-$n_date = date("Y-m-d");
 
-//출력 확인 OK
-// echo $n_head."<P>";
-// echo $n_title."<P>";
-// echo $n_contents."<P>";
-// echo $n_date;
-// echo $s_nick;
-// 로그인 안해서 session 값 못받아옴
-// exit;
+if(!$s_nick){
+echo $r_nick;
+echo $u_id;
+echo $r_pwd;
+}else{
+echo $nick;
+echo $u_id;
+echo $list_id;
+};
+echo $content;
+echo $n_date;
+
+exit;
 
 
 

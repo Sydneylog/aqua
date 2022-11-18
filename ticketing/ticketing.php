@@ -241,7 +241,6 @@ include "../inc/session.php";
         
         
         <h2 class="pro_title">- 프로그램 구매 -</h2>
-        <button type="button" onclick="putPro()">객체 생성</button>
             <div>        
                 <table class="buy_pro" id="buy_pro">
                     <thead>
@@ -257,8 +256,8 @@ include "../inc/session.php";
                     <tbody>
                         <tr class="list_rows">
                             <td>
-                                <input type="checkbox" name="pro_list[]" id="pro1" value="pro1" id="pro1">
-                                <input type="hidden" value="95000" name="pro_price">
+                                <input type="checkbox" name="pro_list[]" id="pro1" value="메인 수조 다이빙 체험" id="pro1">
+                                <input type="hidden" value="95000" name="pro_price[]">
                             </td>
                             <td>
                                 메인 수조 다이빙 체험<br>95,000원
@@ -286,8 +285,8 @@ include "../inc/session.php";
                         <!-- 나이트캠프 -->
                         <tr class="list_rows">
                             <td>
-                                <input type="checkbox" name="pro_list[]" id="pro2" value="pro2" id="pro2">
-                                <input type="hidden" value="70000" name="pro_price">
+                                <input type="checkbox" name="pro_list[]" id="pro2" value="나이트 캠프" id="pro2">
+                                <input type="hidden" value="70000" name="pro_price[]">
                             </td>
                             
                             <td>
@@ -325,8 +324,8 @@ include "../inc/session.php";
                         <!-- 물고기 도시락 -->
                         <tr class="list_rows">
                             <td>
-                                <input type="checkbox" name="pro_list[]" id="pro3" value="pro3" id="pro3">
-                                <input type="hidden" value="7000" name="pro_price">
+                                <input type="checkbox" name="pro_list[]" id="pro3" value="Special 먹이주기" id="pro3">
+                                <input type="hidden" value="7000" name="pro_price[]">
                             </td>
                             
                             <td>

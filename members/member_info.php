@@ -236,10 +236,56 @@ include "../login/login_check.php";
 
                 
             <h4>프로그램 구매 내역</h4>
-            <table>
-            </table>
-        </section>
-    </section>
+            <form>
+                <fieldset>
+                    <legend>프로그램 구매 정보 확인</legend>
+                        <table class="ticket_table">
+                            <tr>
+                                <th class="th1">번호</th>
+                                <th class="th2">구매일</th>
+                                <th class="th3">티켓 종류</th>
+                                <th class="th4">가격</th>
+                                <th class="th5">구매 수량</th>
+                                <th class="th6">예약일</th>
+                                <th class="th8">Total</th>
+                                <th class="th9">주문번호</th>
+                            <tr>
+                            <?php
+                            //테이블 반복 생성
+                            $sql = "select * from toCart_pro order by idx desc";
+                            $result = mysqli_query($dbcon, $sql);
+
+                            $i=1;
+                            while($array = mysqli_fetch_array($result)){
+                            ?>
+                            <tr>
+                                <td>
+                                    <?php echo $i;  ?>
+                                </td>
+                                <td>
+                                    <?php echo $array["bought_date"]; ?>
+                                </td>
+                                <td>
+                                    <?php $array["p_name"]; ?>
+                                </td>
+                                <td><?php echo number_format($array["price"]); ?></td>
+                                <td><?php echo $array["qty"]; ?></td>
+                                <td><?php echo $array["booking_date"]; ?></td>
+                                <td>
+                                    <?php 
+                                    echo number_format($array['price'] * $array['qty']);
+                                    ?>
+                                </td>
+                                <td><?php echo $array["order_idx"]; ?></td>
+                            </tr>
+                            <?php
+                                $i++;
+                                };
+                            ?>
+                        </table>
+                        <a href="../index.php">홈으로</a>
+                </fieldset>
+            </form>
 
 </main>
 

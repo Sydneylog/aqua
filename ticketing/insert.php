@@ -139,22 +139,36 @@ if($dis_id && $p_id && $p_id2){
 //$array = mysqli_fetch_array($result);
 
 
-$p_id = $_POST["pro_list"]; 
+$p_name = $_POST["pro_list"]; 
 $booking_date = $_POST["datepicker"];
 $qty = $_POST["pro_qty"];
+$price = $_POST["pro_price"];
 
-//echo count($p_id);
-for($i = 0; $i < count($p_id); $i++){
-  echo $p_id[$i];
-  echo $qty[$i];
-}
+// for($i = 0; $i < count($p_name); $i++){
+//   echo $p_name[$i];
+//   echo $price[$i];
+//   echo $qty[$i];
+// }
+// exit;
 
-exit;
+$sql1 = "insert into toCart_pro(u_id, p_name, booking_date, price, qty, bought_date, order_idx)values('$s_id', '$p_name[0]', '$booking_date', '$price[0]', '$qty[0]', '$bought_date', '$order_idx');";
+$sql2 = "insert into toCart_pro(u_id, p_name, booking_date, price, qty, bought_date, order_idx)values('$s_id', '$p_name[0]', '$booking_date', '$price[0]', '$qty[0]', '$bought_date', '$order_idx'),('$s_id', '$p_name[1]', '$booking_date', '$price[1]', '$qty[1]', '$bought_date', '$order_idx');";
+$sql3 = "insert into toCart_pro(u_id, p_name, booking_date, price, qty, bought_date, order_idx)values('$s_id', '$p_name[0]', '$booking_date', '$price[0]', '$qty[0]', '$bought_date', '$order_idx'),('$s_id', '$p_name[1]', '$booking_date', '$price[1]', '$qty[1]', '$bought_date', '$order_idx'),('$s_id', '$p_name[2]', '$booking_date', '$price[2]', '$qty[2]', '$bought_date', '$order_idx');";
 
-//
 
 
 
+// echo $sql;
+// exit;
+
+
+if($p_name[2]){
+  mysqli_query($dbcon, $sql3);
+}else if(!$p_name[2] && $p_name[1]){
+  mysqli_query($dbcon, $sql2);
+}else if($p_name[0] && !$p_name[1] && !$p_name[2]){
+  mysqli_query($dbcon, $sql1);
+};
 
 
 

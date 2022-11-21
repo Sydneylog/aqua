@@ -64,7 +64,8 @@ if($e_pageNum > $total_page){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항 게시판</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
     <style>
@@ -195,7 +196,21 @@ if($e_pageNum > $total_page){
             <td><?php echo $array["writer"]; ?></td>
             <td><?php echo $array["n_date"]; ?></td>
             <td><?php echo $array["views"]; ?></td>
-            <td><?php echo $array["likes"]; ?></td>
+            <td><?php echo $array["likes"]; ?>
+                <?php 
+                    $n_idx = $array['idx'];
+                    $li_sql = "select * from likes where u_id = '$s_id' and board_code = $n_idx;";
+                    //echo $li_sql;
+                    $li_result = mysqli_query($dbcon, $li_sql);
+                    $li_array = mysqli_fetch_array($li_result);
+                    echo $li_array["idx"];
+                    if ($li_array["idx"] = null):
+                ?>
+                    <span class="material-icons">favorite</span>
+                <?php else: ?> 
+                    <span class="material-symbols">favorite</span>
+                <?php endif ?>
+            </td>
             
             <!-- <td>
                 <a href="member_info.php?g_idx=<?php //echo $array['idx']; ?>">[수정]</a>
@@ -264,7 +279,6 @@ colorize();
 
 
 
-<?php include "../inc/sub_header.html"; ?>
 </body>
 </html>
 

@@ -192,7 +192,14 @@ input:focus{
 p{
     position:relative;
 }
-
+.member_info_btn,
+.payment_info_btn {
+    cursor:pointer;
+}
+.member_info_btn:hover,
+.payment_info_btn:hover {
+    color:rgb(31, 65, 255)
+}
 
 
 

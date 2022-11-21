@@ -8,7 +8,10 @@
     <link rel="stylesheet" type="text/css" href="../css/signup2.css">
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
     <script type="text/javascript">
+    
         $(document).ready(function(){
                //GNB
                $(".nav> ul > li").mouseenter(function(){
@@ -33,67 +36,6 @@
     
 </head>
 <body>
-    <header id="header" class="header">
-        <div class="header_wrap">
-        <h1 class="main_logo">롯데월드 아쿠아리움</h1>
-        <span class="logo_title">Lotte A Q U A R I U M</span>
-            <h2 class="blind">주요 메뉴</h2>
-            <!-- <div class="top_wrap"> -->
-                <dl class="top_menu1">
-                    <dt class="blind">빠른 안내</dt>
-                    <dd class="top_open">이용 시간</dd>
-                    <dd class="top_buy">티켓 구매 바로가기</dd>
-                </dl>
-                <dl class="top_menu2">
-                    <dt class="blind">유틸메뉴</dt>
-                    <dd class="top_mapg">My page</dd>
-                    <dd class="top_lang">Language</dd>
-                </dl>
-            <!-- </div> -->
-        </div>
-        <nav class="nav" id="nav">
-            <ul>
-                <li class="gnb1"><a href="#">방문 안내</a>
-                    <ul>
-                        <li>
-                            <a href="#">이용 요금</a>
-                        </li>
-                        <li>
-                            <a href="#">위치 안내</a>
-                        </li>
-                        <li>
-                            <a href="#">할인 혜택</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="gnb2"><a href="#">아쿠아리움 소개</a>
-                    <ul>
-                        <li><a href="#">층별 안내</a></li>
-                        <li><a href="#">해양생물 소개</a></li>
-                    </ul>
-                </li>
-                <li class="gnb3"><a href="#">프로그램 안내</a>
-                    <ul>
-                        <li><a href="#">프로그램 소개</a></li>
-                        <li><a href="#">이달의 이벤트</a></li>
-                    </ul>
-                </li>
-                <li class="gnb4"><a href="#">온라인 예매</a>
-                    <ul>
-                        <li><a href="#">티켓 구매</a></li>
-                        <li><a href="#">프로그램 구매</a></li>
-                    </ul>
-                </li>
-                <li class="gnb5"><a href="#">새소식&고객의 소리</a>
-                        <ul>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">후기 게시판</a></li>
-                    </ul> 
-                </li>
-            </ul>
-        </nav>
-        </div>
-</header>
 
 <main id="content" class="content">
     <section class="banner">
@@ -114,67 +56,104 @@
    
     <section class="signup_wrap">
     <div class="signup_title">
-    <h2>- 롯데 아쿠아리움 회원가입 -</h2>
+    <h2>- &nbsp&nbsp아쿠아리움 회원가입&nbsp&nbsp -</h2>
     </div>
     <!-- <h3>1.주요 정보 입력</h3> -->
     
         <form action="insert.php" method="post" class="pt1_bx" onsubmit="return inspector()">
            
-            <fieldset>
-            <div class=" total_wrap"></div>
-            <section class="part1">
-            <legend><span class="id_must">필수 정보 입력</span></legend>
-            <hr>
-                <p>
-                    <label for="new_id">ID</label><br>
-                    <input type="text" id="new_id" name="new_id" class="bx1" maxlength="15"> 
-                    <button type="button" class="id_check" onclick="check_id()" >중복확인</button>
-                    <span id="err_id" class="err_txt"></span>
-                </p>
-                <p>
-                    <label for="new_name">이름</label><br>
-                    <input type="text" id="new_name" name="new_name" class="bx1" maxlength="15">
-                    <span id="err_name" class="err_txt"></span>
-                </p>
-                <p>     
-                    <label for="new_pass">비밀번호</label><br>
-                    <input type="password" id="new_pass" name="new_pass" class="bx1" maxlength="20">
-                    <span id="err_pass" class="err_txt"></span>
-                </p>
-                <p>
-                    <label for="pass_check">비밀번호 확인</label><br>
-                    <input type="password" id="pass_check" name="pass_check" class="bx1" maxlength="20">
-                    <span id="err_pass2" class="err_txt"></span>
-                    <span id="err_pass3" class="err_txt"></span>
-                    <span id="right1" class="right_txt"></span>
-                </p>
-                <p class="mobile_box">
-                    <label for="phone_number" placeholder="전화번호">전화번호</label><br>
-                    <input type="text" id="phone_number" name="phone_number" class="bx1"><br>
-                    <span class="espan">-를 제외하고 입력해 주세요</span><br>
-                    <span id="err_mobile" class="err_txt"></span>
-                    
-                </p>
-                <div class="check_box">
-                <p>
-                    <button type="button" onclick="test()" class="making_number">인증번호 발급</button>
+        <fieldset>
+        <section class="part1">
+                <legend>
+                    <span class="id_must">1. 필수 정보 입력</span>
+                </legend>
 
-                    <label for="timer" class="blind">타이머</label>
-                    <input type="text" id="timer" class="timer" disabled><br>
-
-                    <label for="maiden_number" class="blind">생성된 번호</label>
-                    <input type="text" id="maiden_number" disabled class="bx1"><br>
-                    <span class="espan">* 발급된 번호를 아래 칸에 입력 해주세요</span>
-
-                </p>
-                <p>
-                    <label for="check_number">인증번호 입력</label><br>
-                    <input type="text" id="check_number" name="check_number" class="bx1">
-                    <span id="err_checkN" class="err_txt"></span>
-                    <span id="right_checkN" class="right_txt"></span>
-                </p>
-                </div>
-            
+                <table class="table1">
+                    <tr>
+                        <td>
+                            <label for="new_id">ID</label>
+                        </td>
+                        <td>
+                            <input type="text" id="new_id" name="new_id" class="bx1" maxlength="15"> 
+                            <span id="err_id" class="err_txt"></span>
+                        </td>
+                    </tr>
+                    <p>
+                        <button type="button" class="id_check" onclick="check_id()" >중복확인</button>
+                    </p>
+                    <tr>
+                        <td>
+                            <label for="new_name">이름</label>
+                        </td>
+                        <td>
+                            <input type="text" id="new_name" name="new_name" class="bx1" maxlength="15">
+                            <span id="err_name" class="err_txt"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>     
+                            <label for="new_pass">비밀번호</label>
+                        </td>
+                        <td>
+                            <input type="password" id="new_pass" name="new_pass" class="bx1" maxlength="20">
+                            <span id="err_pass" class="err_txt"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pass_check">비밀번호 확인</label>
+                        </td>
+                        <td>
+                            <input type="password" id="pass_check" name="pass_check" class="bx1" maxlength="20">
+                            <span id="err_pass2" class="err_txt"></span>
+                            <span id="err_pass3" class="err_txt"></span>
+                            <span id="right1" class="right_txt"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mobile_box">
+                            <label for="phone_number" placeholder="전화번호">전화번호</label>
+                        </td>
+                        <td>
+                            <input type="text" id="phone_number" name="phone_number" class="bx1"><br>
+                            <span class="espan">-를 제외하고 입력해 주세요</span>
+                            <span id="err_mobile" class="err_txt"></span>
+                        </td>
+                        
+                    </tr>
+                </table>
+                
+                <table class="table2">
+                
+                    <tr>
+                        <td colspan="2">
+                            <button type="button" onclick="test()" class="making_number">인증번호 발급
+                                <span class="material-icons md-18">done_outline</span>  
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="timer" class="blind">타이머</label>
+                            <input type="text" id="timer" class="timer" disabled>
+                        </td>
+                        <td>
+                            <label for="maiden_number" class="blind">생성된 번호</label>
+                            <input type="text" id="maiden_number" disabled class="bx2 inpu_num"><br>
+                            <span class="espan">* 발급된 번호를 아래 칸에 입력 해주세요</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="check_number">인증번호<br>입력</label>
+                        </td>
+                        <td>
+                            <input type="text" id="check_number" name="check_number" class="bx2">
+                            <span id="err_checkN" class="err_txt"></span>
+                            <span id="right_checkN" class="right_txt"></span>
+                        </td>
+                    </tr>
+                </table>
 
             <div class="page_moving">
             <p>
@@ -187,42 +166,76 @@
             </section>
             
 
-            <section class="part2">
-            <fieldset>
-                <legend><span class="id_sub">부가 정보</span></legend>
-                
-                    <p class="email_wrap">
-                        <label for="email1">이메일</label><br>
-                        <input type="text" id="email" name="email1" class="emailbx1" maxlength="12"> @
-                        <input type="text" id="email2" name="email2" class="emailbx2" maxlength="10"><br>
-                        <select class="email_list" onchange="selectEmail()">
-                            <option value="">직접입력</option>
-                            <option value="hanmail.net">다음</option>
-                            <option value="naver.com">네이버</option>
-                            <option value="gmail.com">구글</option>
-                        </select>
-                    </p>
-                    <p>
-                        <span>주소<span><br>
-                        <label for="ps_code">우편번호</label><br>
-                        <input type="text" name="ps_code" id="ps_code" class="ps_code">
-                        <label for="addr1" class="bx1"><span class="addrtxt">기본주소</span></label>
-                        <input type="text" name="addr1" id="addr1" class="bx1"><br>
-                        <button type="button" class="address_check" onclick="address_search()"><span>주소 검색</span></button>
-                        <label for="addr2" class="bx1"><span class="addrtxt">상세주소</span></label>
-                        <input type="text" name="addr2" id="addr2" class="bx1" maxlength="50">
-                    </p>
-                   
-                    <p>
-                        <label for="birth">닉네임</label><br>
-                        <input type="text" id="nick" name="nick" class="bx1" value="프렌즈"><br>
-                        <span class="nick_span">미입력 시 기본 값인 프렌즈로 설정됩니다.</span>
-                    </p>
-            </fieldset>
-            <div class="page_moving2">
-                <p><button type="button" class="moving_arr1">이전 단계</button></p>
-                <p><button type="submit" class="moving_arr2" onclick="inspector()">회원 가입</button></p>
-            </div>
+            <section class="part2_wrap">
+                <fieldset class="part2">
+                    <legend>
+                        <span class="id_sub">2. 부가 정보</span>
+                    </legend>
+                    <table class="table3">
+                        <tr class="email_wrap">
+                            <td>
+                                <label for="email1">이메일</label>
+                            </td>
+                            <td class="email_line">
+                                <input type="text" id="email" name="email1" class="emailbx1" maxlength="12"> &nbsp&nbsp@&nbsp&nbsp
+                                <input type="text" id="email2" name="email2" class="emailbx2" maxlength="10">
+                            </td>
+                            <p class="email_sel">
+                                <select class="email_list" onchange="selectEmail()">
+                                    <option value="">직접입력</option>
+                                    <option value="hanmail.net">다음</option>
+                                    <option value="naver.com">네이버</option>
+                                    <option value="gmail.com">구글</option>
+                                </select>
+                            </p>
+                        </tr>
+                        <tr>
+                            <td >
+                                <label for="ps_code">우편번호</label>
+                            </td>
+                            <td>
+                                <input type="text" name="ps_code" id="ps_code" class="ps_code">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="addr1" class="bx1"><span class="addrtxt">기본주소</span></label>
+                            </td>
+                            <td>
+                                <input type="text" name="addr1" id="addr1" class="bx1">
+                            </td>
+                            <p>
+                            <button type="button" class="address_check" onclick="address_search()">
+                                <span>주소 검색</span>
+                            </button>
+                            </p>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <label for="addr2" class="bx1"><span class="addrtxt">상세주소</span></label>
+                            </td>
+                            <td>
+                                <input type="text" name="addr2" id="addr2" class="bx1" maxlength="50">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="birth">닉네임</label>
+                            </td>
+                            <td>
+                                <input type="text" id="nick" name="nick" class="bx1" value="프렌즈"><br>
+                                <span class="nick_span">미입력 시 기본 값인 프렌즈로 설정됩니다.</span>
+                            </td>
+                            
+                        
+                        </tr>
+                    </table>
+                </fieldset>
+                <div class="page_moving2">
+                    <p><button type="button" class="moving_arr1">이전 단계</button></p>
+                    <p><button type="submit" class="moving_arr2" onclick="inspector()">회원 가입</button></p>
+                </div>
             </section>
         </div>
         </fieldset>
@@ -230,53 +243,7 @@
     
     </section>
 </main>
-<footer id="footer" class="footer"> 
-    <h2 class="footer_logo">사이트 이용 안내</h2>
-        <h3 class="blind">약관 및 정책</h3>
-        <ul class="footer_intro">
-            <li><a href="#">아쿠아리움 소개</a></li>
-            <li><a href="#">사이트맵</a></li>
-            <li><a href="#">이용약관</a></li>
-            <li><a href="#">개인정보처</a>리방침</li>
-            <li><a href="#">영상</a>정보처리 기기운영/관리방침</li>
-            <li><a href="#">그룹PR</a></li>
-        </ul>   
-        
-        <div class="etc">
-            <div class="etc_pt1">    
-                <address>서울특별시 송파구 올림픽로 999</address>
-                <p>대표자: 김철수</p>
-                <p>전화: 123-456-789</p>
-                <p>전자우편주소: happy@happy.com</p>
-            </div>
-            <div class="etc_pt2">
-                <p>사업자 등록번호:987-65-43210</p>
-                <p>통신판매업신고번호: 송파 제9999호</p>
-            </div>
-            <p class="copy">Copyright 2014 Lotteworld. All Rights    reserved.</p>
-        </div>  
-       
-        <div class="footer_more">
-            <h2>계열사 관련사이트<a href="#">더보기</a></h2>
-                <!-- <ul class="fam_list">
-                    <li>계열사1</li>
-                    <li>계열사2</li>
-                    <li>계열사3</li>
-                    <li>계열사4</li>
-                    <li>계열사5</li>
-                    <li>계열사6</li>
-                    <li>계열사7</li>
-                </ul> -->
-        </div>  
-       
-        <ul class="isms_bx">
-            <li class="isms_logo">ISMS인증</li>
-            <div>
-            <li>인증범위: 온라인 예매 서비스 운영</li>
-            <li>유효기간: 2020.11.18~2023.11.17</li>
-            </div>
-        </ul>
-</footer>
+
 
 <script>
 
@@ -379,9 +346,9 @@ function check_id(){
     //스크립트와 연동되게 스크립트의 값이 true일 경우만 작동하고 스크립트가 false의 경우
     //return false반환 하도록 한다. ;
     $(".moving_arr2").click(function(){
-    $(".part2").fadeIn();
+    $(".part2_wrap").fadeIn();
     $(".moving_arr1").click(function(){
-        $(".part2").fadeOut();
+        $(".part2_wrap").fadeOut();
     });
 });
 };

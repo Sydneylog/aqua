@@ -2,7 +2,7 @@
     0d539a 
     002339
     */
-    head, body, header, footer, main, div, section, nav, ul, li, dl, dt, dd, img, h1, h2, h3, html, br, span, p, address {
+    head, body, header, footer, main, div, section, nav, ul, li, dl, dt, dd, img, h1, h2, h3, h4, html, br, span, p, address {
         margin: 0px;
         padding: 0;
         border: 0;
@@ -37,7 +37,11 @@
 
 /* =====================reset================ */
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-
+.gre333{
+    color:white;
+    background:#333;
+    border: 2px solid #333;
+}
 
 /* ========================main=================/ */
 .banner{
@@ -90,17 +94,16 @@
 }
 
 
-.signup_wrap{
-    position:absolute;
-    width:1200px;
-    left:50%;
-    margin-left:-600px;
-    
-}
+
+
+
+
+
+
+
 /* 가이드헤더 */
 .guide_header{
     text-align:center;
-    
 }
 .guide_header h2{
     font-size:26px;
@@ -123,9 +126,19 @@
     content:'|';
     margin:0 10px;
 }
+
+
+
+/* 개인정보 파트 */
+.signup_wrap{
+    position:absolute;
+    width:1600px;
+    left:50%;
+    margin-left:-800px;
+    /* display:none; */
+}
 .info_modify_page{
     background:white;
-    width:900px;
     height:100%;
     margin:30px auto;
 }
@@ -137,6 +150,7 @@
 }
 fieldset{
     width:600px;
+    margin:auto;
     border:none;
 }
 table{
@@ -178,6 +192,10 @@ input:focus{
 p{
     position:relative;
 }
+
+
+
+
 
 /* modify_info */
 .id_check:hover{
@@ -237,49 +255,25 @@ p{
     margin-bottom:100px;
 }
 .page_moving2{
-    width:300px;
-    height:100px;
-    margin:auto;
+    width:400px;
+    margin:30px auto;
+    display:flex;
+    justify-content:space-between;
 }
-.moving_arr1{
-    float:left;
-    border-radius:10px;
+.page_moving2 button{
     background:white;
-    color:#002339;
+    color:#333;
     outline:none;
-    border:none;
-    box-shadow: 0 1px 2px rgb(0, 20, 54);
+    border:1px solid #333;;
     font-weight: bold;
-    font-size:14px;
-    width:100px;
-    height:30px;
-    
-}
-.moving_arr1:hover{
-    box-shadow: 0 4px 5px rgb(171, 202, 255);
-    border:none;
-    transition: all 0.1s;
-}
-.moving_arr2{
-    float:right;
-    border-radius:10px;
-    background:#002339;
-    color:white;
-    outline:none;
-    border:none;
-    box-shadow: 0 1px 2px rgb(0, 20, 54);
-    font-weight: bold;
+    cursor:pointer;
     font-size:14px;
     width:100px;
     height:30px;
 }
-.moving_arr2:hover{
-    box-shadow: 0 4px 5px rgb(171, 202, 255);
-    background:white;
-    color:#002339;
-    border:none;
-    transition: all 0.1s;
-}
+
+
+
 .check_box {
     width:350px;
     height:270px;
@@ -323,7 +317,9 @@ p{
     background:white
 }
 .address_check:hover{
-    
+    color:#333;
+    background: white;
+    border: 2px solid white;
 }
 .addrtxt{
     font-size:16px;
@@ -334,16 +330,76 @@ p{
 
 
 /* paid_info_page */
-/* .paid_info_page{
-    background:rgb(255, 192, 192);
-    width:1000px;
+.paid_info_page{
+    width:1100px;
+    background:white;
     height:100%;
     margin:30px auto;
     position:absolute;
-    top:30px;
+    top:50px;
     left:50%;
-    margin-left:-500px;
-} */
+    margin-left:-550px;
+}
+.paid_info_page h3{
+    font-size:26px;
+    text-align:center;
+    margin:50px 0 30px;
+}
+.paid_info_page h4{
+    margin:0 0 10px;
+}
+.search_bar{
+    width:300px;
+    position:absolute;
+    right:0;
+    top:115px;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    right:0;
+    line-height:24px;
+}
+.search_bar.search2{
+    bottom:360px;
+}
+.search_bar input{
+    height:24px;
+
+}
+.search_bar select{
+    height:30px;
+}
+.search_bar span{
+    width:24px;
+    height:24px;
+    font-size:24px;
+
+}
 
 
+/* 티켓구매내역 */
+.ticket_table{
+    margin:50px auto;
+}
+.ticket_table th{
+    border-bottom:1px solid #333;
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    background-color:#333;
+    color:white;
+    font-weight: 400;
+}
+.ticket_table td{
+    height:35px;
+    line-height:35px;
+}
+.calc{
+    width:1000px;
+    margin:10px auto 50px;
+    display:flex;
+    justify-content:space-between;
+    font-size:20px;
+
+}
 

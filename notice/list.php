@@ -143,7 +143,7 @@ if($e_pageNum > $total_page){
 </head>
 <body>
     <h2> - 공지사항 - </h2>
-    <?php if($s_id == "admin"){ ?>
+    <?php if($s_id == "admin" || "manager"){ ?>
         <p class="write_area">
             <span>전체 글 개수 <?php echo $total; ?> 개</span>
             <span><a href="write.php">글쓰기</a></span>

@@ -14,16 +14,29 @@ include "inc/session.php";
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="css/jquery.bxslider.css">
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <!-- google icons -->
+    <!-- google icons & smybols -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <!-- gsap library & scollPulgin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollToPlugin.min.js" integrity="sha512-Eenw6RBFiF4rO89LCaB5fkd4WXI4Y7GSRxrLMMWx73dZNcl+dBU3/pJtITD2gTCoEGIf/Ph3spwp0zZnF+UEJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- swiper library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
 
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
     <script src="js/jquery.bxslider.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
-    <!-- scrollMagic CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- youtube API -->
+    <script defer src="./js/youtube.js"></script>
+    
     
 </head>
 <body>
@@ -202,59 +215,84 @@ include "inc/session.php";
                 </li>
             </ul>
         </div>
-        <div class="info_etc_wrap">
-            <div class="event">
-                <ul>진행중인 이벤트
-                    <li>러버덕 이벤트</li>
-                    <li>물개 이벤트</li>
-                </ul>
-                <span class="material-symbols-outlined material-icons md-30">
-                    add_circle
-                </span>
+        <div class="info_box">
+            <div class="info_etc_wrap">
+                <div class="etc_left_bg"></div>
+                <div class="etc_right_bg"></div>
+                <div class="inner">
+                    <div class="inner_left">
+                        <h2>공지사항</h2>
+                        <!-- swiper v7-8 -->
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <?php
+                                    include "./inc/dbcon.php";
+                                    $alarm_sql = "select * from aqua_notice order by idx desc limit 0, 4;";
+                                    $alarm_result = mysqli_query($dbcon, $alarm_sql);
+                                    $i = 4;
+                                    while($alarm_array = mysqli_fetch_array($alarm_result)){
+                                ?>
+                                <div class="swiper-slide">
+                                    <a href="./notice/view.php?n_idx=<?php echo $alarm_array['idx'] ?>">
+                                        <?php 
+                                        echo "[" . $alarm_array['n_head'] . "]";
+                                        echo " " . $alarm_array['n_title']; 
+                                        ?>
+                                    </a>
+                                </div>
+                                <?php 
+                                $i--;
+                                } ?>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0)" class="notice_more">
+                            <span class="material-icons md-30">add_circle</span>
+                        </a>  
+                    </div>
+                    <div class="inner_right">
+                        <h2>진행중인 이벤트</h2>
+                        <div class="toggle-promotion">
+                            <span class="material-symbols-outlined material-icons">
+                                expand_circle_down
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="news">
-                <div>아쿠아리움 새로운 소식
-                    <span class="material-symbols-outlined material-icons md-30">
-                        expand_circle_down
-                    </span>
+            <div class="promotion">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="" alt="" />
+                            <a href="javascript:void(0)" class="btn">자세히 보기</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="" alt="" />
+                            <a href="javascript:void(0)" class="btn">자세히 보기</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="" alt="" />
+                            <a href="javascript:void(0)" class="btn">자세히 보기</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="" alt="" />
+                            <a href="javascript:void(0)" class="btn">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-prev">
+                    <div class="material-icons">arrow_back</div>
+                </div>
+                <div class="swiper-next">
+                    <div class="material-icons">arrow_forward</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- info slide -->
-    <section class="info_slide_box">
-        <div class="inner">
-            <ul>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img src="#" alt="" />
-                        <p>이벤트</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img src="#" alt="" />
-                        <p>우리아이 첫! 상어친구</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img src="#" alt="" />
-                        <p>너랑나랑 데이트</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img src="#" alt="" />
-                        <p>네이버 페이</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
+    <!-- rewards -->
+    <section class="reward">
         <div class="part2_box">
             <div class="character_box">
                 <img src="images/membershipC.png" alt="">
@@ -280,6 +318,22 @@ include "inc/session.php";
         </div>
     </section>
 
+
+    <!-- 56.25%의 패딩탑은 영상등의 16:9비율을 유지하기 위한 기술 -->
+    <!-- youtube video -->
+    <section class="youtube">
+        <div class="youtube_area">
+            <div id="player"></div>
+        </div>
+        <div class="youtube_cover"></div>
+        <div class="inner">
+            <img src="javacript:void(0)" alt="" class="floating1 circle">
+            <img src="javacript:void(0)" alt="" class="floating2 circle">
+            <img src="javacript:void(0)" alt="" class="floating3 circle">
+        </div>
+    </section>
+
+   
     <!-- program intro -->
     <section class="program_introduction">
         <div class="inner">
@@ -314,10 +368,29 @@ include "inc/session.php";
         <div class="inner">
             <img src="" class="logo">
             <div class="text_group">
-                <p class="title"></p>
-                <p class="description"></p>
+                <p class="title">
+                    눈으로 보고 <br>직접 체험해 보세요!
+                </p>
+                <p class="description1">
+                    친구, 연인과 함께 잊지 못할 추억을 만들어 보세요
+                </p>
+                <p class="description2">
+                    롯데 아쿠아리움은 고객들께 활기찬 해양생물들을 보여드릴 뿐만아니라 <br>
+                    바닷속을 직접 체험 할 수 있는 기회를 제공하고 있습니다.
+                </p>
                 <div class="more">
                     <a href="javascript:void(0)" class="btn">자세히 보기</a> 
+                </div>
+            </div>
+            <div>
+                <div class="medal">
+                    <div class="front">
+                        <p>앞</p>
+                    </div>
+                    <div class="back">
+                        <p>뒤</p>
+                        <a href="javascript:void(0)" class="btn">위치 안내</a>
+                    </div>
                 </div>
             </div>
             <img src="" alt="" class="program">
@@ -526,14 +599,52 @@ include "inc/session.php";
         </ul>
 </footer>
 
+<div id="toTopArrow">
+    <div class="material-icons">arrow_upward</div>
+</div>
+
+
+
+
+
 
 <?php
 //관리자 이동 도우미 
-if($s_id == "admin"){
+if($s_id == "admin" || $s_id == "manager"){
     echo include "inc/sub_header.html";
 };
 ?>
+
 <script defer type="text/javascript">
+const toTopEl = document.querySelector("#toTopArrow");
+    //start w/ window js
+    window.addEventListener("scoll", _.throttle(function(){
+        console.log(window.scollY);
+
+        
+        if (window.scollY > 500) {
+
+            
+            gsap.to(toTopEl, .2, {
+                x: 0
+            });
+        } else {
+
+            //to_to_show
+            gsap.to(toTopEl, .2, {
+                x: 100
+            });
+        }
+    }));
+
+
+    toTopEl.addEventListener('click', () => {gsap.to(window, .7, {
+        scrollTo: 0
+    });
+})
+
+
+
         //GNB
    
         $(".nav> ul > li").mouseenter(function(){
@@ -602,7 +713,71 @@ if($s_id == "admin"){
             $(this).find("a").stop().animate({opacity:0});
         });
 
-            
+        //etc notice & event slider new Swiper(선택자, 옵션)
+        new Swiper('.info_etc_wrap .swiper', {
+            direction:'vertical',
+            autoplay: true,
+            loop: true
+        });
+        //promotion slider
+        new Swiper('.promotion .swiper', {
+            slidesPerView: 3,
+            spaceBetween:10,
+            centeredSlides: true,
+            loop: true,
+            autoplay: {
+                delay: 5000
+            },
+            pagination: {
+                el: '.promotion .swiper-pagination',
+                clickable: true
+            },
+            navigation: {
+                prevEl:'.promotion .swiper-prev',
+                nextEl: '.promotion .swiper-next'
+            }
+        });
+
+        //toggle silder
+        const promotionEl = document.querySelector(".promotion");
+        const promotionToggleBtn = document.querySelector('.toggle-promotion');
+        let isHidePromotion = false; //즉 보이고 있다
+        promotionToggleBtn.addEventListener('click', function(){
+            isHidePromotion = !isHidePromotion 
+            if (isHidePromotion) {
+                //숨김
+                promotionEl.classList.add('hide_promotion');
+            } else {
+                //보임
+                promotionEl.classList.remove('hide_promotion');
+            }
+
+        })
+        
+        //youtube mioni picutres
+        function random(min, max) {
+            return parseFloat((Math.random() * (max - min) + min).toFixed(2));
+        }
+        function floatingObject(selector, delay, size) {
+            //gsap.to(요소, 시간, 옵션);
+            gsap.to(
+                selector, 
+                random(1.5, 2.5), {
+                    y: size,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: Power1.easeInOut,
+                    delay: random(0, delay)
+                }
+            );
+        }
+        floatingObject('.floating1', 1, 15);
+        floatingObject('.floating2', .5, 15);
+        floatingObject('.floating3', 1.5, 20);
+
+        
+
+
         //part3 slick plugin
         $('.spt_lights').slick({
             dots: false,

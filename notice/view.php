@@ -302,14 +302,14 @@ mysqli_query($dbcon, $sql);
                                 $check_result = mysqli_query($dbcon, $check_sql);
                                 $check_array = mysqli_fetch_array($check_result);
                             ?>
-                            <?php if($check_array)  : ?>
+                            <?php if($check_array) : ?>
                             <div class="like_minus">
                                 <a id='like_btn' class='like_btn' href='likes_cancel.php?n_id=<?php echo $n_idx;?>'>
                                     <span class='blind'>좋아요 취소</span>
                                     <span class='material-icons'>favorite</span>
                                 </a>
                             </div>
-                            <?php else : ?>    
+                            <?php elseif(empty($check_array)) : ?>    
                             <div class="like_plus">
                                 <a id='like_btn' class='like_btn' href='likes_ok.php?n_id=<?php echo $n_idx; ?>'>
                                     <span class='blind'>좋아요</span>

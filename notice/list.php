@@ -66,6 +66,8 @@ if($e_pageNum > $total_page){
     <title>공지사항 게시판</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
     <style>
@@ -99,6 +101,15 @@ if($e_pageNum > $total_page){
             margin:auto;
             
         }
+        
+        .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+        }
+
         .aqua_notice_title{
             border-top:2px solid #999;
             border-bottom:1px solid #999
@@ -203,12 +214,15 @@ if($e_pageNum > $total_page){
                     //echo $li_sql;
                     $li_result = mysqli_query($dbcon, $li_sql);
                     $li_array = mysqli_fetch_array($li_result);
-                    echo $li_array["idx"];
-                    if ($li_array["idx"] = null):
-                ?>
-                    <span class="material-icons">favorite</span>
-                <?php else: ?> 
-                    <span class="material-symbols">favorite</span>
+                    //echo $li_array["idx"];
+                    //echo $li_array["like_state"];
+                    if (empty($li_array)):
+                    ?>
+                        <span class="material-symbols-outlined">favorite</span> 
+
+
+                    <?php elseif ($li_array): ?> 
+                        <span class="material-icons">favorite</span>
                 <?php endif ?>
             </td>
             

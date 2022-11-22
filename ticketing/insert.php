@@ -173,8 +173,7 @@ if($p_name[2]){
 
 
 
-//db종료
-mysqli_close($dbcon);
+
 
 //리디렉션
 echo"
@@ -183,5 +182,7 @@ alert(\"결제 확인 창으로 이동 합니다.\");
 location.href = \"../members/member_info.php\";
 </script>
 ";
+//db종료
+mysqli_close($dbcon);
 
 ?>

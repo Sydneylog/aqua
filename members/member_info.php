@@ -45,6 +45,7 @@ include "../login/login_check.php";
                 <ul>
                     <li class="member_info_btn" id="member_info_btn">회원 정보 수정</li>
                     <li class="payment_info_btn">결제 내역 확인</li>
+                    <li class="write_view_btn">게시판 히스토리</li>
                 </ul>
             </div>
         </div>
@@ -157,9 +158,8 @@ include "../login/login_check.php";
                     </table>
                 </fieldset>
                 <div class="page_moving2">
-                    <button type="button" class="moving_arr1">홈으로</button>
-                    <button type="submit" class="moving_arr2 grey333">정보 수정</button>
                     <button type="button" class="moving_arr2 grey333" onclick="deleteMe()">회원 탈퇴</button>
+                    <button type="submit" class="moving_arr2 grey333">정보 수정</button>
                 </div>
             </div>
             </form>
@@ -175,16 +175,17 @@ include "../login/login_check.php";
             $array = mysqli_fetch_array($result);
         ?>
         <h3>결제내역</h3>
+        <div class="search_bar_header">
             <h4>1. 티켓 구매 내역</h4>
-                <div class="search_bar">
-                    <select>
-                        <option>주문번호</option>
-                        <option>상품명</option>
-                    </select>
-                    <input type="text">
-                    <div class="material-icons">search</div>
-                    
-                </div>
+            <div class="search_bar">
+                <select>
+                    <option>주문번호</option>
+                    <option>상품명</option>
+                </select>
+                <input type="text">
+                <div class="material-icons search_con">search</div>
+            </div>
+        </div>
         <section>
         <div class="inner">
             <table class="ticket_table">
@@ -240,18 +241,16 @@ include "../login/login_check.php";
         </div>
     </section>
 
-
-
-
-
-    <h4>2. 프로그램 구매 내역</h4>
-        <div class="search_bar search2">
-            <select>
-                <option>주문번호</option>
-                <option>상품명</option>
-            </select>
-            <input type="text">
-            <div class="material-icons">search</div>
+        <div class="search_bar_header">            
+            <h4>2. 프로그램 구매 내역</h4>
+            <div class="search_bar search2">
+                <select>
+                    <option>주문번호</option>
+                    <option>상품명</option>
+                </select>
+                <input type="text">
+                <div class="material-icons search_con">search</div>
+            </div>
         </div>
         <table class="ticket_table">
             <tr>
@@ -301,18 +300,72 @@ include "../login/login_check.php";
                 <span>구매 total</span>
                 <span>원</span>
             </div>
+
+
+
+        <!-- 게시판 히스토리 -->
+        <!-- <section>
+            <h3>좋아요 히스토리</h3>
+            
+            <table class="like_table">
+                <tr>
+                    <th>no.</th>
+                    <th>글머리</th>
+                    <th>글 제목</th>
+                    <th>클릭 일자</th>
+                    <th>Memo</th>
+                </tr>
+                <?php
+                    
+                    // $li_sql = "select * from likes where u_id = '$s_id';";
+                   
+                    // $li_result = mysqli_query($dbcon, $li_sql);
+                    // $li_array = mysqli_fetch_array($li_result);
+                    // $board = $li_array['board_code'];
+
+                    
+                    // $sql = "select * from aqua_notice;";
+                    // $result = mysqli_query($dbcon, $sql);
+                    // $array = mysqli_fetch_array($result);
+                   
+                    
+                   
+                    
+                    // $i = 1;
+                    // while($li_array = mysqli_fetch_array($li_result)){
+                ?>
+                <tr>
+                    <?php //echo $sql; ?>
+                    <td><?php //echo $i; ?></td>
+                    <td><?php //echo $array['n_head']; ?></td>
+                    <td><?php //echo $array['n_title']; ?></td>
+                    <td><?php //echo $li_array['date']; ?></td>
+                    <td>
+                        <?php //if(empty($li_array['memo'])): ?>
+                            <span></span>
+                        <?php //else: echo $li_array['memo']; ?>
+                        <?php //endif ?>
+                    </td>
+                </tr>
+                <?php
+                //$i++;
+                //};
+                ?>
+            </table> -->
+            
+        </section>
 </main>
 
 
 <script>
     $(".member_info_btn").click(function(){
         console.log(1);
-        $(".paid_info_page").fadeOut();
+        $(".paid_info_page").fadeOut('fast');
     });
     
     $(".payment_info_btn").click(function(){
         console.log(2)
-;        $(".paid_info_page").fadeIn();
+;        $(".paid_info_page").fadeIn('fast');
     });
         
     
@@ -379,6 +432,7 @@ include "../login/login_check.php";
     function address_search(){
         window.open("address_search.html", "", "width=600, height=300, left=0,top=0");
     };
+
 
 </script>
 </body>

@@ -11,18 +11,17 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
     <script type="text/javascript">
-    
-        $(document).ready(function(){
+            $(document).ready(function(){
                //GNB
-               $(".nav> ul > li").mouseenter(function(){
+            $(".nav> ul > li").mouseenter(function(){
                 $(this).find("ul").stop().slideDown("fast");
-              });
-              $(".nav > ul > li").mouseleave(function(){
+            });
+            $(".nav > ul > li").mouseleave(function(){
                 $(this).find("ul").stop().slideUp("fast");
-              });
+            });
                 //sticky
-                $(function(){
-			$(window).scroll(function(){
+            $(function(){
+			    $(window).scroll(function(){
 				let nowScroll = $(document).scrollTop();
 				if(nowScroll > 49){ 
 						$('#nav').css({'top':'0', "height":"49", "font-size":"30px", "transition":"0.2s", "color":"#fff", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});

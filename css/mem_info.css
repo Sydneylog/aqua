@@ -37,11 +37,7 @@
 
 /* =====================reset================ */
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-.gre333{
-    color:white;
-    background:#333;
-    border: 2px solid #333;
-}
+
 
 /* ========================main=================/ */
 .banner{
@@ -116,13 +112,13 @@
 .guide_header ul{
     height:20px;
     margin:auto;
-    width:220px;
+    width:350px;
     text-align:center;
 }
 .guide_header li{
     float:left;
 }
-.guide_header li:first-child::after{
+.guide_header li:not(:last-child)::after{
     content:'|';
     margin:0 10px;
 }
@@ -352,20 +348,29 @@ p{
     text-align:center;
     margin:50px 0 30px;
 }
-.paid_info_page h4{
-    margin:0 0 10px;
+.search_bar_header{
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    height:45px;
 }
 .search_bar{
     width:300px;
-    position:absolute;
-    right:0;
-    top:115px;
-    display:flex;
     align-items: center;
     justify-content:space-between;
     right:0;
     line-height:24px;
+    float:right;
 }
+.search_con{
+   position:absolute;
+   right:10px;
+   top:10px;
+
+}
+
+
 .search_bar.search2{
     bottom:360px;
 }
@@ -407,6 +412,11 @@ p{
     display:flex;
     justify-content:space-between;
     font-size:20px;
-
 }
+
+/* 게시판 히스토리 */
+.like_table{
+    width:900px;
+}
+
 

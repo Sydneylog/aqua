@@ -1,18 +1,4 @@
 <?php
-//discount list 테이블 생성
-// insert into dis_list(dis_name, dis_id, dis_rate)values('삼성카드', 'c1', '20');
-// insert into dis_list(dis_name, dis_id, dis_rate)values('현대카드', 'c2', '25');
-// insert into dis_list(dis_name, dis_id, dis_rate)values('신한카드', 'c3', '30');
-// insert into dis_list(dis_name, dis_id, dis_rate)values('SK멤버십', 'm1', '20');
-// insert into dis_list(dis_name, dis_id, dis_rate)values('KT멤버십', 'm2', '25');
-// insert into dis_list(dis_name, dis_id, dis_rate)values('LG U+ 멤버십', 'm3', '30');
-// insert into dis_list(dis_name, dis_id, dis_rate)values('마린 프렌즈', 'f1', '20');
-// insert into dis_list(dis_name, dis_id, dis_rate)values('지역 주민 우대', 'f2', '25');
-// insert into dis_list(dis_name, dis_id, dis_rate)values('롯데 그룹사 임직원', 'f3', '30');
-// insert into dis_list(dis_name, dis_id, dis_rate)values('군인 할인', 'n1', '20');
-// insert into dis_list(dis_name, dis_id, dis_rate)values('나이트 타임 입장', 'n2', '25');
-// insert into dis_list(dis_name, dis_id, dis_rate)values('가족 동반 할인', 'n3', '30');
-
 //db연결
 include "../inc/session.php";
 //include "../inc/dbcon.php";
@@ -42,330 +28,357 @@ include "../inc/session.php";
     <!-- jquery -->
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
     <!-- date picker calender -->
-    <script type="text/javascript" src="../js/datepicker.js"></script>
+    <script type="text/javascript" src="../js/datepicker.min.js"></script>
     <script type="text/javascript" src="../js/datepicker.ko.js"></script>
     <!-- slider -->
     <script src="../js/jquery.bxslider.js"></script>
     <!-- google material -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- swiper library -->
+    
 </head>
+
 <body>
     <!-- header -->
     <?php //include "../inc/header_html.php" ?>
     
 
     <main id="content" class="content">
-        <section class="main_img">
-            <h2 class="blind">주요 소식</h2>
-                <ul>
-                    <!-- <li>와디즈X롯데월드 공구</li> -->
-                    <li class="banner_tok"><a href="#">카카오페이 Trick or Treat 할인행사</a>
-                    <span class="banner_more"><a href="#">자세히알아보기</a></span>
-                    </li>
-                    <!-- <li>해양 생물을 생각하는 롯데월드 아쿠아리움 입니다.</li> -->
-                </ul>
-        </section>
-        <section class="main_wrap">
+    <section class="main_wrap">
         <div class="main_part">
-        <form action="insert.php" method="post">
-        <h2 class="ticket_title">- 티켓구매 -</h2>
-            <div class="pt1_wrap">
-                <h3>1. 날짜 및 인원</h3>
-                <ul class="selection_bx">
-                    <!-- 달력 -->
-                    <li class="selbx1">
-                        <label for="datepicker">
-                            <span>
-                                1) 날짜 선택
-                            </span>
-                        </label>
-                        <span class="picked_date">
-                            날짜:
-                        </span>
-                        <input type="text" id="datepicker" name="datepicker">
-                    </li>
-                    <li class="sel_p">
-                        <span>
-                            2) 인원 선택 
-                        </span>
-                        <p name="ticket_name">
-                            <input type="checkbox" name="checkbox1" id="checkbox1" class="checkbox1" value="normal" onclick="must_date()">
-                            <label for="checkbox1">
-                                일반/청소년<br>&nbsp&nbsp&nbsp&nbsp&nbsp33,000원
-                            </label>
+            <form action="insert.php" method="post">
 
-                            <label for price1 class="blind">
-                                구매 개수
-                            </label>
-                            <input type="text" name="qty1" id="price1" class="price1 qtySet" onkeyup="tCalc(33000, 1)" onclick="preventor()" > 명
+            <!--티켓구매 슬라이드-->
+        <div class="payment_sys">
+            <!-- slide1 -->
+            <div class="slide1 slidebg">
+                <h3 class='blind'>결제 안내 시작</h3>
+                    <p>안녕하세요? &nbsp<span class="royalblue">아쿠아리움</span>&nbsp 결제 페이지입니다.</p>
+                    <p>결제 시작 버튼을 눌러 결제 과정을 진행 하실 수 있습니다.</p>
+                    <button type="button" class="btn first">결제 시작</button>
+            </div>
+            <div class="slide2 slidebg">
+                <div class="pt1_wrap">
+                    <h3 class="slide_h3">1. 날짜 및 인원</h3>
+                        <p class="sub_title"><span class="royalblue">티켓</span> 또는 <span class="royalblue">프로그램</span>을 사용 하실 <span class="royalblue">일자</span>를 선택해 주세요</p>
+                        <div class="selection_bx">
+                            <!-- 달력 -->
+                            <div class="selbx1">
+                                <label for="datepicker" class='blind'>달력</label>
+                                <span class="picked_date">선택한 날짜:</span>
+                                <input type="text" id="datepicker" name="datepicker">
+                            </div>
+                            
+                        </div>
+                        <button type="button" class="paybtn2 second">다음</button>
+                </div>
+            </div>
+            <div class="slide_confirm slidebg">
+                <h3 class="blind">프로그램 구매 확인 페이지</h3>
+                <P> 프로그램만 구매하시나요? </p>
+                <div class="confirm_btn_box">
+                    <button type="button" class="only_pro ">프로그램만 구매</button>
+                    <button type="button" class="with_ticket ">티켓부터 구매</button>
+                </div>
+            </div>
+            <div class="slide3 slidebg">
+                <h3 class="slide_h3">2. 인원 선택</h3>
+                    <p class="sub_title">
+                        우대 티켓은 <span class="royalblue">어린이</span>는 만&nbsp <span class="royalblue">8</span>&nbsp세 이하, <span class="royalblue">경로</span>는 만&nbsp<span class="royalblue">65</span>&nbsp세 이상입니다.
+                    </p>
+                    <div class="sel_p">
+                        <div name="ticket_name" class="ticket_name">
+                            <div>
+                                <input type="checkbox" name="checkbox1" id="checkbox1" class="checkbox1 checkbox" value="normal" onclick="must_date()">
+                                <label for="checkbox1"> 
+                                    일반 / 청소년: 33,000 원
+                                </label>
+                            </div>
+                            <div>
+                                <label for price1 class="blind">
+                                    구매 개수
+                                </label>
+                                <input type="text" name="qty1" id="price1" class="price1 qtySet" onkeyup="tCalc(33000, 1)" onclick="preventor()" > 명
+                            </div>
 
+                            <!-- 히든 값 -->
                             <input type="text" name="hidden1" id="hidden1" hidden>
                             <input type="number" name="price1" value="33000" hidden>
                             
-                        </p>
+                        </div>
 
-                        <p name="ticket_name">
-                            <input type="checkbox" name="checkbox2" id="checkbox2" class="checkbox2" value="weak" onclick="must_date()">
-                            <label for="checkbox2">
-                                경로/어린이<br>&nbsp&nbsp&nbsp&nbsp&nbsp29,000원
-                            </label>
+                        <div name="ticket_name" class="ticket_name">
+                            <div>
+                                <input type="checkbox" name="checkbox2" id="checkbox2" class="checkbox2 checkbox" value="weak" onclick="must_date()">
+                                <label for="checkbox2">
+                                    경로 / 어린이: 29,000 원 
+                                </label>
+                            </div>
                             
-                            <label for price2 class="blind">
-                                구매 개수
-                            </label>
-                            <input type="text" name="qty2"  id="price2" class="price2 qtySet" onkeyup="tCalc(29000, 2)" onclick="preventor2()"> 명
+                            <div>
+                                <label for price2 class="blind">
+                                    구매 개수
+                                </label>
+                                <input type="text" name="qty2"  id="price2" class="price2 qtySet" onkeyup="tCalc(29000, 2)" onclick="preventor2()"> 명
+                            </div>
 
-
+                            <!-- 히든 값 -->
                             <input type="text" name="hidden2" id="hidden2" hidden >
                             <input type="number" name="price2" value="29000" hidden>
-                        </p>
-                    </li>
-                    <hr class="calLine">
-                    <div class="result_bottom">
-                        <p class="total_txt">합계</p>
-                        <p class="result1_bx">
-                            <input type="text" name="result1" id="result1" class="result1" disabled>
-                            <span class="won1">원</span>
-                        </p>
+                        </div>
+                        <div class="result_bottom">
+                            <p class="total_txt">합계</p>
+                            <p class="result1_bx">
+                                <input type="text" name="result1" id="result1" class="result1" disabled>
+                                <span class="won1">원</span>
+                            </p>
+                        </div>
                     </div>
-                </ul>
+                    <button type="button" class="paybtn third">다음</button>
             </div>
-        <div class="ticket_sale">
-            <h3>
-                2. 티켓 할인 적용 (선택 사항)
-            </h3>
-        <ul class="sale_bx">
-            <div>
-                <ul class="sale_title">
-                    <li>신용 카드</li>
-                    <li>멤버십</li>
-                    <li>마린프렌즈</li>
-                    <li>일반 할인</li>   
-                </ul>    
-            </div>
-            <div class="sale_list">
-                <ul class="credit">
-                    <li>
-                        <input type="radio" name="which_dis" value="c1" id="c1">
-                        <input type="hidden" name="applied_dis" value="80">
-                        <span class="c1">삼성 카드<br>(20% 할인)</span>
-                    </li>
-                    <li>
-                        <input type="radio" name="which_dis" value="c2" id="c2">
-                        <input type="hidden" name="applied_dis" value="75">
-                        <span class="c2">현대 카드<br>(25% 할인)</span>
-                    </li>
-                    <li>
-                        <input type="radio" name="which_dis" value="c3" id="c3">
-                        <input type="hidden" name="applied_dis" value="70">
-                        <span class="c3">신한 카드<br>(30% 할인)</span>
-                    </li>
-                    
-                </ul>
-                <ul class="membership">
-                    <li>
-                        <input type="radio" name="which_dis" value="m1" id="m1">
-                        <input type="hidden" name="applied_dis" value="80">
-                        <span class="m1">SK 멤버십<br>(20% 할인)</span>
-                        
-                    </li>
-                    <li>
-                        <input type="radio" name="which_dis" value="m2" id="m2">
-                        <input type="hidden" name="applied_dis" value="75">
-                        <span class="m2">KT 멤버십<br>(25% 할인)</span>
-                    </li>
-                    <li>
-                        <input type="radio" name="which_dis" value="m3" id="m3">
-                        <input type="hidden" name="applied_dis" value="70">
-                        <span class="m3">LG U+멤버십<br>(30% 할인)</span>
-                        
-                    </li>
-                </ul>
-                <ul class="marineF">
-                    <li>
-                        <input type="radio" name="which_dis" value="f1" id="f1">
-                        <input type="hidden" name="applied_dis" value="80">
-                        <span class="f1">마린 프렌즈 추천<br>(20% 할인)</span>
-                        
-                    </li>
-                    <li>
-                        <input type="radio" name="which_dis" value="f2" id="f2">
-                        <input type="hidden" name="applied_dis" value="75">
-                        <span class="f2">지역 주민 우대<br>(25% 할인)</span>
-                        
-                    </li>
-                    <li>
-                        <input type="radio" name="which_dis" value="f3" id="f3">
-                        <input type="hidden" name="applied_dis" value="70">
-                        <span class="f3">롯데 그룹사 임직원<br>(30% 할인)</span>
-                        
-                    </li>
+            <div class="slide4 slidebg">
+                <h3 class="slide_h3">3. <span class="royalblue">티켓 할인</span> 적용</h3>
+                    <p class="sub_title">
+                        <span class="royalblue">할인 적용</span>은 선택사항 입니다.
+                    </p>
+                    <button type="button" class="paybtn2 forth">다음</button>
+                <div class="ticket_sale">
+                    <ul class="sale_bx">
+                        <div>
+                            <ul class="sale_title">
+                                <li>신용 카드</li>
+                                <li>멤버십</li>
+                                <li>마린프렌즈</li>
+                                <li>일반 할인</li>   
+                            </ul>    
+                        </div>
+                        <div class="sale_list">
+                            <ul class="credit">
+                                <li>
+                                    <input type="radio" name="which_dis" value="삼성 카드" id="c1">
+                                    <input type="hidden" name="applied_dis" value="80">
+                                    <span class="c1">삼성 카드<br>(20% 할인)</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="which_dis" value="현대 카드" id="c2">
+                                    <input type="hidden" name="applied_dis" value="75">
+                                    <span class="c2">현대 카드<br>(25% 할인)</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="which_dis" value="신한 카드" id="c3">
+                                    <input type="hidden" name="applied_dis" value="70">
+                                    <span class="c3">신한 카드<br>(30% 할인)</span>
+                                </li>
+                                
+                            </ul>
+                            <ul class="membership">
+                                <li>
+                                    <input type="radio" name="which_dis" value="SK 멤버십" id="m1">
+                                    <input type="hidden" name="applied_dis" value="80">
+                                    <span class="m1">SK 멤버십<br>(20% 할인)</span>
+                                    
+                                </li>
+                                <li>
+                                    <input type="radio" name="which_dis" value="KT 멤버십" id="m2">
+                                    <input type="hidden" name="applied_dis" value="75">
+                                    <span class="m2">KT 멤버십<br>(25% 할인)</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="which_dis" value="LG U+멤버십" id="m3">
+                                    <input type="hidden" name="applied_dis" value="70">
+                                    <span class="m3">LG U+멤버십<br>(30% 할인)</span>
+                                    
+                                </li>
+                            </ul>
+                            <ul class="marineF">
+                                <li>
+                                    <input type="radio" name="which_dis" value="마린 프렌즈 추천" id="f1">
+                                    <input type="hidden" name="applied_dis" value="80">
+                                    <span class="f1">마린 프렌즈 추천<br>(20% 할인)</span>
+                                    
+                                </li>
+                                <li>
+                                    <input type="radio" name="which_dis" value="지역 주민 우대" id="f2">
+                                    <input type="hidden" name="applied_dis" value="75">
+                                    <span class="f2">지역 주민 우대<br>(25% 할인)</span>
+                                    
+                                </li>
+                                <li>
+                                    <input type="radio" name="which_dis" value="롯데 그룹사 임직원" id="f3">
+                                    <input type="hidden" name="applied_dis" value="70">
+                                    <span class="f3">롯데 그룹사 임직원<br>(30% 할인)</span>
+                                    
+                                </li>
 
-                </ul>
-                <ul class="normalDis">
-                    <li>
-                        <input type="radio" name="which_dis" value="n1" id="n1">
-                        <input type="hidden" name="applied_dis"  value="80">
-                        <span class="n1">
-                            군인 할인<br>(20% 할인)
-                        </span>
-                    </li>
-                    <li>
-                        <input type="radio" name="which_dis" value="n2" id="n2">
-                        <input type="hidden" name="applied_dis"  value="75">
-                        <span class="n2">
-                            나이트 타임 할인<br>(25% 할인)
-                        </span>
+                            </ul>
+                            <ul class="normalDis">
+                                <li>
+                                    <input type="radio" name="which_dis" value="군인 할인" id="n1">
+                                    <input type="hidden" name="applied_dis"  value="80">
+                                    <span class="n1">
+                                        군인 할인<br>(20% 할인)
+                                    </span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="which_dis" value="나이트 타임 할인" id="n2">
+                                    <input type="hidden" name="applied_dis"  value="75">
+                                    <span class="n2">
+                                        나이트 타임 할인<br>(25% 할인)
+                                    </span>
+                                    
+                                </li>
+                                <li>
+                                    <input type="radio" name="which_dis" value="가족 동반 할인" id="n3">
+                                    <input type="hidden" name="applied_dis"  value="70">
+                                    <span class="n3">
+                                        가족 동반 할인<br>(30% 할인)
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+                    
+                    <div class="result2_wrap">
+                        <p class="total_txt2">할인 적용 된 가격</p>
+                        <div class="result2_bx">
+                            <input type="text" name="result2" id="result2" class="result2" disabled><span class="won2">원</span>
+                        </div>
                         
-                    </li>
-                    <li>
-                        <input type="radio" name="which_dis" value="n3" id="n3">
-                        <input type="hidden" name="applied_dis"  value="70">
-                        <span class="n3">
-                            가족 동반 할인<br>(30% 할인)
-                        </span>
-                    </li>
-                </ul>
-            </div>
-            <hr class="cal_line2">
-            <div class="result2_wrap">
-                <p class="total_txt2">할인 적용 된 가격</p>
-                <div class="result2_bx">
-                <input type="text" name="result2" id="result2" class="result2" disabled><span class="won2">원</span>
+                    </div>
                 </div>
+                
             </div>
-            
-        </ul>        
-        </div>
-        
-        
-        <h2 class="pro_title">- 프로그램 구매 -</h2>
-            <div>        
-                <table class="buy_pro" id="buy_pro">
-                    <thead>
-                        <tr class="pro_menu">
-                            <th class="th1">선택</th>                              
-                            <th class="th2">이름</th>
-                            <th class="th3">프로그램 소개</th>
-                            <th class="th4">인원</th>
-                            <th class="th5">가격</th>
-                        </tr>
-                    </thead>
-                    <!-- 다이빙 -->
-                    <tbody>
-                        <tr class="list_rows">
-                            <td>
-                                <input type="checkbox" name="pro_list[]" id="pro1" value="메인 수조 다이빙 체험" id="pro1">
-                                <input type="hidden" value="95000" name="pro_price[]">
-                            </td>
-                            <td>
-                                메인 수조 다이빙 체험<br>95,000원
-                            </td>
-                            <td>
-                                <p>
-                                    국내최대 규모 25m 세이프티 다이빙 체험!
-                                </p>
-                                <p>
-                                    다양한 바다생물들이 눈앞에서 펼쳐지는 롯데월드 아쿠아리움에서 특별한 추억을 <br>남겨 보세요
-                                </p>
-                            </td>
-                            <td>
-                                <select name="pro_qty[]" id="pro_qty1" class="pro_qty1 changer" onchange="calc3(95000, 1)">
-                                    <option value="0">선택</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select> 
-                            </td>
-                            <td>
-                                <input type="text" name="cost" id="cost1" class="cost" disabled>
-                            </td>
-                        </tr>
-                        <!-- 나이트캠프 -->
-                        <tr class="list_rows">
-                            <td>
-                                <input type="checkbox" name="pro_list[]" id="pro2" value="나이트 캠프" id="pro2">
-                                <input type="hidden" value="70000" name="pro_price[]">
-                            </td>
-                            
-                            <td>
-                                <p>
-                                    아쿠아리움<br>나이트 캠프<br>70,000원
-                                </p>
-                            </td>
-                            <td>
-                                <p>
-                                    아쿠아리움에서 단체로 즐기는 나이트 캠프!
-                                </p>
-                                <p>
-                                    롯데월드 아쿠아리움에서 단체로 즐기는 특별한 하룻밤을 즐겨보세요! (최대 10명)
-                                </p>
-                            </td>
-                            <td>
-                                <select name="pro_qty[]" id="pro_qty2" class="pro_qty2 changer" onchange="calc3(70000, 2)">
-                                <option value="0">선택</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input type="text" name="cost" id="cost2" class="cost2" disabled>
-                            </td>
-                        </tr>
-                        <!-- 물고기 도시락 -->
-                        <tr class="list_rows">
-                            <td>
-                                <input type="checkbox" name="pro_list[]" id="pro3" value="Special 먹이주기" id="pro3">
-                                <input type="hidden" value="7000" name="pro_price[]">
-                            </td>
-                            
-                            <td>
-                                <p>
-                                    Special<br> 먹이 주기 체험<br>7,000원
-                                </p>
-                            </td>
-                            <td>
-                                <span>
-                                    누가 어떤 먹이를 먹는지 같이 확인해봐요!
-                                </span>
-                            </td>
-                            <td>
-                                <select name="pro_qty[]" id="pro_qty3" class="pro_qty3 changer" onchange="calc3(7000, 3)">
+            <div class="slide5 slidebg">
+                <h3 class="slide_h3">4. 프로그램 구매</h3>
+                <p class="sub_title">아쿠아리움의 다양한 프로그램들을 체험해 보세요</p>
+                <div>        
+                    <table class="buy_pro" id="buy_pro">
+                        <thead>
+                            <tr class="pro_menu">
+                                <th class="th1">선택</th>                              
+                                <th class="th2">이름</th>
+                                <th class="th3">프로그램 소개</th>
+                                <th class="th4">인원</th>
+                                <th class="th5">가격</th>
+                            </tr>
+                        </thead>
+                        <!-- 다이빙 -->
+                        <tbody>
+                            <tr class="list_rows">
+                                <td>
+                                    <input type="checkbox" name="pro_list[]" id="pro1" value="메인 수조 다이빙 체험" id="pro1">
+                                    <input type="hidden" value="95000" name="pro_price[]">
+                                </td>
+                                <td>
+                                    메인 수조 다이빙 체험<br>95,000원
+                                </td>
+                                <td>
+                                    <p>
+                                        국내최대 규모 25m 세이프티 다이빙 체험!
+                                    </p>
+                                    <p>
+                                        다양한 바다생물들이 눈앞에서 펼쳐지는<br> 롯데월드 아쿠아리움에서 특별한 추억을 남겨 보세요
+                                    </p>
+                                </td>
+                                <td>
+                                    <select name="pro_qty[]" id="pro_qty1" class="pro_qty1 changer" onchange="calc3(95000, 1)">
+                                        <option value="0">선택</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select> 
+                                </td>
+                                <td>
+                                    <input type="text" name="cost" id="cost1" class="cost" disabled>
+                                </td>
+                            </tr>
+                            <!-- 나이트캠프 -->
+                            <tr class="list_rows">
+                                <td>
+                                    <input type="checkbox" name="pro_list[]" id="pro2" value="나이트 캠프" id="pro2">
+                                    <input type="hidden" value="70000" name="pro_price[]">
+                                </td>
+                                
+                                <td>
+                                    <p>
+                                        아쿠아리움<br>나이트 캠프<br>70,000원
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        아쿠아리움에서 단체로 즐기는 나이트 캠프!
+                                    </p>
+                                    <p>
+                                        롯데월드 아쿠아리움에서 단체로 즐기는<br> 특별한 하룻밤을 즐겨보세요! (최대 10명)
+                                    </p>
+                                </td>
+                                <td>
+                                    <select name="pro_qty[]" id="pro_qty2" class="pro_qty2 changer" onchange="calc3(70000, 2)">
                                     <option value="0">선택</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
-                                </select> 
-                            </td>
-                            <td>
-                                <input type="text" name="cost" id="cost3" class="cost" disabled>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" name="cost" id="cost2" class="cost2" disabled>
+                                </td>
+                            </tr>
+                            <!-- 물고기 도시락 -->
+                            <tr class="list_rows">
+                                <td>
+                                    <input type="checkbox" name="pro_list[]" id="pro3" value="Special 먹이주기" id="pro3">
+                                    <input type="hidden" value="7000" name="pro_price[]">
+                                </td>
+                                
+                                <td>
+                                    <p>
+                                        Special<br> 먹이 주기 체험<br>7,000원
+                                    </p>
+                                </td>
+                                <td>
+                                    <span>
+                                        누가 어떤 먹이를 먹는지 같이 확인해봐요!
+                                    </span>
+                                </td>
+                                <td>
+                                    <select name="pro_qty[]" id="pro_qty3" class="pro_qty3 changer" onchange="calc3(7000, 3)">
+                                        <option value="0">선택</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select> 
+                                </td>
+                                <td>
+                                    <input type="text" name="cost" id="cost3" class="cost" disabled>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                <!-- 프로그램 총합 -->
-                <div class="result3_wrap">
-                    <span class="total_text3">프로그램 가격</span>
-                    <div class="result3_bx">
-                        <input type="text" id="result3" name="result3" class="result3" disabled>
-                        <span class="won3">원</span>
+                    <!-- 프로그램 총합 -->
+                    <div class="result3_wrap">
+                        <span class="total_text3">프로그램 가격</span>
+                        <div class="result3_bx">
+                            <input type="text" id="result3" name="result3" class="result3" disabled>
+                            <span class="won3">원</span>
+                        </div>
                     </div>
                 </div>
-            </div>   
-            
-       
+                <button type="submit" class="paybtn2 fifth">다음</button>   
+            </div>
+        </div>
+        
         <!-- 결제 예상 금액 -->
         <div class="prophet">
             <div class="prophet_title">
@@ -385,7 +398,7 @@ include "../inc/session.php";
                     </td>
                 </tr>
                 <tr>
-                    <td>할인 적용 후 티켓 가격</td>
+                    <td>할인 적용<br> 티켓 가격</td>
                     <td>
                         <input type="text" name="sResult3" id="sResult3" class="sResult" disabled> <span> 원</span>
                     </td>
@@ -399,21 +412,25 @@ include "../inc/session.php";
                 <tr class="fore_last">
                     <td >총 예상 금액</td>
                     <td class="fore_last">
-                        <input type="text" name="sResult5" id="sResult5" class="sResult" disabled> <span> 원</span>
+                        <input type="text" name="sResult5" id="sResult5" class="sResult" disabled> 
+                        <span> 원</span>
                     </td>
                 </tr>
             </table>
-            <button type="button" onclick="totalsum()">결과</button>
+            <button type="button" class="totalsum" onclick="totalsum()">금액 확인
+                <span class="material-symbols-outlined md-18">done</span>
+            </button>
+
         </div>
         
 
-            <div class="last_btn">
-                <button type="reset" name="resetall" value="resetall">다시 작성</button>
-                <button type="submit" name="payAll" value="payall" id="payAll">결제</button>
-            </div>
+        <!-- <div class="last_btn">
+            <button type="reset" name="resetall" value="resetall">다시 작성</button>
+            <button type="submit" name="payAll" value="payall" id="payAll">결제</button>
+        </div> -->
         </form>
         </div>
-        </section>
+    </section>
     </main>
     
 </body>
@@ -556,31 +573,84 @@ include "../inc/session.php";
         }else{
 
         }
-    })
+    });
+
+
+
+
+
+    /*[payment_sys]*/
+    //slide1-first_btn
+    $(".first").click(function(){
+        
+        if($(".slide2").css('display') == 'none'){
+            $(".slide2").show();
+        }
+    });
+    
+    //slide1_inspector
+   
+    //slide2-second_btn
+    function selectDate(){
+        let date = document.getElementById("datepicker").value;
+        if(!date){
+            alert("먼저 이용하실 날짜를 선택해 주세요");
+            return false;
+        };
+    };
+    $(".second").click(function(){
+        selectDate();
+        if(selectDate = false){
+            return false;
+        }
+        if($(".slide_confirm").css('display') == 'none'){
+            $(".slide_confirm").show();
+        }
+        if($(".slide2").css('display') != 'none'){
+            $(".slide2").hide();
+        }
+    });
+    
+    //confirm-slide
+    //if only-pro btn clicked it send you to slide5
+    $(".only_pro").click(function(){
+        if($(".slide5").css('display') == 'none'){
+            $(".slide5").show();
+        }
+    });
+    //else
+    $(".with_ticket").click(function(){
+        if($(".slide3").css('display') == 'none'){
+            $(".slide3").show();
+        }
+    });
+    //slide3-third_btn
+    $(".third").click(function(){
+        if($(".slide4").css('display') == 'none'){
+            $(".slide4").show();
+        }
+        if($(".slide3").css('display') != 'none'){
+            $(".slide3").hide();
+        }
+    });
+    $(".forth").click(function(){
+        if($(".slide5").css('display') == 'none'){
+            $(".slide5").show();
+        }
+        if($(".slide4").css('display') != 'none'){
+            $(".slide4").hide();
+        }
+    });
+    
     
 
 
 
-    //[program] 체크박스 값 보내기
 
 
 
-    //[program] 프로그램 구매 배열 생성
-    // function putPro(){
-    //     putArray = new Array();
-    //     let idxArray = new Array();
-    //     $("input[name=pro_list]:checked").each(function(){
-    //         idxArray.push($("input[name=pro_list]").index(this));
-    //     });
-    //     for (i = 0; i < idxArray.length; i++) {
-    //         let obj = new Object();
-    //         obj.p_id = $("#buy_pro tbody").children().eq(idxArray[i]).children().children().eq(0).val();
-    //         // obj.price = $("#buy_pro tbody").children().eq(idxArray[i]).children().children().eq(1).val();
-    //         obj.qty = $("#buy_pro tbody").children().eq(idxArray[i]).children().eq(3).children().eq(0).val();
-    //         putArray.push(obj);
-    //         console.log(putArray);
-    //     };
-    // };
+
+   
 
 
     /* 토탈 계산기 */
@@ -621,7 +691,7 @@ include "../inc/session.php";
         };
     });
     // input[name=which_dis] .changer  .qtySet 버튼으로 해야할거 같음 일단 보류
-    /*$("input[name=cost]").on("propertychange change paste input", function() {
+    function totalsum() {
         let sResult5 = document.getElementById("sResult5");
         let result1N = result1.value.replace(/,/g, "");
         let result2N = result2.value.replace(/,/g, "");
@@ -631,9 +701,14 @@ include "../inc/session.php";
             sResult5.value = (Number(result3N) + Number(result2N)).toLocaleString();
         }else if(sResult2.value == "0"){
             sResult5.value = (Number(result3N) + Number(result1N)).toLocaleString();
-        };
-    });
-    */
+        }else if(sResult2.value == "0" && result3N == ""){
+            sResult5.value =Number(result1N).toLocaleString();
+        }
+        console.log(result3N);
+        console.log(result1N);
+
+    };
+    
 
    
 

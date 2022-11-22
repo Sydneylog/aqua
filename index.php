@@ -623,7 +623,6 @@ const toTopEl = document.querySelector("#toTopArrow");
 
         
         if (window.scollY > 500) {
-
             
             gsap.to(toTopEl, .2, {
                 x: 0

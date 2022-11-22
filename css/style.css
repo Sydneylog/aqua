@@ -64,10 +64,6 @@
 }
 
 
-body{ 
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
-    overflow-x:hidden;
-}
 .header{
     height:149px;
     background:white;
@@ -184,8 +180,8 @@ body{
     
 }
 
-/*
-2depth 수정중
+
+/* 2depth 수정중 */
 .gnb1 {
     box-sizing:border-box;
 }
@@ -394,7 +390,11 @@ body{
     font-size:14px;
     line-height:34px;
     color:white;
-} */
+} 
+
+
+
+
 .navcon_wrap{
     position:absolute;
     right:-70px;

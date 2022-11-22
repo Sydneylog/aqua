@@ -1,3 +1,8 @@
+<?php
+include "../inc/session.php"
+?>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,32 +15,53 @@
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+
+
+    
+    <!-- inc -->
+    <script type="text/javascript" src="../js/header.js"></script>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <script type="text/javascript">
             $(document).ready(function(){
-               //GNB
-            $(".nav> ul > li").mouseenter(function(){
-                $(this).find("ul").stop().slideDown("fast");
-            });
-            $(".nav > ul > li").mouseleave(function(){
-                $(this).find("ul").stop().slideUp("fast");
-            });
-                //sticky
-            $(function(){
-			    $(window).scroll(function(){
+            //GNB
+   
+        $(".nav> ul > li").mouseenter(function(){
+            $(this).find("ul").stop().fadeIn("fast");
+            $("m_background").stop().slideDown("fast");
+        });
+        $(".nav > ul > li").mouseleave(function(){
+            $(this).find("ul").stop().fadeOut("fast");
+            $("m_background").stop().slideUp("fast");
+        });
+
+        //sticky nav
+        $(function(){
+			$(window).scroll(function(){
 				let nowScroll = $(document).scrollTop();
-				if(nowScroll > 49){ 
-						$('#nav').css({'top':'0', "height":"49", "font-size":"30px", "transition":"0.2s", "color":"#fff", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
+				if(nowScroll > 50){ 
+						$('#nav').css({'top':'0', "height":"50", "font-size":"16px", "transition":"0.2s", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
+                        $('#mini_info').stop().animate({'opacity':'1'}, 50);
+                        $('.logo_wrap').hide(700);
+                        $(".mini_mapage").stop().fadeIn(50);
+                        $(".navcon").stop().fadeIn(50);
 				}else{
-                        $('#nav').css({'top': '100px', "height":"50","font-size":"20px", "background":"rgb(255, 255, 255)", "border-top":"1px solid #cbcbcb", "border-bottom":"1px solid #cbcbcb", "color":"#fff", "box-shadow":"0px 0px 0px #fff"});
+                        $('#nav').css({'top': '100px', "height":"50","font-size":"16px", "background":"rgb(255, 255, 255)",  "border-bottom":"1px solid #cbcbcb", "box-shadow":"0px 0px 0px #fff"});
+                        $('#mini_info').stop().animate({'opacity':'0'}, 0);
+                        $('.logo_wrap').show(500);
+                        $('.mini_mapage').stop().fadeOut(0);
+                        $('.navcon').stop().fadeOut(0);
 				}
-			    });
-		    });
+			});
+		});
         });
     </script>
     
 </head>
 <body>
-
+<?php
+    include "../inc/header.php";
+?>
 <main id="content" class="content">
     <section class="banner">
         <div>
@@ -242,7 +268,9 @@
     
     </section>
 </main>
-
+<?php
+    include "../inc/footer.php";
+?>
 
 <script>
 

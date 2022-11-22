@@ -28,7 +28,6 @@ const toTopEl = document.querySelector("#toTopArrow");
 
 
         //GNB
-   
         $(".nav> ul > li").mouseenter(function(){
             $(this).find("ul").stop().fadeIn("fast");
             $("m_background").stop().slideDown("fast");

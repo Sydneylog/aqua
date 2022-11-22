@@ -17,14 +17,14 @@
                     <dt class="blind">유틸메뉴</dt>
                     <?php if(!$s_nick){?>
                     <dd class="login">
-                        <a href="login/login.php">
+                        <a href="../login/login.php">
                             <span class="material-icons md-36">login</span>
                             <span class="login_span">로그인</span>
                         </a>
 
                     </dd>
                     <dd class="join">
-                        <a href="members/Signup2.php">
+                        <a href="../members/Signup2.php">
                             <span class="material-icons md-36">badge</span>
                             <span class="sign_up_span">회원가입</span>
                         </a>

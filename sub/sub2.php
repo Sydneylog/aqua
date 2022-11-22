@@ -9,7 +9,10 @@
     
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
-    
+     <!-- inc -->
+     <script type="text/javascript" src="../js/header.js"></script>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <script type="text/javascript">
         $(document).ready(function(){
             
@@ -181,7 +184,9 @@
     
 
 </head>
-
+<?php
+    include "../inc/header.php";
+?>
 <body>
     <header id="header" class="header">
         <div class="header_wrap">
@@ -380,5 +385,8 @@
         </ul>
     </section>
 </main>
+<?php
+    include "../inc/footer.php";
+?>
 </body>
 </html>

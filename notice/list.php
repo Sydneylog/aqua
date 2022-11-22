@@ -70,23 +70,28 @@ if($e_pageNum > $total_page){
     
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+    <!-- inc -->
+    <script type="text/javascript" src="../js/header.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <style>
         body{font-size:20px}
-        a{text-decoration:none;margin:0 5px}
+        main a{text-decoration:none;margin:0 5px}
 
-        table, td{
+        main table, td{
             border-collapse:collapse
         }
-        th, td{
+        main th, td{
             padding:10px;
             font-size:16px;
             text-align:center
         }
-        th{
+        main th{
             border-top:2px solid;
             border-bottom:2px solid;
         }
-        #colorObj{
+        main #colorObj{
             display:inline-block;
             width:90px;
             height:30px;
@@ -96,13 +101,13 @@ if($e_pageNum > $total_page){
             background: grey;
         }
 
-        .aqua_notice_set{
+        main .aqua_notice_set{
             width:1100px;
             margin:auto;
             
         }
         
-        .material-symbols-outlined {
+        main .material-symbols-outlined {
         font-variation-settings:
         'FILL' 0,
         'wght' 400,
@@ -110,23 +115,23 @@ if($e_pageNum > $total_page){
         'opsz' 48
         }
 
-        .aqua_notice_title{
+        main .aqua_notice_title{
             border-top:2px solid #999;
             border-bottom:1px solid #999
         }
-        .aqua_notice_content{
+        main .aqua_notice_content{
             border-bottom:1px solid #999;
         }
         
-        .no{width: 55px;}
-        .n_head{width: 110px;}
-        .n_title{width: 45%;}
-        .writer{width: 165px;}
-        .n_date{width: 110px;}
-        .view{width: 55px;}
-        .likes{width: 55px;}
+        main .no{width: 55px;}
+        main .n_head{width: 110px;}
+        main .n_title{width: 45%;}
+        main .writer{width: 165px;}
+        main .n_date{width: 110px;}
+        main .view{width: 55px;}
+        main .likes{width: 55px;}
         <?php if($s_id == "admin"){ ?>
-        .write_area{
+        main .write_area{
             width:1100px;
             display:flex;
             justify-content:space-between;
@@ -135,14 +140,14 @@ if($e_pageNum > $total_page){
         }
         
         <?php }; ?>
-        .pager{
+        main .pager{
             margin:15px auto;
             width:1100px;
             text-align:center;
             font-size:16px;
             
         }
-        h2 {
+        main h2 {
             margin:20px auto;
             text-align:center;
         }
@@ -154,6 +159,11 @@ if($e_pageNum > $total_page){
    
 </head>
 <body>
+ <!-- header -->
+<?php
+    include "../inc/header.php";
+?>
+<main>
     <h2> - 공지사항 - </h2>
     <?php if($s_id == "admin" || "manager"){ ?>
         <p class="write_area">
@@ -262,9 +272,50 @@ if($e_pageNum > $total_page){
         <?php } else{ ?>
         <a href="list.php?page=<?php echo ($page + 1); ?>">다음</a>
         <?php }; ?>
-    </p>     
+    </p>
+</main>
+<?php
+    include "../inc/footer.php";
+?>     
 
 <script type="text/javascript">
+    toTopEl.addEventListener('click', () => {gsap.to(window, .7, {
+        scrollTo: 0
+    });
+})
+
+
+
+        //GNB
+        $(".nav> ul > li").mouseenter(function(){
+            $(this).find("ul").stop().fadeIn("fast");
+            $("m_background").stop().slideDown("fast");
+        });
+        $(".nav > ul > li").mouseleave(function(){
+            $(this).find("ul").stop().fadeOut("fast");
+            $("m_background").stop().slideUp("fast");
+        });
+
+        //sticky nav
+        $(function(){
+			$(window).scroll(function(){
+				let nowScroll = $(document).scrollTop();
+				if(nowScroll > 50){ 
+						$('#nav').css({'top':'0', "height":"50", "font-size":"16px", "transition":"0.2s", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
+                        $('#mini_info').stop().animate({'opacity':'1'}, 50);
+                        $('.logo_wrap').hide(700);
+                        $(".mini_mapage").stop().fadeIn(50);
+                        $(".navcon").stop().fadeIn(50);
+				}else{
+                        $('#nav').css({'top': '100px', "height":"50","font-size":"16px", "background":"rgb(255, 255, 255)",  "border-bottom":"1px solid #cbcbcb", "box-shadow":"0px 0px 0px #fff"});
+                        $('#mini_info').stop().animate({'opacity':'0'}, 0);
+                        $('.logo_wrap').show(500);
+                        $('.mini_mapage').stop().fadeOut(0);
+                        $('.navcon').stop().fadeOut(0);
+				}
+			});
+		});
+
 function colorize(){    
     const obj = document.getElementById("colorObj");
     const objText = document.getElementById("colorObj").innerHTML;

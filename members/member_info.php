@@ -24,6 +24,10 @@ include "../login/login_check.php";
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
+      <!-- inc -->
+      <script type="text/javascript" src="../js/header.js"></script>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <style>
     .ticket_table{
         border-collapse:collapse;
@@ -35,6 +39,9 @@ include "../login/login_check.php";
     </style>
 </head>
 <body>
+<?php
+    include "../inc/header.php";
+?>
 <main id="content" class="content">
     <!-- 메인 헤드 가이드 -->
     <section class="guide_wrap">
@@ -355,7 +362,9 @@ include "../login/login_check.php";
             
         </section>
 </main>
-
+<?php
+    include "../inc/footer.php";
+?>
 
 <script>
     $(".member_info_btn").click(function(){

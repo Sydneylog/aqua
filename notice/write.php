@@ -13,6 +13,10 @@ include "../inc/session.php";
     <title>공지사항 작성</title>
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
+    <!-- inc -->
+    <script type="text/javascript" src="../js/header.js"></script>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <style type="text/css">
     ul, li {
         list-style:none;
@@ -77,7 +81,9 @@ include "../inc/session.php";
     
 </head>
 <body>
-    
+<?php
+    include "../inc/header.php";
+?>
 
 <main id="content" class="content">
 
@@ -116,6 +122,9 @@ include "../inc/session.php";
     
     </section>
 </main>
+<?php
+    include "../inc/footer.php";
+?>
 
 <script>
 function check_id(){

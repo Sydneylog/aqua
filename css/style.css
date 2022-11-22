@@ -2,6 +2,7 @@
     0d539a 
     002339
     */
+    @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
     head, body, header, footer, main, div, section, nav, ul, li, dl, dt, dd, img, h1, h2, h3, html, br, span, p, address {
         margin: 0px;
         padding: 0;
@@ -16,6 +17,7 @@
     ol, ul {
         list-style: none;
     }
+    
     body{
         font-family:'Spoqa Han Sans Neo', 'sans-serif', "돋움","나눔고딕", "맑은 고딕";
     }
@@ -42,7 +44,7 @@
 
 
 /* =====================reset================ */
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 
 
 /* scrollMagic */

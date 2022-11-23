@@ -31,6 +31,7 @@
 ?>
 
 <main id="content" class="content">
+    
     <div class="login_bx">
     <div class="logo_wrap2">
         <h2 class="login_logo">아쿠아리움 로그인</h2>

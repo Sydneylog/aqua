@@ -3,7 +3,10 @@ include "../inc/session.php";
 // echo $s_nick;
 // exit;
 ?>
-
+<!-- gsap library & scollPulgin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollToPlugin.min.js" integrity="sha512-Eenw6RBFiF4rO89LCaB5fkd4WXI4Y7GSRxrLMMWx73dZNcl+dBU3/pJtITD2gTCoEGIf/Ph3spwp0zZnF+UEJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- 구글 메테리얼 -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -153,7 +156,12 @@ include "../inc/session.php";
 .gnb_menu{
     line-height:40px;
     margin:auto;
-    opacity:0;
+    display:none;
+}
+.gnb_menu a{
+    line-height:40px;
+    margin:auto;
+    display:none;
 }
 
 .nav>div>ul>li>ul>li>a{
@@ -314,21 +322,21 @@ include "../inc/session.php";
                     <dt class="blind">유틸메뉴</dt>
                     <?php if(!$s_nick){?>
                     <dd class="login">
-                        <a href="login/login.php">
+                        <a href="../login/login.php">
                             <span class="material-icons md-36">login</span>
                             <span class="login_span">로그인</span>
                         </a>
 
                     </dd>
                     <dd class="join">
-                        <a href="members/Signup2.php">
+                        <a href="../members/Signup2.php">
                             <span class="material-icons md-36">badge</span>
                             <span class="sign_up_span">회원가입</span>
                         </a>
                     </dd>
                     <?php }else{ ?>
                     <dd class="logout">
-                        <a href="login/logout.php">
+                        <a href="../login/logout.php">
                             <span class="material-icons md-36">logout</span>
                             <span class="logout_span">로그아웃</span>
                         </a>
@@ -352,7 +360,7 @@ include "../inc/session.php";
             <ul>
                 <div class="mini_info" id="mini_info">
                     <div class="mini_slide">
-                        <a href="index.php" class="mini_logo" id="mini_logo">
+                        <a href="../index.php" class="mini_logo" id="mini_logo">
                         </a>
                     </div>
                 </div>
@@ -372,12 +380,12 @@ include "../inc/session.php";
                 <li class="gnb2">아쿠아리움 소개
                     <ul class="gnb_menu">
                         <li>
-                            <a href="sub/sub1.php">
+                            <a href="../sub/sub1.php">
                             층별 안내
                             </a>
                         </li>
                         <li>
-                            <a href="sub/sub1.php">
+                            <a href="../sub/sub1.php">
                             해양생물 소개
                             </a>
                         </li>
@@ -391,32 +399,32 @@ include "../inc/session.php";
                 </li>
                 <li class="gnb4">온라인 예매
                     <ul class="gnb_menu">
-                        <li><a href="ticketing/ticketing.php">티켓 구매</a></li>
-                        <li><a href="ticketing/ticketing.php">프로그램 구매</a></li>
+                        <li><a href="../ticketing/ticketing.php">티켓 구매</a></li>
+                        <li><a href="../ticketing/ticketing.php">프로그램 구매</a></li>
                     </ul>
                 </li>
                 <li class="gnb5">새소식&고객의 소리
                     <ul class="gnb_menu">
-                        <li><a href="notice/list.php">공지사항</a></li>
+                        <li><a href="../notice/list.php">공지사항</a></li>
                         <li><a href="javascript:void(0)">후기 게시판</a></li>
                     </ul>
                 </li>
                 <div class="navcon_wrap">
                     <?php if(!$s_nick){ ?>
                     <div class="navcon">
-                        <a href="login/login.php">
+                        <a href="../login/login.php">
                         <span class="material-icons md-30">login</span>
                         </a>
-                        <a href="members/Signup2.php">
+                        <a href="../members/Signup2.php">
                         <span class="material-icons md-30">badge</span>
                         </a>
                     </div>
                     <?php }else{ ?>
                     <div class="navcon">
-                        <a href="login/logout.php">
+                        <a href="../login/logout.php">
                         <span class="material-icons md-30">logout</span>
                         </a>
-                        <a href="members/member_info.php">
+                        <a href="../members/member_info.php">
                         <span class="material-icons md-30">manage_accounts</span>
                         </a>
                     </div>
@@ -430,14 +438,15 @@ include "../inc/session.php";
 <script type="text/javascript">
     //GNB
     $(".nav > div > ul > li").mouseenter(function(){
-        $(".gnb_menu").stop().css("opacity", '1');
+        $(".gnb_menu").stop().slideDown("fast");
         $(".m_background").stop().fadeIn("fast");
-        $(".gnb1 .gnb_menu1>li>a").stop().fadeIn("fast");
+        $(".gnb_menu>li>a").stop().slideDown("fast");
         
     });
     $(".nav > div > ul > li").mouseleave(function(){
-        $(".gnb_menu").stop().css("opacity", '0');
+        $(".gnb_menu").stop().slideUp("fast");
         $(".m_background").stop().fadeOut("fast");
+        $(".gnb_menu>li>a").stop().slideUp("fast");
     });
 
     //sticky nav

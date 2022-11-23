@@ -10,8 +10,7 @@
     <link rel="shorcut icon" type="../image/x-icon" href="../images/favicon.ico">
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
     <script src="../js/jquery.bxslider.js"></script>
-    <!-- inc -->
-    <link rel="stylesheet" href="../css/footer.css">
+    
     
 </head>
 <body>
@@ -35,135 +34,140 @@ include "../inc/header.php";
 </section>
 
 <section class="part1">
-<div>
-<h2>Exhibits<br>
-해양 생물 만나보기</h2>
-    <section class="pt1_slider">
-        <div class="bel_wrap">
-            <div class="bel_img"></div>
-            <div>
-                <h3>벨루가<br>
-                    <span>White whale</span>
-                </h3>
-                    <p class="part1_p1">
-                    눈처럼 새하얀 벨루가!<br>
-                    러시아어로 "하얗다"라는 뜻입니다.
-                    </p>
-                    <p class="part1_p2">
-                    벨루가가 사는 곳은 북극해를 중심으로한<br>얼음으로 뒤덮인 차가운 바다입니다.<br>
-                    또한 벨루가는 다른 고래와 달리<br>
-                    등지느러미가 없어 얼음 아래 부딪히지<br> 
-                    않고 헤엄칠 수 있습니다.
-                    </p>
-            </div>
-        </div>
-        <div class="sealion_wrap">
-            <div class="sealion_img"></div>
-            <div >
-                <h3>캘리포니아 바다사자<br>
-                    <span>Califonia sealion</span>
-                </h3>
-                <div class="ca_textbx">
-                    <p class="part1_p3">뛰어난 균형감각을 자랑하는 날렵한<br> 캘리포니아 바다사자!
-                    </p>
-                    <p class="part1_p4">캘리포니아 바다사자는 물범과 함께 발이 지느러미로 된 기각류에 속합니다. 앞지느러미와 뒷지느러미가 길어 몸을 지탱하며 걷는데 유리해, 물 속 뿐 아니라 물 위에서도 빠르고 멀리 이동할 수 있습니다.
-                    </p>
+    <div>
+    <h2>Exhibits<br>해양 생물 만나보기</h2>
+        <section class="pt1_slider">
+            <div class="bel_wrap">
+                <div class="bel_img"></div>
+                <div>
+                    <h3>벨루가<br>
+                        <span>White whale</span>
+                    </h3>
+                        <p class="part1_p1">
+                        눈처럼 새하얀 벨루가!<br>
+                        러시아어로 "하얗다"라는 뜻입니다.
+                        </p>
+                        <p class="part1_p2">
+                        벨루가가 사는 곳은 북극해를 중심으로한<br>얼음으로 뒤덮인 차가운 바다입니다.<br>
+                        또한 벨루가는 다른 고래와 달리<br>
+                        등지느러미가 없어 얼음 아래 부딪히지<br> 
+                        않고 헤엄칠 수 있습니다.
+                        </p>
                 </div>
             </div>
-        </div>
-        <div class="phoca_wrap">
-            <div class="phoca_img"></div>
-            <div>
-                <h3>참물범<br>
-                <span>Harbor seal</span>
-                </h3>
-                <div class="phoca_textbx">
-                    <p class="part1_p5">온대부터 한대까지 먼 바다를 오가며 사는 참물범
-                    </p>
-                    <p class="part1_p6">귓바퀴가 퇴화된 작은 구멍의 귀와, 피부 아래 두꺼운 지방층도 있어 체온 유지에 유리합니다. 우리나라에서는 참물범과 아주 닮은 천연기념물 331호 '점박이 물범'을 백령도에서 볼 수 있습니다.
-                    </p>
+
+            <div class="sealion_wrap">
+                <div class="sealion_img"></div>
+                <div >
+                    <h3>캘리포니아 바다사자<br>
+                        <span>Califonia sealion</span>
+                    </h3>
+                    <div class="ca_textbx">
+                        <p class="part1_p3">뛰어난 균형감각을 자랑하는 날렵한<br> 캘리포니아 바다사자!
+                        </p>
+                        <p class="part1_p4">캘리포니아 바다사자는 물범과 함께 발이 지느러미로 된 기각류에 속합니다. 앞지느러미와 뒷지느러미가 길어 몸을 지탱하며 걷는데 유리해, 물 속 뿐 아니라 물 위에서도 빠르고 멀리 이동할 수 있습니다.
+                        </p>
+                    </div>
                 </div>
             </div>
+
+            <div class="phoca_wrap">
+                <div class="phoca_img"></div>
+                <div>
+                    <h3>참물범<br>
+                    <span>Harbor seal</span>
+                    </h3>
+                    <div class="phoca_textbx">
+                        <p class="part1_p5">온대부터 한대까지 먼 바다를 오가며 사는 참물범
+                        </p>
+                        <p class="part1_p6">귓바퀴가 퇴화된 작은 구멍의 귀와, 피부 아래 두꺼운 지방층도 있어 체온 유지에 유리합니다. 우리나라에서는 참물범과 아주 닮은 천연기념물 331호 '점박이 물범'을 백령도에서 볼 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    
+        <section class="part2_wrap">
+            <div class="part2">
+                <h3 class="blind">주요 생물들 소개</h3>
+                <div class="part2bx1">
+                <dl class="pt2_img1">
+                    <dt><span>얼룩 매 가오리</span></dt>
+                    <dd>아쿠아리움 메인 탱크의 마스코트</dd>
+                    <dd>유영하는 모습이 마치 하늘을 나는 매의<br>날개짓과 비슷하다고 해서<br>'얼룩 매가오리'라는 이름이 붙었습니다.</dd>
+                </dl>
+                <dl class="pt2_img2">
+                    <dt><span>산호초</span></dt>
+                    <dd>형형색색 눈을 즐겁게 만드는</dd>
+                    <dd>산호는 식물이 아니라 동물이라는<br> 
+                        사실 알고 계셨나요? 해수어 만큼이나<br> 
+                        화려한 산호들 덕분에 아쿠아리움은<br>
+                        항상 활기로 가득 찹니다.</dd>
+                </dl>
+                <dl class="pt2_img3">
+                    <dt><span>해파리</span></dt>
+                    <dd>우주선 같이 바다를 날아요</dd>
+                    <dd>해파리는 독성 때문에 다른 생물들과<br>
+                        합사가 불가능해 따로 전시됩니다.<br>
+                        은은한 조명에 비치는 해파리는 마치<br>
+                        우주 한가운데 있는 느낌을 줍니다.</dd>
+                </dl>
+                </div>
+                <div class="part2bx2">
+                <dl class="pt2_img4">
+                    <dt><span>매부리 바다거북</span></dt>
+                    <dd>따뜻한 바다에 사는 멸종위기종</dd>
+                    <dd>생김새는 다른 바다거북과 비슷하지만<br>
+                        부리 끝이 휜 모양이 매를 닮았고<br>
+                        등껍질 가장자리가 톱니모양인 것이<br>
+                        특징입니다.</dd>
+                </dl>
+                <dl class="pt2_img5">
+                    <dt><span>라이언 피시</span></dt>
+                    <dd>사자의 갈기 형상을 소유한</dd>
+                    <dd>사자 같이 화려하면서도 독성을 지닌 
+                        라이언 피시는 우리나라에선 
+                        ‘쏠페감팽’으로 불리기도 한답니다.</dd>
+                </dl>
+                <dl class="pt2_img6">
+                    <dt><span>피라냐</span></dt>
+                    <dd>대중매체의 이미지 피해자</dd>
+                    <dd>피라냐는 세간에 알려진것과 달리<br>
+                        매우 겁이 많은 물고기 입니다.<br>
+                        심지어 수조에 넣어준 먹이에도<br>
+                        놀라서 밥도 안먹을 정도입니다.
+                    </dd>
+                </dl>
+                </div>
+            </div>
+            <div class="part2_2">
+                <div>
+                    <dl class="pt22_img1">
+                        <dt><span>추가해양생물1</span></dt>
+                        <dd>설명1</dd>
+                        <dd>설명2 추가해양생물1</dd>
+                    </dl>
+                </div>
+                <div>
+                    <dl class="pt22_img2">
+                        <dt><span>추가해양생물2</span></dt>
+                        <dd>설명1</dd>
+                        <dd>설명2 추가해양생물2</dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <div class="btn2_wrap">
+            <button type="button" class="part2_prev">
+                <span class="material-icons arr_back">arrow_back</span>
+            </button>
+            <button type="button" class="part2_next">
+                <span class="material-icons arr_forward">arrow_forward</span>
+            </button>
         </div>
     </section>
-    
-    
-    <section class="part2_wrap">
-    <div class="part2">
-        <h3 class="blind">주요 생물들 소개</h3>
-        <div class="part2bx1">
-        <dl class="pt2_img1">
-            <dt><span>얼룩 매 가오리</span></dt>
-            <dd>아쿠아리움 메인 탱크의 마스코트</dd>
-            <dd>유영하는 모습이 마치 하늘을 나는 매의<br>날개짓과 비슷하다고 해서<br>'얼룩 매가오리'라는 이름이 붙었습니다.</dd>
-        </dl>
-        <dl class="pt2_img2">
-            <dt><span>산호초</span></dt>
-            <dd>형형색색 눈을 즐겁게 만드는</dd>
-            <dd>산호는 식물이 아니라 동물이라는<br> 
-                사실 알고 계셨나요? 해수어 만큼이나<br> 
-                화려한 산호들 덕분에 아쿠아리움은<br>
-                항상 활기로 가득 찹니다.</dd>
-        </dl>
-        <dl class="pt2_img3">
-            <dt><span>해파리</span></dt>
-            <dd>우주선 같이 바다를 날아요</dd>
-            <dd>해파리는 독성 때문에 다른 생물들과<br>
-                합사가 불가능해 따로 전시됩니다.<br>
-                은은한 조명에 비치는 해파리는 마치<br>
-                우주 한가운데 있는 느낌을 줍니다.</dd>
-        </dl>
-        </div>
-        <div class="part2bx2">
-        <dl class="pt2_img4">
-            <dt><span>매부리 바다거북</span></dt>
-            <dd>따뜻한 바다에 사는 멸종위기종</dd>
-            <dd>생김새는 다른 바다거북과 비슷하지만<br>
-                부리 끝이 휜 모양이 매를 닮았고<br>
-                등껍질 가장자리가 톱니모양인 것이<br>
-                특징입니다.</dd>
-        </dl>
-        <dl class="pt2_img5">
-            <dt><span>라이언 피시</span></dt>
-            <dd>사자의 갈기 형상을 소유한</dd>
-            <dd>사자 같이 화려하면서도 독성을 지닌 
-                라이언 피시는 우리나라에선 
-                ‘쏠페감팽’으로 불리기도 한답니다.</dd>
-        </dl>
-        <dl class="pt2_img6">
-            <dt><span>피라냐</span></dt>
-            <dd>대중매체의 이미지 피해자</dd>
-            <dd>피라냐는 세간에 알려진것과 달리<br>
-                매우 겁이 많은 물고기 입니다.<br>
-                심지어 수조에 넣어준 먹이에도<br>
-                놀라서 밥도 안먹을 정도입니다.</dd>
-        </dl>
-        </div>
-    </div>
-    <div class="part2_2">
-        <div>
-        <dl class="pt22_img1">
-            <dt><span>추가해양생물1</span></dt>
-            <dd>설명1</dd>
-            <dd>설명2 추가해양생물1</dd>
-        </dl>
-        </div>
-        <div>
-        <dl class="pt22_img2">
-            <dt><span>추가해양생물2</span></dt>
-            <dd>설명1</dd>
-            <dd>설명2 추가해양생물2</dd>
-        </dl>
-        </div>
-    </div>
-  
-    </section>
-    <div class="btn2_wrap">
-        <button type="button" class="part2_prev">이전</button>
-        <button type="button" class="part2_next">다음</button>
-    </div>
-    
-</section>
 
     <section class="pt3">
             <h3>아쿠아리움 Zone 안내</h3>
@@ -175,10 +179,14 @@ include "../inc/header.php";
                     <li class="zone_img4 floor"><a herf="#">B2F 플레이 오션</a></li>
                     <li class="zone_img5 floor"><a herf="#">B2F 벨루가 존</a></li>
                 </ul>
-                <div>
-                <button type="button" class="btnP">이전</button>
-                <button type="button" class="btnN">다음</button>
-                </div>
+                <!-- <div class="pt3_btn_wrap">
+                    <button type="button" class="btnP">
+                        <span class="material-icons arr_back">arrow_back</span>
+                    </button>
+                    <button type="button" class="btnN">
+                        <span class="material-icons arr_forward">arrow_forward</span>
+                    </button>
+                </div> -->
             </div>
             <div class="expl_flow">
             <div class="expl_bx">

@@ -222,20 +222,29 @@
 
 .btn2_wrap{
     position:absolute;
-    bottom:418px;
+    bottom:430px;
+    width:1200px;
     left:-65px;
     width:1150px;
-    height:50px
-    
+    height:50px;
 }
-.part2_prev{
+.btn2_wrap button{
+    width:45px;
+    height:45px;
+    border-radius:30px;
+    background:white;
+    color:#333;
+}
+.btn2_wrap .part2_prev{
+    position:absolute;
+    left:0;
     display:none;
-    float:left;
 }
-.part2_next{
-    display:show;
-    float:right;
+.btn2_wrap .part2_next{
+    position:absolute;
+    right:0;
 }
+
 
 
 /* ==============part2===================/ */
@@ -380,7 +389,7 @@
     width:1200px;
     height:250px;
     margin:0 auto 10px;
-    
+    position:relative;
 }
 
 .pt3 h3{
@@ -439,6 +448,27 @@
     background:url(../images/belmini_02.jpg) black no-repeat;
    
 }
+/* .pt3_btn_wrap{
+    width:1300px;
+    height:45px;
+    position:absolute;
+    top:90px;
+    left:-50px;
+}
+.pt3_btn_wrap button{
+    width:45px;
+    height:45px;
+    background:#333;
+    color:white;
+    border-radius:50px;
+}
+.pt3_btn_wrap .btnP{
+    float:left;
+    
+}
+.pt3_btn_wrap .btnN{
+    float:right;
+} */
 
 .expl_flow{
     width:1200px;

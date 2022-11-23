@@ -1,16 +1,3 @@
-<?php
-include "../inc/session.php";
-include "../inc/dbcon.php";
-$sql = "select * from marine_friends where idx=$s_idx;";
-//$t_sql = "select *from dis_list"
-$result = mysqli_query($dbcon, $sql);
-//$t_result = mysqli_query($dbcon, $t_sql);
-//db데이터를 array 로 불러와서 이용하기 쉽게 변수에 담음
-$array = mysqli_fetch_array($result);
-//$t_array = mysqli_fetch_array($result);
-include "../login/login_check.php";
-?>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -27,35 +14,52 @@ include "../login/login_check.php";
       rel="stylesheet">
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <!-- inc -->
-    <script type="text/javascript" src="../js/header.js"></script>
-    
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
     <style>
-    .ticket_table{
-        border-collapse:collapse;
-        border: solid black 1px;
-        text-align:center;
-        margin:auto;
-        width:1100px;
-    }
+        .ticket_table{
+            border-collapse:collapse;
+            border: solid black 1px;
+            text-align:center;
+            margin:auto;
+            width:1100px;
+        }
     </style>
 </head>
 <body>
+<!-- head -->
 <?php
     include "../inc/header.php";
+    include "../inc/dbcon.php";
+    $sql = "select * from marine_friends where idx=$s_idx;";
+    //$t_sql = "select *from dis_list"
+    $result = mysqli_query($dbcon, $sql);
+    //$t_result = mysqli_query($dbcon, $t_sql);
+    //db데이터를 array 로 불러와서 이용하기 쉽게 변수에 담음
+    $array = mysqli_fetch_array($result);
+    //$t_array = mysqli_fetch_array($result);
+    include "../login/login_check.php";
 ?>
+
 <main id="content" class="content">
+    <section class="banner">
+        <div>
+            <div class="banner_img"></div>
+            <div>
+            <h2>
+                <span>650</span>종 <span>55,000</span>마리의<br> 해양 생물들
+            </h2>
+            <p>
+                다양한 해양 생무들이 더불어<br>
+                사는 자연 그와 동일한 서식<br>
+                환경을 조성합니다. 
+            </p>
+            </div>
+        </div>
+    </section>
+
+
+
+
     <!-- 메인 헤드 가이드 -->
     <section class="guide_wrap">
         <!-- guide heade -->
@@ -79,7 +83,7 @@ include "../login/login_check.php";
             <form action="edit.php" method="post" onsubmit="return inspector()">
                 <fieldset>
                     <legend class="info_title">
-                            회원정보 수정
+                            회원 정보 수정
                     </legend>
                     <table class="info_table">
                         <tr>
@@ -194,7 +198,7 @@ include "../login/login_check.php";
             //db데이터를 array 로 불러와서 이용하기 쉽게 변수에 담음
             $array = mysqli_fetch_array($result);
         ?>
-        <h3>결제내역</h3>
+        <h3>결제 내역</h3>
         <div class="search_bar_header">
             <h4>1. 티켓 구매 내역</h4>
             <div class="search_bar">
@@ -381,67 +385,9 @@ include "../login/login_check.php";
 
 <script>
 
-const toTopEl = document.querySelector("#toTopArrow");
-    //start w/ window js
-    window.addEventListener("scoll", _.throttle(function(){
-        console.log(window.scollY);
-
-        
-        if (window.scollY > 500) {
-            
-            gsap.to(toTopEl, .2, {
-                x: 0
-            });
-        } else {
-
-            //to_to_show
-            gsap.to(toTopEl, .2, {
-                x: 100
-            });
-        }
-    }));
 
 
-    toTopEl.addEventListener('click', () => {gsap.to(window, .7, {
-        scrollTo: 0
-    });
-})
-
-
-
-        //GNB
-        $(".nav> ul > li").mouseenter(function(){
-            $(this).find("ul").stop().fadeIn("fast");
-            $("m_background").stop().slideDown("fast");
-        });
-        $(".nav > ul > li").mouseleave(function(){
-            $(this).find("ul").stop().fadeOut("fast");
-            $("m_background").stop().slideUp("fast");
-        });
-
-        //sticky nav
-        $(function(){
-			$(window).scroll(function(){
-				let nowScroll = $(document).scrollTop();
-				if(nowScroll > 50){ 
-						$('#nav').css({'top':'0', "height":"50", "font-size":"16px", "transition":"0.2s", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
-                        $('#mini_info').stop().animate({'opacity':'1'}, 50);
-                        $('.logo_wrap').hide(700);
-                        $(".mini_mapage").stop().fadeIn(50);
-                        $(".navcon").stop().fadeIn(50);
-				}else{
-                        $('#nav').css({'top': '100px', "height":"50","font-size":"16px", "background":"rgb(255, 255, 255)",  "border-bottom":"1px solid #cbcbcb", "box-shadow":"0px 0px 0px #fff"});
-                        $('#mini_info').stop().animate({'opacity':'0'}, 0);
-                        $('.logo_wrap').show(500);
-                        $('.mini_mapage').stop().fadeOut(0);
-                        $('.navcon').stop().fadeOut(0);
-				}
-			});
-		});
-
-
-
-
+//guide header
     $(".member_info_btn").click(function(){
         console.log(1);
         $(".paid_info_page").fadeOut('fast');
@@ -516,8 +462,6 @@ const toTopEl = document.querySelector("#toTopArrow");
     function address_search(){
         window.open("address_search.html", "", "width=600, height=300, left=0,top=0");
     };
-
-
 </script>
 </body>
 </html>

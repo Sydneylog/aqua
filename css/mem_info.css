@@ -1,12 +1,17 @@
 
 /* ========================main=================/ */
+.content{
+    height:1800px;
+    width:1200px;
+    margin:auto;
+}
 .banner{
     width:auto;
     height:550px;
     width:auto;
     background:white;
     padding-top:110px;
-    margin:auto;
+    margin:0 auto 50px;
     position:relative;
     color:white;
     border-bottom:1px solid #002339;
@@ -16,14 +21,12 @@
     width:988px;
     height:417px;
     margin:auto;
-    
 }
 .banner>div{
     height:550px;
     width:1200px;
     margin:auto;
     position:relative;
-    
 }
 .banner div>div:nth-child(2){
     width:382px;
@@ -80,10 +83,10 @@
 
 /* 개인정보 파트 */
 .signup_wrap{
-    position:absolute;
+    /* position:absolute;
     width:1600px;
     left:50%;
-    margin-left:-800px;
+    margin-left:-800px; */
     /* display:none; */
 }
 .info_modify_page{
@@ -289,12 +292,14 @@ p{
 .paid_info_page{
     width:1100px;
     background:white;
-    height:100%;
+    box-sizing:border-box;
+    height:1000px;
     margin:30px auto;
     position:absolute;
-    top:50px;
-    left:50%;
+    top:900px;
+    left:50%; 
     margin-left:-550px;
+    
 }
 .paid_info_page h3{
     font-size:26px;
@@ -316,6 +321,7 @@ p{
     line-height:24px;
     float:right;
 }
+
 .search_con{
    position:absolute;
    right:10px;

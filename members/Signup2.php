@@ -1,6 +1,4 @@
-<?php
-include "../inc/session.php"
-?>
+
 
 
 <!DOCTYPE html>

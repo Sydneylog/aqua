@@ -1,70 +1,26 @@
-/* 주요 컬러
-    0d539a 
-    002339
-    */
-    head, body, header, footer, main, div, section, nav, ul, li, dl, dt, dd, img, h1, h2, h3, html, br, span, p, address {
-        margin: 0px;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
-        font-style:none
-    }
-    div, section, nav, footer, header h1{
-        display: block;
-    }
-    ol, ul {
-        list-style: none;
-    }
-    body{
-        font-family:"돋움","나눔고딕", "맑은 고딕";
-    }
-    address{
-        font-style:normal; 
-    }
-    a{
-        text-decoration:none;
-        color:#000;
-        background-color: transparent
-    }
-    .blind{
-        position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px;overflow:hidden
-    }
-
-
-
-
-/* =====================reset================ */
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-
-body{ 
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
-}
-
 
 /* ========================main=================/ */
 
 /* tester   */
+
 .main_part{
     background:white;
-    width:1200px;
-    height:2500px;    
     width:1100px;
+    height:600px;
     margin:auto;
     padding-top: 150px;
     position:relative;
-    
+    padding-top:100px;
 }
+
 
 .slidebg{
     width:800px;
     height:600px;
     background:white;
-    border: 1px solid #333;
     box-sizing:border-box;
     position:absolute;
-    top:0;
+    
 }
 .slide1{
     
@@ -142,7 +98,6 @@ body{
     width:500px;
     left:50%;
     margin-left:-175px ;
-    border: 1px solid red;
     width:350px;
 }
 .picked_date{
@@ -791,11 +746,6 @@ body{
 }
 
 
-
-
-
-
-
 .result3_wrap{
     position:absolute;
     width:780px;
@@ -840,9 +790,9 @@ body{
     border-radius:5px;
     box-sizing:border-box;
     position:absolute;
-    top:0px;
+    top:50px;
     right:5px;
-    box-shadow:1px 1px 10px;
+    box-shadow:1px 1px 4px;
 }
 .prophet_title{
     text-align:center;

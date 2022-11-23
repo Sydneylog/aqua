@@ -3,7 +3,7 @@
     0d539a 
     002339
     */
-    @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+    
     head, body, header, footer, main, div, section, nav, ul, li, dl, dt, dd, img, h1, h2, h3, html, br, span, p, address {
         margin: 0px;
         padding: 0;
@@ -78,15 +78,18 @@
     height:99px;
     margin:auto;
     position:relative;
-} 
+}
+
 .main_logo{
     width:86px;
     height:58px;
-    background:url(../images/logo_03.jpg);
     position:absolute;
     bottom:37px;
     left:555px;
+    cursor:pointer;
+    background:url(../images/logo_03.jpg);
     text-indent:-9999px;
+
 }
 .logo_title{
     display:block;
@@ -106,30 +109,9 @@
     color:#002339;
     z-index:99;
     width:100%;
-    
-    
 }
 
-
-/* .m_background{
-    background:black;
-    height:30px;
-    width:100%;
-    position:absolute;
-    top:50px;
-    left:0;
-    z-index:9;
-    display:none;
-} */
-.nav>ul>li:not(:first-child)>ul{
-    display:flex;
-    justify-content:space-between;
-    width:300px;
-    opacity:0;
-}
-
-
-.nav ul{
+.nav>div>ul{
     width:970px;
     height:50px;
     margin:auto;
@@ -137,9 +119,9 @@
     position:relative;
     background:white;
     text-align:center;
+    
 }
-
-.nav>ul>li{
+.nav>div>ul>li{
     float:left;
     position:relative;
     left:30px;
@@ -149,17 +131,13 @@
     font-size:15px;
     
 }
-
-
 .mini_info{
     position:absolute;
     top:0;
     width:150px;
     left:-110px;
     opacity:0;
-    
 }
-
 .mini_logo{
     background:url(../images/mini_logo_03.jpg) no-repeat center;
     width:130px;
@@ -174,230 +152,49 @@
     top:5px;
 
 }
-.mini_time{
-    font-size:14px;
-    width:130px;
-    text-align:center;
-    line-height:24px;
-    color:#002339;
-    
-}
+
 
 
 /* 2depth 수정중 */
-.gnb1 {
+.nav>div>ul>li {
     box-sizing:border-box;
 }
-.gnb1>a{
+.nav>div>li>a{
     font-size:15px;
     font-weight:900px;
 }
-.gnb1>a:hover{
+.nav>div>ul>li>a:hover{
     padding-bottom:3px;
     color: #0d539a;
     
 }
-.gnb1 div{
-    background:transparent;
-    width:1920px;
-    position:absolute;
-    left:-500px;
-    top:50px;
-    height:35px;
-    box-sizing:border-box;
-    display:none;
-}
-.gnb1 div ul{
-    text-align: center;
-    background:transparent;
-    position:relative;
+.gnb_menu{
+    line-height:40px;
     margin:auto;
-    height:34px;
-    width: 368px;
-    box-sizing:border-box;
+    opacity:0;
 }
-.gnb1 div ul li{
-    float:left;
-    height:34px;
-    width:120px;
-    line-height:34px;
-    
-}
-.gnb1 div ul li a{
-    font-size:14px;
-    line-height:34px;
-    color:white;
-}   
 
-.gnb2{
-    position:relative;
+.nav>div>ul>li>ul>li>a{
+    color:white;
+    display:block;
+    padding:20px;
 }
-.gnb2>a{
-    font-size:15px;
+.nav>div>ul>li>ul>li>a:hover{
+    color:white;
+    text-decoration: underline;
+    text-underline-offset: 8px;
 }
-.gnb2>a:hover{
-    padding-bottom:3px;
-    color: #0d539a;
-}
-.gnb2 div{
-    background:rgba(0, 0, 0, 0.8);
-    width:1920px;
+.m_background{
     position:absolute;
-    left:-690px;
-    top:50px;
-    height:35px;
-    box-sizing:border-box;
-    display:none;
-    
-}
-.gnb2 div ul{
-    text-align: center;
-    background:transparent;
-    position:relative;
-    margin:auto;
-    height:34px;
-    width: 245px;
-    box-sizing:border-box;
-}
-.gnb2 div ul li{
-    float:left;
-    height:34px;
-    width:120px;
-    line-height:34px;
-    
-}
-.gnb2 div ul li a{
-    font-size:14px;
-    line-height:34px;
-    color:white;
-} 
-
-.gnb3{
-    position:relative;
-}
-.gnb3>a{
-    font-size:15px;
-}
-.gnb3>a:hover{
-    padding-bottom:3px;
-    color: #0d539a;
-}
-.gnb3 div{
-    background:rgba(0, 0, 0, 0.8);
+    top:49px;
+    left:50%;
+    margin-left:-960px;
     width:1920px;
-    position:absolute;
-    left:-870px;
-    top:50px;
-    height:35px;
-    box-sizing:border-box;
-    display:none;
+    background-color:rgb(0, 0, 0, 0.8);
+    background-size:cover;
+    height:250px;
+    display:none
 }
-.gnb3 div ul{
-    text-align: center;
-    background:transparent;
-    position:relative;
-    margin:auto;
-    height:34px;
-    width: 245px;
-    box-sizing:border-box;
-}
-.gnb3 div ul li{
-    float:left;
-    height:34px;
-    width:120px;
-    line-height:34px;
-    
-}
-.gnb3 div ul li a{
-    font-size:14px;
-    line-height:34px;
-    color:white;
-} 
-.gnb4{
-    position:relative;
-}
-.gnb4>a{
-    font-size:15px;
-}
-.gnb4>a:hover{
-    padding-bottom:3px;
-    color: #0d539a;
-}
-.gnb4 div{
-    background:rgba(0, 0, 0, 0.8);
-    width:1920px;
-    position:absolute;
-    left:-1040px;
-    top:50px;
-    height:35px;
-    box-sizing:border-box;
-    display:none;
-}
-.gnb4 div ul{
-    text-align: center;
-    background:transparent;
-    position:relative;
-    margin:auto;
-    height:34px;
-    width: 245px;
-    box-sizing:border-box;
-}
-.gnb4 div ul li{
-    float:left;
-    height:34px;
-    width:120px;
-    line-height:34px;
-    
-}
-.gnb4 div ul li a{
-    font-size:14px;
-    line-height:34px;
-    color:white;
-}
-.gnb5{
-    position:relative;
-}
-.gnb5>a{
-    font-size:15px;
-}
-.gnb5>a:hover{
-    padding-bottom:3px;
-    color: #0d539a;
-}
-.gnb5 div{
-    background:rgba(0, 0, 0, 0.8);
-    width:1920px;
-    position:absolute;
-    left:-1220px;
-    top:50px;
-    height:35px;
-    box-sizing:border-box;
-    display:none;
-}
-.gnb5 div ul{
-    text-align: center;
-    background:transparent;
-    position:relative;
-    margin:auto;
-    height:34px;
-    width: 245px;
-    box-sizing:border-box;
-}
-.gnb5 div ul li{
-    float:left;
-    height:34px;
-    width:120px;
-    line-height:34px;
-    
-}
-.gnb5 div ul li a{
-    font-size:14px;
-    line-height:34px;
-    color:white;
-} 
-
-
-
 
 .navcon_wrap{
     position:absolute;
@@ -440,8 +237,6 @@
     text-align:center;
     color:#0d539a
 }
-
-
 .top_menu{
     width:180px;
     height:30px;
@@ -458,7 +253,6 @@
     color:#0d539a;
     font-size: 14px;
 }
-
 .top_menu2{
     width:250px;
     height:45px;
@@ -508,8 +302,6 @@
     left:4px;
     font-size:15px;
 }
-
-
 .top_mapg a{
     width:44px;
     height:40px;
@@ -520,6 +312,12 @@
     
     
 }
+
+
+
+
+
+
 /* ========================main=================/ */
 .content{
     width: 100%;
@@ -1149,7 +947,7 @@
 #floating3{
     position: absolute;
     top: -180px;
-    right:-100px;
+    right:-20px;
 }
 .program_introduction .text_group{
     position:absolute;
@@ -1229,7 +1027,6 @@
     background-image:url(../images/nolan-krattinger-ADcXaqQ9vOM-unsplash.jpg);
     background-position:bottom;
     background-size: cover;
-    
 }
 .program_3rd .inner{
     height:400px;
@@ -1277,14 +1074,13 @@
 /* //이중 밑배경 */
 }
 
-
 .program_3rd .medal{
    width:340px;
    height:340px;
    perspective: 600px;
    position:relative;
-   top:-280px;
-   right:-200px;
+   top:-260px;
+   right:-250px;
 }
 .program_3rd .medal .front,
 .program_3rd .medal .back {

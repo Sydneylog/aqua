@@ -18,14 +18,27 @@ include "../login/login_check.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 정보 관리</title>
-    <link rel="stylesheet" type="text/css" href="../css/mem_info.css">
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/mem_info.css">
+    
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
-      <!-- inc -->
-      <script type="text/javascript" src="../js/header.js"></script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- inc -->
+    <script type="text/javascript" src="../js/header.js"></script>
+    
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <style>
@@ -45,7 +58,7 @@ include "../login/login_check.php";
 <main id="content" class="content">
     <!-- 메인 헤드 가이드 -->
     <section class="guide_wrap">
-        <!-- guide headeㄱ -->
+        <!-- guide heade -->
         <div class="guide_header">
             <h2>회원 정보 관리</h2>
             <div>
@@ -367,6 +380,68 @@ include "../login/login_check.php";
 ?>
 
 <script>
+
+const toTopEl = document.querySelector("#toTopArrow");
+    //start w/ window js
+    window.addEventListener("scoll", _.throttle(function(){
+        console.log(window.scollY);
+
+        
+        if (window.scollY > 500) {
+            
+            gsap.to(toTopEl, .2, {
+                x: 0
+            });
+        } else {
+
+            //to_to_show
+            gsap.to(toTopEl, .2, {
+                x: 100
+            });
+        }
+    }));
+
+
+    toTopEl.addEventListener('click', () => {gsap.to(window, .7, {
+        scrollTo: 0
+    });
+})
+
+
+
+        //GNB
+        $(".nav> ul > li").mouseenter(function(){
+            $(this).find("ul").stop().fadeIn("fast");
+            $("m_background").stop().slideDown("fast");
+        });
+        $(".nav > ul > li").mouseleave(function(){
+            $(this).find("ul").stop().fadeOut("fast");
+            $("m_background").stop().slideUp("fast");
+        });
+
+        //sticky nav
+        $(function(){
+			$(window).scroll(function(){
+				let nowScroll = $(document).scrollTop();
+				if(nowScroll > 50){ 
+						$('#nav').css({'top':'0', "height":"50", "font-size":"16px", "transition":"0.2s", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
+                        $('#mini_info').stop().animate({'opacity':'1'}, 50);
+                        $('.logo_wrap').hide(700);
+                        $(".mini_mapage").stop().fadeIn(50);
+                        $(".navcon").stop().fadeIn(50);
+				}else{
+                        $('#nav').css({'top': '100px', "height":"50","font-size":"16px", "background":"rgb(255, 255, 255)",  "border-bottom":"1px solid #cbcbcb", "box-shadow":"0px 0px 0px #fff"});
+                        $('#mini_info').stop().animate({'opacity':'0'}, 0);
+                        $('.logo_wrap').show(500);
+                        $('.mini_mapage').stop().fadeOut(0);
+                        $('.navcon').stop().fadeOut(0);
+				}
+			});
+		});
+
+
+
+
     $(".member_info_btn").click(function(){
         console.log(1);
         $(".paid_info_page").fadeOut('fast');

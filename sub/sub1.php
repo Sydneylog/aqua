@@ -11,205 +11,14 @@
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
     <script src="../js/jquery.bxslider.js"></script>
     <!-- inc -->
-    <script type="text/javascript" src="../js/header.js"></script>
-    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <script type="text/javascript">
-    $(document).ready(function(){
-        //GNB
-        $(".nav> ul > li").mouseenter(function(){
-            $(this).find("ul").stop().slideDown("fast");
-          });
-          $(".nav > ul > li").mouseleave(function(){
-            $(this).find("ul").stop().slideUp("fast");
-          });
-
-        //sticky nav
-        $(function(){
-			$(window).scroll(function(){
-				let nowScroll = $(document).scrollTop();
-				if(nowScroll > 49){ 
-						$('#nav').css({'top':'0', "height":"49", "font-size":"30px", "transition":"0.2s", "color":"#fff", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
-				}else{
-                        $('#nav').css({'top': '100px', "height":"50","font-size":"20px", "background":"rgb(255, 255, 255)", "border-top":"1px solid #cbcbcb", "border-bottom":"1px solid #cbcbcb", "color":"#fff", "box-shadow":"0px 0px 0px #fff"});
-				}
-			    });
-		    });
-        //pt1Slider
-        $('.pt1_slider').bxSlider({
-            mode:'fade',
-            auto:true,
-            pause:5000
-            });
-        //pt1SeafoodSlider
-        $(".part2_next").click(function(){
-            $(".part2").animate({"left":"-350px"}, 900, "swing");
-            $(".part2_2").animate({"left":"690px"}, 900, "swing");
-            $(this).hide();
-            $(".part2_prev").show();
-        });
-        $(".part2_prev").click(function(){
-            $(".part2").animate({"left":"0px"}, 900, "swing");
-            $(".part2_2").animate({"left":"1050px"}, 900, "swing");
-            $(this).hide();
-            $(".part2_next").show();
-        });
-        /*
-        //floorIntroSlider
-        //*Html 요소 가져오기 및 설정
-        const slides = document.querySelector(".slides");
-        const floor = document.querySelectorAll(".floor");
-        const btnP = document.querySelector(".btnP");
-        const btnN = document.querySelector(".btnN");
-        const slideLen = slides.length; //내 슬라이더에선 현재는 5
-        const slideWidth = 250;
-        const slideSpeed = 400;
-        const startNum = 0;
-        
-        slides.style.width = slideWidth * (slideLen + 2) + "px";
-
-        //*눈속임을 위한 first와 last 요소 복사
-        let firstChild = slides.firstElementChild;
-        let lastChild = slides.lastElementChild;
-        let clonedFirst = firstChild.cloneNode(true);
-        let clonedLast = lastChild.cloneNode(true);
-
-        //*복사한 요소 각각의 위치로 붙여넣기
-        slides.appendChild(clonedFirst);
-        slides.insertBefore(clonedLast, slides.firstElementChild);
-        //*슬라이드 이동 범위 설정
-        slides.style.transform = "translate3d(-" + (slideWidth * (startNum + 1)) + "px, 0px, 0px)";
-
-        //*슬라이더 조작을 위한 설정
-        let curIndex = startNum; //이 때 copied 슬라이드는 제외됨
-        let curSlide = floor[curIndex]; //current slide DOM
-        curSlide.classList.add("slide_active") //active slide 를 클래스 명을 추가하여 제어
-
-
-         //next btn event
-        btnN.addEventListener("click", function(){
-            if (curIndex <= slideLen - 1) {
-                slides.style.transition = slideSpeed + "ms";
-                slides.style.transform = "translate3d(-" + (slideWidth * (curIndex + 2)) + "px, 0px, 0px)";
-            }
-            if (curIndex === slideLen - 1) {
-                setTimeout(function(){
-                    slides.style.transition = "0ms";
-                    slides.style.transform = "translate3d(-" + slideWidth + "px, 0px, 0px)";
-                }, slideSpeed);
-                curIndex = -1;
-                }
-            curSlide.classList.remove("slide_active");
-            curSlide = floor[++curIndex];
-            curSlide.classList.add("slide_active")
-            });
-
-        btnP.addEventListener("click",function(){
-            if (curIndex >= 0) {
-                slides.style.transition = slideSpeed + "ms";
-                slides.style.transform = "translate3d(-" + (slideWidth * curIndex) + "px, 0px, 0px)";
-            }
-            if (curIndex === 0) {
-                setTimeout(function() {
-                    slides.style.transition = "0ms";
-                    slides.style.transform = "translate3d(-" + (slideWidth * slideLen) + "px, 0px, 0px)";
-                }, slideSpeed);
-            }
-            curSlide.classList.remove("slide_active");
-            curSlide = floor[--curIndex];
-            curSlide.classList.add("slide_active")
-        });
-        */
-        
-
-
-        
-
-
-        //floorIntroSliderclick
-        $(".slides li").click(function(){
-        let i = 0;
-        idx = $(this).index();
-        i = idx;
-        $(".expl_bx").animate({"left":"-1200" * i}, 500, "swing");
-        });
-        
-
-    });
-
-
-    </script>    
+    
 </head>
 <body>
-    <?php
-    include "../inc/header.php";
-    ?>
-
-    <header id="header" class="header">
-        <div class="header_wrap">
-        <h1 class="main_logo">롯데월드 아쿠아리움</h1>
-        <span class="logo_title">Lotte A Q U A R I U M</span>
-            <h2 class="blind">주요 메뉴</h2>
-            <!-- <div class="top_wrap"> -->
-                <dl class="top_menu1">
-                    <dt class="blind">빠른 안내</dt>
-                    <dd class="top_open">이용 시간</dd>
-                    <dd class="top_buy">티켓 구매 바로가기</dd>
-                </dl>
-                <dl class="top_menu2">
-                    <dt class="blind">유틸메뉴</dt>
-                    <dd class="top_mapg">My page</dd>
-                    <dd class="top_lang">Language</dd>
-                </dl>
-            <!-- </div> -->
-        </div>
-        <nav class="nav" id="nav">
-            <ul>
-                <li class="gnb1"><a href="#">방문 안내</a>
-                    <ul>
-                        <li>
-                            <a href="#">이용 요금</a>
-                        </li>
-                        <li>
-                            <a href="#">위치 안내</a>
-                        </li>
-                        <li>
-                            <a href="#">할인 혜택</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="gnb2"><a href="#">아쿠아리움 소개</a>
-                    <ul>
-                        <li><a href="#">층별 안내</a></li>
-                        <li><a href="#">해양생물 소개</a></li>
-                    </ul>
-                </li>
-                <li class="gnb3"><a href="#">프로그램 안내</a>
-                    <ul>
-                        <li><a href="#">프로그램 소개</a></li>
-                        <li><a href="#">이달의 이벤트</a></li>
-                    </ul>
-                </li>
-                <li class="gnb4"><a href="#">온라인 예매</a>
-                    <ul>
-                        <li><a href="#">티켓 구매</a></li>
-                        <li><a href="#">프로그램 구매</a></li>
-                    </ul>
-                </li>
-                <li class="gnb5"><a href="#">새소식&고객의 소리</a>
-                        <ul>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">후기 게시판</a></li>
-                    </ul> 
-                </li>
-            </ul>
-        </nav>
-        </div>
-        
-
-
-</header>
-
+<!-- header -->
+<?php
+include "../inc/header.php";
+?>
 <main id="content" class="content">
 <section class="banner">
     <div class="banner_img"></div>
@@ -444,5 +253,38 @@
     include "../inc/footer.php";
 ?>
 </main>
+
+
+<script type="text/javascript">
+//pt1Slider
+    $('.pt1_slider').bxSlider({
+        mode:'fade',
+        auto:true,
+        pause:5000
+        });
+    //pt1SeafoodSlider
+    $(".part2_next").click(function(){
+        $(".part2").animate({"left":"-350px"}, 900, "swing");
+        $(".part2_2").animate({"left":"690px"}, 900, "swing");
+        $(this).hide();
+        $(".part2_prev").show();
+    });
+    $(".part2_prev").click(function(){
+        $(".part2").animate({"left":"0px"}, 900, "swing");
+        $(".part2_2").animate({"left":"1050px"}, 900, "swing");
+        $(this).hide();
+        $(".part2_next").show();
+    });
+
+
+    //floorIntroSliderclick
+    $(".slides li").click(function(){
+    let i = 0;
+    idx = $(this).index();
+    i = idx;
+    $(".expl_bx").animate({"left":"-1200" * i}, 500, "swing");
+    });
+  
+</script>
 </body>
 </html>

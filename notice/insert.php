@@ -9,6 +9,20 @@ $n_contents = $_POST["n_contents"];
 
 //작성일자
 $n_date = date("Y-m-d");
+/*
+create table aqua_notice(
+    idx int primary key auto_increment,
+    n_head varchar(20) not null,
+    n_title varchar(100) not null,
+    n_contents text not null, 
+    u_id varchar(20) not null,
+    writer varchar(20) not null,
+    n_date datetime,
+    m_date datetime,
+    views int(11) default 0,
+    likes int(11) default 0
+); 
+*/
 
 //출력 확인 OK
 // echo $n_head."<P>";
@@ -18,7 +32,7 @@ $n_date = date("Y-m-d");
 // echo $s_nick;
 // 로그인 안해서 session 값 못받아옴
 // exit;
-
+//insert into aqua_notice(n_head, n_title, n_contents, writer, u_id, n_date)values('일반', '공지사항 글작성 테스트5th', '5th 공지사항 테스트 입니다.', '테스터1', 'tester1', '20211011');
 
 
 //DB연결

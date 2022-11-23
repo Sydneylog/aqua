@@ -1,6 +1,4 @@
-<?php
-include "../inc/session.php";
-?>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -24,11 +22,7 @@ include "../inc/session.php";
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-
-
     <!-- inc -->
-    <script type="text/javascript" src="../js/header.js"></script>
-    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
@@ -38,9 +32,9 @@ include "../inc/session.php";
 
 <main id="content" class="content">
     <div class="login_bx">
-    <div class="logo_wrap">
+    <div class="logo_wrap2">
         <h2 class="login_logo">아쿠아리움 로그인</h2>
-        <P>L O T T E A Q U A R I U M</P>
+        <div class="login_sub_title" id="login_sub_title">L O T T E A Q U A R I U M</div>
     </div>
         <fieldset class="form_bx">
             <legend class="blind">로그인</legend>

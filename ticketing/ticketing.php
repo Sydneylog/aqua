@@ -1,6 +1,6 @@
 <?php
 //db연결
-include "../inc/session.php";
+//include "../inc/session.php";
 //include "../inc/dbcon.php";
 
 //db연결후 select쿼리 작성하여 array 변수에 담기

@@ -15,7 +15,8 @@ include "../inc/dbcon.php";
 // price int not null,
 // qty int not null,
 // bought_date date,
-// wichi_dis varchar(20)
+// wichi_dis varchar(50) default 미적용,
+// order_idx vharchar(100)
 // );
 
 

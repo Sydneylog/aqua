@@ -16,14 +16,12 @@
     padding-top:120px;
     box-sizing:border-box;
 }
-.logo_wrap p{
+#login_sub_title{
     margin:5px auto;
     color:#0d539a;
     font-weight:bold;
     width:205px;
-    
     font-size: 18px;
-   
 }
 .login_logo{
     background:url(../images/logo_03.jpg) no-repeat;

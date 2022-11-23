@@ -11,7 +11,8 @@ idx int auto_increment primary key,
 board_code varchar(50) not null,
 u_id varchar(20) not null,
 like_state bit(1) default 0,
-date datetime
+date datetime,
+memo varchar(50)
 );
 
 */

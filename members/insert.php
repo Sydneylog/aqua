@@ -100,7 +100,8 @@ create table marine_friends(
 alter table aqua_members modify column mobile varchar(11) not null;
 
 *나온 결과 값을 직접 입력한다면
-insert into aqua_members(u_id, pwd, mobile, emailAll, ps_code, addr1, addr2, nick, reg_date) values('tester1', '1234' ....);
+insert into marine_friends(u_id, pwd, mobile, emailAll, ps_code, addr1, addr2, nick, reg_date) values('tester1', '1234' ....);
+insert into marine_friends(u_id, pwd, mobile, emailAll, ps_code, addr1, addr2, nick, reg_date) values('tester2', '1234', '01099998888', 'sagioew@naver.com', '51230', '부산시', '해운대구', '테스터2', '20221011');
 
 이런식으로 해야함
 

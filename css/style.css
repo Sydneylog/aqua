@@ -41,9 +41,6 @@
     
    
 
-
-
-
 /* =====================reset================ */
 
 
@@ -171,7 +168,12 @@
 .gnb_menu{
     line-height:40px;
     margin:auto;
-    opacity:0;
+    display:none;
+}
+.gnb_menu a{
+    line-height:40px;
+    margin:auto;
+    display:none;
 }
 
 .nav>div>ul>li>ul>li>a{
@@ -314,10 +316,6 @@
 }
 
 
-
-
-
-
 /* ========================main=================/ */
 .content{
     width: 100%;
@@ -330,19 +328,26 @@
     margin:auto;
 }
 
-.main_img>ul{
-    width:auto;
+.main_img>div>ul{
+    width:1200px;
+
     background:rgb(7, 3, 36);
 }
 .banner_tok {
-    
     height:650px;
     background:url(../images/main_image_02.jpg) no-repeat center top #1d1d1d;
     background-size: cover;
     margin:auto;
     position:relative;
-    text-indent:-9999px;
     z-index:1px
+}
+.banner_tok p{
+    font-size:40px;
+    width:500px;
+    font-weight:700;
+    color:white;
+    
+
 }
 
 .banner_tok>a{

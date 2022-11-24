@@ -1,6 +1,6 @@
 <?php 
 include "../inc/session.php"; 
-// include "../inc/admin_check.php"; 
+//include "../inc/admin_check.php"; 
 
 //데이터 가져오기
 $n_idx = $_GET["n_idx"];
@@ -47,16 +47,12 @@ mysqli_query($dbcon, $sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항 작성</title>
-    <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="shorcut icon" type="image/x-icon" href="../images/favicon.ico">
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <!-- inc -->
-    <script type="text/javascript" src="../js/header.js"></script>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
     <style type="text/css">
         
         @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
@@ -71,17 +67,19 @@ mysqli_query($dbcon, $sql);
         }
         p, h2{
             margin:0;
-            padding:0;
+            padding:30;
             font: inherit;
             vertical-align: baseline;
         }
         h2{ 
+            position:relative;
+            left:-20px;
             text-align:center;
             font-size:16px;
             height:30px;
             line-height:30px;
             font-weight:bold;
-            margin:0 0 10px;
+            margin:0 auto 10px;
             background:#363636;
             color:white;
             border-top:solid black 1px;
@@ -89,12 +87,20 @@ mysqli_query($dbcon, $sql);
             border-left:solid black 1px;
             width:823px;
             margin:auto;
+            padding-top:5px;
+            display:inline-block;
+            
+            
         }
         ul, li {
             list-style:none;
             padding:0px;
             margin:0px;
         }
+        .signup_wrap{
+            padding:80px;
+        }
+        
         .total_wrap{
             position:relative;
             width:825px;
@@ -205,7 +211,7 @@ mysqli_query($dbcon, $sql);
             line-height:30px;
         }
         .inner{
-            width:800px;
+            width:600px;
             margin:auto;
         }
         .reply_box{
@@ -216,11 +222,17 @@ mysqli_query($dbcon, $sql);
             width:90px;
             height:20px;
         }
+        .reply_info{
+            position:relative;
+            left:160px;
+        }
         .reply_box textarea{
             width:700px;
             height:70px
         }
         .enroll_btn_bx{
+            margin:auto;
+            width:800px;
             display:flex;
             justify-content:space-between;
         }
@@ -246,13 +258,14 @@ mysqli_query($dbcon, $sql);
 </head>
 <body>
 <?php
-    include "../inc/header.php";
+include "../inc/header2.php";
 ?>
 <main id="content" class="content">
     <section class="signup_wrap">
     <!-- <h3>1.주요 정보 입력</h3> -->
-            <h2 class="headline">공지사항 게시판</h2>
+            
             <div class="total_wrap">
+                <h2 class="headline">공지사항 게시판</h2>
                     <div class="board_top">
                         <p class="n_header">
                             <span class="blind">글머리</span>
@@ -359,10 +372,12 @@ mysqli_query($dbcon, $sql);
                         -->
                         
                         <?php if(!$s_id) :?>
+                        <div class="reply_info">
                         <label for="r_nick">닉네임</label>
                             <input type="text" name="r_nick" id="r_nick" class="r_nick">
                         <label for="r_pwd">비밀번호</label>
                             <input type="text" name="r_pwd" id="r_pwd" class="r_pwd">
+                        </div>
                         <?php endif ?>  
                         <div class="enroll_btn_bx">
                             <label for="r_contents" class="blind">댓글 내용</label>
@@ -388,42 +403,6 @@ mysqli_query($dbcon, $sql);
 ?>
 
 <script>
-    toTopEl.addEventListener('click', () => {gsap.to(window, .7, {
-        scrollTo: 0
-    });
-})
-
-
-
-//GNB
-$(".nav> ul > li").mouseenter(function(){
-    $(this).find("ul").stop().fadeIn("fast");
-    $("m_background").stop().slideDown("fast");
-});
-$(".nav > ul > li").mouseleave(function(){
-    $(this).find("ul").stop().fadeOut("fast");
-    $("m_background").stop().slideUp("fast");
-});
-
-//sticky nav
-$(function(){
-    $(window).scroll(function(){
-        let nowScroll = $(document).scrollTop();
-        if(nowScroll > 50){ 
-                $('#nav').css({'top':'0', "height":"50", "font-size":"16px", "transition":"0.2s", "border":"0px", "box-shadow":"1px 1px 10px #8B8B8B"});
-                $('#mini_info').stop().animate({'opacity':'1'}, 50);
-                $('.logo_wrap').hide(700);
-                $(".mini_mapage").stop().fadeIn(50);
-                $(".navcon").stop().fadeIn(50);
-        }else{
-                $('#nav').css({'top': '100px', "height":"50","font-size":"16px", "background":"rgb(255, 255, 255)",  "border-bottom":"1px solid #cbcbcb", "box-shadow":"0px 0px 0px #fff"});
-                $('#mini_info').stop().animate({'opacity':'0'}, 0);
-                $('.logo_wrap').show(500);
-                $('.mini_mapage').stop().fadeOut(0);
-                $('.navcon').stop().fadeOut(0);
-        }
-    });
-});
 function check_id(){
     window.open("check_id.html", "", "width=600, height=300,left=0,top=0");
     };

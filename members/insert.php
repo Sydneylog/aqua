@@ -109,6 +109,6 @@ insert into marine_friends(u_id, pwd, mobile, emailAll, ps_code, addr1, addr2, n
 
  -->
  <script type="text/javascript">
-    location.href = "welcome.php";
+    location.href = "../login/login.php";
 </script>
  

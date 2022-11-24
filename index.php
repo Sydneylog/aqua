@@ -100,7 +100,8 @@ include "inc/session.php";
             <ul>
                 <div class="mini_info" id="mini_info">
                     <div class="mini_slide">
-                        <a href="index.php" class="mini_logo" id="mini_logo"></a>
+                        <a href="index.php" class="mini_logo" id="mini_logo">
+                        </a>
                     </div>
                 </div>
                 <li class="gnb1">방문 안내
@@ -173,7 +174,6 @@ include "inc/session.php";
             <div class="m_background"></div>
         </div>
     </div>
-    
 </header>
 
 <main id="content" class="content">
@@ -181,12 +181,9 @@ include "inc/session.php";
         <h2 class="blind">주요 소식</h2>
             <div class=".slider_wrap">
                 <ul class="main_image">
-                    <li class="banner_tok">
-                        <a href="javascript:void(0)">
-                            <span class="banner_more">
-                            <a href="javascript:void(0)">자세히 알아보기</a>
-                            </span>
-                        </a>
+                    <li class="banner_tok"> 
+                    <!-- <p>서울 한 가운데서 해양생물과</P> 
+                    <p>교감을 나눌 수 있는 곳</P> -->
                     </li> 
                     <!-- <li class="main_int1"></li>
                     <li class="main_int2"></li>
@@ -550,17 +547,18 @@ window.addEventListener("scoll", _.throttle(function(){
 toTopEl.addEventListener('click', () => {gsap.to(window, .7, {
     scrollTo: 0
     });
-})
+});
     //GNB
     $(".nav > div > ul > li").mouseenter(function(){
-        $(".gnb_menu").stop().css("opacity", '1');
+        $(".gnb_menu").stop().slideDown("fast");
         $(".m_background").stop().fadeIn("fast");
-        $(".gnb1 .gnb_menu1>li>a").stop().fadeIn("fast");
+        $(".gnb_menu>li>a").stop().slideDown("fast");
         
     });
     $(".nav > div > ul > li").mouseleave(function(){
-        $(".gnb_menu").stop().css("opacity", '0');
+        $(".gnb_menu").stop().slideUp("fast");
         $(".m_background").stop().fadeOut("fast");
+        $(".gnb_menu>li>a").stop().slideUp("fast");
     });
 
     //sticky nav
@@ -658,8 +656,8 @@ toTopEl.addEventListener('click', () => {gsap.to(window, .7, {
                 //보임
                 promotionEl.classList.remove('hide_promotion');
             }
-
-        })
+        });
+      
         
         //youtube mioni picutres
         function random(min, max) {

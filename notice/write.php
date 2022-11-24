@@ -1,7 +1,4 @@
-<?php 
-include "../inc/session.php"; 
-// include "../inc/admin_check.php"; 
-?>
+
 
 
 <!DOCTYPE html>
@@ -13,10 +10,7 @@ include "../inc/session.php";
     <title>공지사항 작성</title>
     <link rel="shorcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script type="text/javascript" src="../js/jquery-3.6.1.min.js"></script>
-    <!-- inc -->
-    <script type="text/javascript" src="../js/header.js"></script>
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    
     <style type="text/css">
     ul, li {
         list-style:none;
@@ -25,7 +19,7 @@ include "../inc/session.php";
     }
     .total_wrap{
         width:800px;
-        margin:auto;
+        margin:100px auto 100px;
         box-sizing:border-box;
     }
     .n_header {
@@ -90,14 +84,14 @@ include "../inc/session.php";
    
     <section class="signup_wrap">
     <div class="signup_title">
-    <h2>공지사항 작성</h2>
+    <h2 class="blind">공지사항 작성</h2>
     </div>
     <!-- <h3>1.주요 정보 입력</h3> -->
     
         <form action="insert.php" method="post" class="pt1_bx" onsubmit="return inspector()">
             <fieldset class="total_wrap">
                 <legend><span class="id_must">공지사항</span></legend>
-                    <p>
+                    <p class="blind">
                         <input type="hidden"><?php echo $s_id; ?></input>
                     </p>
                     <p class="n_header"><span>글머리</span>

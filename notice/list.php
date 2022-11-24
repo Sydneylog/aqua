@@ -1,6 +1,6 @@
 <?php
 //include "../inc/session.php";
-
+$present = basename($_SERVER["PHP_SELF"]);
 
 //db연결
 include "../inc/dbcon.php";
@@ -76,6 +76,7 @@ if($e_pageNum > $total_page){
    
 </head>
 <body>
+
  <!-- header -->
 <?php
 include "../inc/header.php"

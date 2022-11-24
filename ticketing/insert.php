@@ -159,7 +159,10 @@ $sql3 = "insert into toCart_pro(u_id, p_name, booking_date, price, qty, bought_d
 
 
 
-// echo $sql;
+// echo $sql1;
+// echo $sql2;
+// echo $sql3;
+
 // exit;
 
 

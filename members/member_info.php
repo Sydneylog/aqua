@@ -236,7 +236,8 @@
                     <td><?php echo $i;  ?></td>
                     <td><?php echo $array["bought_date"]; ?></td>
                     <td>
-                        <?php if($array["p_id"] == 'normal')
+                        <?php 
+                            if($array["p_id"] == 'normal')
                             echo '일반/청소년';
                             if($array["p_id"] == 'weak')
                             echo '경로/어린이';
@@ -245,7 +246,9 @@
                     <td><?php echo number_format($array["price"]); ?></td>
                     <td><?php echo $array["qty"]; ?></td>
                     <td><?php echo $array["booking_date"]; ?></td>
-                    <td><?php echo $array["which_dis"]; ?></td>
+                    <td>
+                        <?php echo $array["which_dis"]; ?>
+                    </td>
                     <td class='total_price' name='total_price[]' id='total_price'>
                         <?php 
                         echo number_format($array['price'] * $array['qty']);
@@ -280,7 +283,7 @@
             <tr>
                 <th class="th1">번호</th>
                 <th class="th2">구매일</th>
-                <th class="th3">티켓 종류</th>
+                <th class="th3">프로그램명</th>
                 <th class="th4">가격</th>
                 <th class="th5">구매 수량</th>
                 <th class="th6">예약일</th>
@@ -303,7 +306,9 @@
                     <?php echo $array["bought_date"]; ?>
                 </td>
                 <td>
-                    <?php $array["p_name"]; ?>
+                    <?php 
+                    echo $array["p_name"];
+                    ?>
                 </td>
                 <td><?php echo number_format($array["price"]); ?></td>
                 <td><?php echo $array["qty"]; ?></td>

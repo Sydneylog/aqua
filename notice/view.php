@@ -344,7 +344,7 @@ include "../inc/header2.php";
                         <?php } ?>
                     </div>
             </div>
-            <?php //if($s_id == $array['u_id']) : echo $array['writer']; echo $s_nick; ?>
+            <?php if($s_id == $array['u_id']) :?>
             <div class="btn_bx">
                 <a href="list.php" class="moving_arr1">
                     <span>뒤로가기</span>
@@ -354,7 +354,7 @@ include "../inc/header2.php";
                     <span>수정</span>
                 </a>
             </div>  
-            <?php //endif ?>
+            <?php endif ?>
 
             <form>
                 <fieldset class="reply_box">

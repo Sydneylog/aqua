@@ -104,7 +104,7 @@ include "inc/session.php";
                         </a>
                     </div>
                 </div>
-                <li class="gnb1">방문 안내
+                <li class="gnb1">
                     <ul class="gnb_menu">
                         <li>
                             <a href="javascript:void(0)">이용 요금</a>

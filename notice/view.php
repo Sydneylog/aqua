@@ -324,19 +324,19 @@ include "../inc/header2.php";
                                 $check_array = mysqli_fetch_array($check_result);
                             ?>
                             <?php if($check_array) : ?>
-                            <div class="like_minus">
-                                <a id='like_btn' class='like_btn' href='likes_cancel.php?n_id=<?php echo $n_idx;?>'>
-                                    <span class='blind'>좋아요 취소</span>
-                                    <span class='material-icons'>favorite</span>
-                                </a>
-                            </div>
+                                <div class="like_minus">
+                                    <a id='like_btn' class='like_btn' href='likes_cancel.php?n_id=<?php echo $n_idx; ?>'>
+                                        <span class='blind'>좋아요 취소</span>
+                                        <span class='material-icons'>favorite</span>
+                                    </a>
+                                </div>
                             <?php elseif(empty($check_array)) : ?>    
-                            <div class="like_plus">
-                                <a id='like_btn' class='like_btn' href='likes_ok.php?n_id=<?php echo $n_idx; ?>'>
-                                    <span class='blind'>좋아요</span>
-                                    <span class='material-icons'>favorite_border</span>
-                                </a>
-                            </div>
+                                <div class="like_plus">
+                                    <a id='like_btn' class='like_btn' href='likes_ok.php?n_id=<?php echo $n_idx; ?>'>
+                                        <span class='blind'>좋아요</span>
+                                        <span class='material-icons'>favorite_border</span>
+                                    </a>
+                                </div>
                             <?php endif ?>
                         </div>
                         <?php }else{ ?>

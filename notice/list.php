@@ -172,11 +172,9 @@ include "../inc/header.php"
                             $li_array = mysqli_fetch_array($li_result);
                             //echo $li_array["idx"];
                             //echo $li_array["like_state"];
-                            if (empty($li_array)):
+                        if (empty($li_array)):
                     ?>
                             <span class="material-symbols-outlined">favorite</span> 
-
-
                             <?php elseif ($li_array): ?> 
                             <span class="material-icons">favorite</span>
                             <?php endif ?>

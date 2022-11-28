@@ -247,7 +247,9 @@
                     <td><?php echo $array["qty"]; ?></td>
                     <td><?php echo $array["booking_date"]; ?></td>
                     <td>
-                        <?php echo $array["which_dis"]; ?>
+                        <?php 
+                        echo $array["which_dis"]; 
+                        ?>
                     </td>
                     <td class='total_price' name='total_price[]' id='total_price'>
                         <?php 
@@ -313,7 +315,7 @@
                 <td><?php echo number_format($array["price"]); ?></td>
                 <td><?php echo $array["qty"]; ?></td>
                 <td><?php echo $array["booking_date"]; ?></td>
-                <td>
+                <td class="step1" name="step[]">
                     <?php 
                     echo number_format($array['price'] * $array['qty']);
                     ?>
@@ -327,6 +329,7 @@
         </table>
         <div class="calc">
                 <span>구매 total</span>
+                <!-- <input type="text" id="ticket_sum" class="ticket_sum" disable> -->
                 <span>원</span>
             </div>
 
@@ -350,7 +353,12 @@
                    
                     // $li_result = mysqli_query($dbcon, $li_sql);
                     // $li_array = mysqli_fetch_array($li_result);
-                    // $board = $li_array['board_code'];
+                    // $board_code = $li_array['board_code'];
+
+                    // echo $board_code[0];
+                    // echo $board_code[1];
+                    // exit;
+                    //  -->
 
                     
                     // $sql = "select * from aqua_notice;";
@@ -380,7 +388,7 @@
                 //$i++;
                 //};
                 ?>
-            </table> -->
+            </table>
             
         </section>
 </main>
@@ -467,6 +475,9 @@
     function address_search(){
         window.open("address_search.html", "", "width=600, height=300, left=0,top=0");
     };
+
+
+    
 </script>
 </body>
 </html>

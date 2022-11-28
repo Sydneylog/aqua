@@ -304,7 +304,7 @@
                                 <!-- 나이트캠프 -->
                                 <tr class="list_rows">
                                     <td>
-                                        <input type="checkbox" name="pro_list[]" id="pro2" value="나이트 캠프" id="pro2">
+                                        <input type="checkbox" name="pro_list[]" id="pro2" value="아쿠아리움 나이트 캠프" id="pro2">
                                         <input type="hidden" value="70000" name="pro_price[]">
                                     </td>
                                     
@@ -343,7 +343,7 @@
                                 <!-- 물고기 도시락 -->
                                 <tr class="list_rows">
                                     <td>
-                                        <input type="checkbox" name="pro_list[]" id="pro3" value="Special 먹이주기" id="pro3">
+                                        <input type="checkbox" name="pro_list[]" id="pro3" value="Special 먹이주기 체험" id="pro3">
                                         <input type="hidden" value="7000" name="pro_price[]">
                                     </td>
                                     
@@ -653,16 +653,6 @@
             $(".slide4").hide();
         }
     });
-    
-    
-
-
-
-
-
-
-
-   
 
 
     /* 토탈 계산기 */

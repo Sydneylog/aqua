@@ -143,18 +143,21 @@ include "../inc/header.php";
             </div>
             <div class="part2_2">
                 <div>
-                    <dl class="pt22_img1">
-                        <dt><span>추가해양생물1</span></dt>
-                        <dd>설명1</dd>
-                        <dd>설명2 추가해양생물1</dd>
-                    </dl>
+                    <dl class="pt2_img1">
+                        <dt><span>얼룩 매 가오리</span></dt>
+                        <dd>아쿠아리움 메인 탱크의 마스코트</dd>
+                        <dd>유영하는 모습이 마치 하늘을 나는 매의<br>날개짓과 비슷하다고 해서<br>'얼룩 매가오리'라는 이름이 붙었습니다.</dd>
+                    </dl>   
                 </div>
                 <div>
-                    <dl class="pt22_img2">
-                        <dt><span>추가해양생물2</span></dt>
-                        <dd>설명1</dd>
-                        <dd>설명2 추가해양생물2</dd>
-                    </dl>
+                <dl class="pt2_img4">
+                    <dt><span>매부리 바다거북</span></dt>
+                    <dd>따뜻한 바다에 사는 멸종위기종</dd>
+                    <dd>생김새는 다른 바다거북과 비슷하지만<br>
+                        부리 끝이 휜 모양이 매를 닮았고<br>
+                        등껍질 가장자리가 톱니모양인 것이<br>
+                        특징입니다.</dd>
+                </dl>
                 </div>
             </div>
         </section>
@@ -195,7 +198,7 @@ include "../inc/header.php";
                     <dd>
                         <span class="spt1">지하 1층<br>열대우림의 강</span><br>
                         <span class="spt2">Rainforest River</span><br>
-                        <span class="spt3">세상에서 가장 큰 강을 품고<br> 있는 남아메리카.<br><br>남아메리카 열대우림에 살고 있는 세계 최대의 담수어 피라루크는 무슨 생각을 하고 있을까요?<br><br>몸집은 크지만 온순한 피라루크의 눈을 바라보며 대화를 해보세요. 
+                        <span class="spt3">세상에서 가장 큰 강을 품고<br> 있는 남아메리카.<br><br>남아메리카 열대우림에<br> 살고 있는 세계 최대의 담수어 <br>피라루크는 무슨 생각을 하고<br> 있을까요?
                         </span>
                     </dd>                
                 </dl>
@@ -204,7 +207,7 @@ include "../inc/header.php";
                     <dd>
                         <span class="spt1">지하 1층<br>라이프 존</span>
                         <span class="spt2">Life Zone</span>
-                        <span class="spt3">따뜻한 열대지역 강의 생물들과 교감을 나눠보세요. 다양한 색상의 시클리드부터, 수수하지만 원색의 아름다움을 가지고 있는 수초와 물 밖에서도 호흡을 하며 살 수 있는 폐어까지 신비로운 생물들이 여러분을 기다리고 있습니다.
+                        <span class="spt3">따뜻한 열대지역 강의 생물들과 <br>교감을 나눠보세요. <br><br>다양한 색상의 시클리드부터, <br>수수하지만 원색의 아름다움을 <br>가지고 있는 수초와 <br>물 밖에서도 호흡을 하며<br> 살 수 있는 폐어까지 <br> 여러분을 기다리고 있습니다.
                     </dd>
                 </dl>
                 <dl class="ocean_zone">
@@ -212,7 +215,7 @@ include "../inc/header.php";
                     <dd>
                         <span class="spt1">지하 1층<br>디 오션 존</span>
                         <span class="spt2">The Ocean</span>
-                        <span class="spt3">롯데월드의 심장 바로 메인수조입니다. 여러분은 여유로운 날개짓의 카우노즈레이의 군무를 감상하실 수 있습니다. 여유롭게 메인수조를 누비는 가오리들을 보며, 마음이 한결 여유로워 지지 않으시나요? 카우노즈의 군무를 보시며 잠시나마 함께 여유를 느껴보시기 바랍니다.
+                        <span class="spt3">롯데월드의 심장 바로 메인수조입니다. <br><br>여러분은 여유로운 날개짓의 <br>카우노즈레이의 군무를 감상<br>하실 수 있습니다. <br><BR>여유롭게 메인수조를 누비는<br>가오리들을 보며, 마음이 한결 <br>여유로워 지지 않으시나요? 
                     </dd>
                 </dl>
                 <dl class="play_zone">
@@ -220,7 +223,7 @@ include "../inc/header.php";
                     <dd>
                         <span class="spt1">지하 2층<br>플레이 오션</span>
                         <span class="spt2">The Ocean</span>
-                        <span class="spt3">바다의 별, 불가사리부터 소라, 멍게 등등 해안가에 쉽게 접할 수 있는 다양한 바다 속 가족을 만나보세요! 그리고 TV에서 보던 바다속 가족을 직접 만져 볼 수 있는 특별한 기회도 놓치지 마세요!
+                        <span class="spt3">바다의 별, 불가사리부터 소라, <br>멍게 등등 해안가에 쉽게 접할 수<br>있는 다양한 바다 속 가족을 <br>만나보세요! <br><br>그리고 TV에서 보던 바다속 <br>가족들을 직접 만져 볼 수 있는<br> 특별한 기회도 놓치지 마세요!
                    </dd>
                 </dl>
                 <dl class="bel_zone">
@@ -228,7 +231,7 @@ include "../inc/header.php";
                     <dd>
                         <span class="spt1">지하 2층<br>벨루가 존</span>
                         <span class="spt2">Beluga Zone</span>
-                        <span class="spt3">롯데월드 아쿠아리움의 최고 인기스타는 누구? 딩동댕~ 바로 벨루가입니다. 항상 웃는 표정을 가진 미소천사 벨루가는 하얀 피부색을 가진 똑똑한 고래랍니다. 수조에 귀를 기울여 보세세요! 벨루가의 노랫소리가 들리시나요?
+                        <span class="spt3">롯데월드 아쿠아리움의 최고<br> 인기스타는 누구? <br>딩동댕~ 바로 벨루가입니다. <br><br>항상 웃는 표정을 가진 미소천사<br> 벨루가는 하얀 피부색을 가진 <br>똑똑한 고래랍니다. <br><br>수조에 귀를 기울여 벨루가의 <br>노래를 들어보세요!
                     </dd>
                 </dl>
             </div>

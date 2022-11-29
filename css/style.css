@@ -4,7 +4,7 @@
     002339
     */
     
-    head, body, header, footer, main, div, section, nav, ul, li, dl, dt, dd, img, h1, h2, h3, html, br, span, p, address {
+    head, body, header, footer, main, div, section, nav, ul, li, dl, dt, dd, img, h1, h2, h3, h5, html, br, span, p, address {
         margin: 0px;
         padding: 0;
         border: 0;
@@ -15,7 +15,7 @@
     div, section, nav, footer, header h1{
         display: block;
     }
-    ol, ul {
+    ol, ul, li{
         list-style: none;
     }
     
@@ -1649,4 +1649,66 @@ address::after{
     position:absolute;
     top:0;
     right:0
+}
+.alarm_note{
+    position:fixed;
+    background:rgba(0, 0, 0, .8);
+    top:150px;
+    right:70px;
+    color:white;
+    font-weight:600;
+    padding: 20px 0;
+    box-sizing:border-box;
+    z-index:99;
+    line-height:30px;
+    width:350px;
+}
+
+.alarm_note h5{
+    font-size:35px;
+    text-align:center;
+    
+}
+.table_wrap{
+    display:flex;
+    justify-content: space-between;
+}
+.alarm_note table{
+    margin-top:20px;
+    margin-bottom:30px;
+}
+
+.table_wrap .table_show,
+.table_wrap .table_hide{
+    display:flex;
+    align-items:center;
+    text-align:center;
+    width:20px;
+    font-weight:700;
+    cursor:pointer;
+    padding:5px;
+}
+.table_wrap .table_show{
+    opacity:0;
+}
+
+.table_wrap .table_show:hover,
+.table_wrap .table_hide:hover{
+    color:royalblue;
+}
+
+
+.alarm_note table td{
+    vertical-align:top;
+}
+.alarm_note table tr td:last-child{
+    padding-left:20px;
+}
+
+
+.alarm_note p{
+    text-align:center;
+}
+.alarm_note p a{
+    color:white
 }

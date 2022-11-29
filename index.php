@@ -104,7 +104,7 @@ include "inc/session.php";
                         </a>
                     </div>
                 </div>
-                <li class="gnb1">
+                <li class="gnb1">이용 안내
                     <ul class="gnb_menu">
                         <li>
                             <a href="javascript:void(0)">이용 요금</a>
@@ -511,6 +511,33 @@ include "inc/session.php";
     <div class="material-icons">arrow_upward</div>
 </div>
 
+<div class="alarm_note">
+    <div class="table_wrap">
+        <div class="table_show">
+            <span class="material-icons">arrow_back_ios</span>
+        </div>
+        <div>
+            <h5>Update Memo</h5>
+            <table>
+                <tr>
+                    <td>11/25</td>
+                    <td>프로젝트 발표 끝</td>
+                </tr>
+                <tr>
+                    <td>11/29</td>
+                    <td>공지사항 카테고리 필터<br>& 말머리 컬러화 추가</td>
+                </tr>
+            </table>
+            <p>
+                <a href="https://github.com/Sydneylog">GitHub: Sydneylog</a>
+            </p>
+        </div>
+        <div class="table_hide">
+            <span class="material-icons">arrow_forward_ios</span>
+        </div>
+    </div>
+    
+</div>
 
 
 
@@ -744,6 +771,20 @@ toTopEl.addEventListener('click', () => {gsap.to(window, .7, {
         });
         //애니메이션은 되도록 css자체에서 제어하도록 하는게 좋다 부하관리
 
+
+        //alarm note
+        $(".table_hide").click(function(){
+            $(".alarm_note").animate({right:'-330px'}, 500, function(){
+                $(".table_show").animate({opacity:1});
+                $(".table_hide").animate({opacity:0});
+                $(".table_show").click(function(){
+                    $(".alarm_note").animate({right:'70px'}, 500);
+                    $(".table_show").animate({opacity:0});
+                    $(".table_hide").animate({opacity:1}, 1500);
+                });
+            });
+        });
+        
 
     </script>
 

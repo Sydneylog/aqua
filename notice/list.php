@@ -4,8 +4,19 @@ $present = basename($_SERVER["PHP_SELF"]);
 
 //db연결
 include "../inc/dbcon.php";
-//쿼리작성()
-$sql = "select * from aqua_notice;";
+
+//카테고리
+$category = isset($_GET["category"])? $_GET["category"] : "";
+$table_name ="aqua_notice";
+
+if($category){
+    $sql = "select*from $table_name where n_head='$category';";
+} else {
+    $sql = "select*from $table_name;";
+};
+
+
+
 //쿼리 전송
 $result = mysqli_query($dbcon, $sql);
 //전체 데이터 가져오기
@@ -101,6 +112,8 @@ include "../inc/header.php"
 
     <div class="table_wrap">
         <h2> - 공지사항 - </h2>
+
+        <div class="board_info_bar">
             <?php if($s_id == "admin" || $s_id == "manager"): ?>
                 <div class="write_area">
                     <span>전체 글 <?php echo $total; ?> 개</span>
@@ -110,14 +123,21 @@ include "../inc/header.php"
                 </div>
             <?php else: ?>
                 <div class="write_area">
-                <span>전체 글 <?php echo $total; ?> 개</span>
+                    <span>전체 글 <?php echo $total; ?> 개</span>
                     <a href="javascript:void(0)">
                         <span class="material-icons"></span>
                     </a>
                 </div>
             <?php endif; ?>
-        
-        
+
+            <select name="category_bar" id="category_bar" class="category_bar" onchange = "selected()">
+                <option class="cate_itmes" name="cate_itmes" value="" <?php if($category == "") echo "selected"; ?>>선택안함</option>
+                <option class="cate_itmes" name="cate_itmes" value="일반" <?php if($category == "일반") echo "selected"; ?>>일반</option>
+                <option class="cate_itmes" name="cate_itmes" value="분실물" <?php if($category == "분실물") echo "selected"; ?>>분실물</option>
+                <option class="cate_itmes" name="cate_itmes" value="운영방침" <?php if($category == "운영방침") echo "selected"; ?>>운영방침</option>
+            </select>
+        </div>  
+
         <table class="aqua_notice_set" id="aqua_notice_set">
             <tr class="aqua_notice_title">
                 <th class ="no">번호</th> 
@@ -131,10 +151,14 @@ include "../inc/header.php"
             <?php
             // paging : 해당 페이지의 글 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 목록 수
             $start = ($page - 1) * $list_num;
-
+          
             // paging : 시작번호부터 페이지 당 보여질 목록수 만큼 데이터 구하는 쿼리 작성
             // limit 몇번부터, 몇 개(내림차순)
-            $sql = "select * from aqua_notice order by idx desc limit $start, $list_num;";
+            if($category){
+                $sql = "select*from $table_name where n_head='$category' order by idx desc limit $start, $list_num;";
+            } else {
+                $sql = "select * from $table_name order by idx desc limit $start, $list_num;";
+            };
 
             // DB에 데이터 전송
             $result = mysqli_query($dbcon, $sql);
@@ -150,7 +174,7 @@ include "../inc/header.php"
             <tr class="aqua_notice_content">
                 <td><?php echo $i; ?></td>
                 <td>
-                    <span id="colorObj">
+                    <span id="colorObj" class="<?php if($array["n_head"] == '일반') echo 'colorObj_grey'; else if($array["n_head"] == '분실물') echo 'colorObj_blue'; else echo 'colorObj_red'; ?>" name="colorObj">
                         <?php echo $array["n_head"]; ?>
                     </span>
                 </td>
@@ -198,25 +222,25 @@ include "../inc/header.php"
             // pager : 이전 페이지
                 if($page <= 1){
                 ?>
-                <a href="list.php?page=1">이전</a>
+                <a href="list.php?category=<?php echo $category; ?>&page=1">이전</a>
                 <?php } else{ ?>
-                <a href="list.php?page=<?php echo ($page - 1); ?>">이전</a>
+                <a href="list.php?page=<?php echo $cate; ?>&page=<?php echo ($page - 1); ?>">이전</a>
                 <?php }; ?>
 
                 <?php
                 // pager : 페이지 번호 출력
                 for($print_page = $s_pageNum;  $print_page <= $e_pageNum; $print_page++){
                 ?>
-                <a href="list.php?page=<?php echo $print_page; ?>"><?php echo $print_page; ?></a>
+                <a href="list.php?page=<?php echo $category;?>&page=<?php echo $print_page; ?>"><?php echo $print_page; ?></a>
                 <?php }; ?>
 
                 <?php
                 // pager : 다음 페이지
                 if($page >= $total_page){
                 ?>
-                <a href="list.php?page=<?php echo $total_page; ?>">다음</a>
+                <a href="list.php?page=<?php echo $category; ?>&page=<?php echo $total_page; ?>">다음</a>
                 <?php } else{ ?>
-                <a href="list.php?page=<?php echo ($page + 1); ?>">다음</a>
+                <a href="list.php?page=<?php echo $category; ?>&page=<?php echo ($page + 1); ?>">다음</a>
             <?php }; ?>
         </p>
     </div>
@@ -225,24 +249,18 @@ include "../inc/header.php"
     include "../inc/footer.php";
 ?>     
 
-<!-- <script type="text/javascript">
-    function colorize(){    
-        const obj = document.getElementById("colorObj");
-        const objText = document.getElementById("colorObj").innerHTML;
-        if(<?php //echo $array['n_head']; ?> == "분실물"){
-            obj.style.backgroundColor ="red";
-        }else if(objText == "운영 방침"){
-            obj.style.backgroundColor ="blue";
-                
-        }else{
-            obj.style.backgroundColor ="grey";
-        };
-        console.log(objText)
-    };
-colorize();
 
-</script> -->
-
+<script type="text/javascript">
+    // select category/
+    selected = () => {
+      const category = document.getElementById("category_bar");
+      let idx = category.options.selectedIndex;
+      console.log(idx);
+      let selected_value = category.options[idx].value;
+      idx == 0 ? location.href = "list.php" : location.href = "list.php?category="+selected_value;
+    }
+    
+</script>
 
 
 </body>
